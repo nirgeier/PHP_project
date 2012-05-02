@@ -1,3 +1,3 @@
-PHP_project
+PHP project
 ===========
 
