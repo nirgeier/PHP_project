@@ -41,7 +41,7 @@ class DBLayer {
      *
      * @var String host
      */
-    private $host = '';
+    private $hostname = '';
 
     /**
      * Load the Database queries
@@ -70,13 +70,13 @@ class DBLayer {
 
         $username = $config['db.username'];
         $password = $config['db.password'];
-        $host = $config['db.host'];
-        $db_name = $config['db.dbname'];
+        $hostname = $config['db.hostname'];
+        $database = $config['db.database'];
 
         // try to connect to database. we expect error if the database does not exists
         try {
 
-            $this->pdo = new PDO('mysql:host=' . $host . ';dbname=' . $db_name . 'f', $username, $password);
+            $this->pdo = new PDO('mysql:host=' . $hostname . ';dbname=' . $database . 'f', $username, $password);
             // If we reached this point we have a valid DB connection
             
             // Load the sql's queries
@@ -85,9 +85,9 @@ class DBLayer {
         } catch (PDOException $e) {
             // This error code 42000 means that we dont have the database yet,
             // We are now going to create it.
-            print_r($e->getCode());
+            
             if ($e->getCode() === 1049) {
-                echo 'Databse ' . $db_name . ' does not exist. creating new db';
+                echo 'Databse ' . $database . ' does not exist. creating new db';
                 header('Location: /pages/create_db.php');
             } else {
                 die("DB ERROR: " . $e->getMessage());
@@ -97,8 +97,6 @@ class DBLayer {
         if (!$this->pdo) {
             die('Could not connect to database');
         }
-
-        
 
     }
 
@@ -112,15 +110,6 @@ class DBLayer {
         }
 
         return self::$instance;
-    }
-
-    /**
-     * This method will test if the database connection is valid or not.
-     */
-    private function test() {
-        $statement = $this->pdo->query("SELECT * FROM USERS");
-        $row = $statement->fetch(PDO::FETCH_ASSOC);
-        //echo($row.length);
     }
 
     /**

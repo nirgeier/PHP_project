@@ -7,17 +7,24 @@ html {
     width: 100%;
     margin: 0;
     padding: 0;
-    background: url("../images/bg.jpg") top left no-repeat;
-    background-position: fixed;
-    background-size: 100% 100%;
+    font-family: 'Ropa Sans', sans-serif;
+}
 
+.bgImg {
+    /** 2560x1600 */
+    background: url("../images/bg.jpg") top left no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -800px 0 0 -1280px;
+    width: 2560px;
+    height: 1600px;
 }
 
 body {
     width: 960px;
     margin: 0 auto;
     color: #D8D8D8;
-    font-family: 'Ropa Sans', sans-serif;
     line-height: 20px;
 }
 
@@ -77,11 +84,11 @@ header {
 }
 
 .db_form {
-    width: 400px;
+    width: 340px;
     padding: 25px;
     -moz-box-shadow: 10px 10px 10px rgba(0, 0, 0, 1) inset, -9px -9px 8px rgba(0, 0, 0, 1) inset;
     -webkit-box-shadow: 8px 8px 8px rgba(0, 0, 0, 1) inset, -9px -9px 8px rgba(0, 0, 0, 1) inset;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 1) inset, -9px -9px 8px rgba(0, 0, 0, 1) inset;
+    box-shadow: 8px 8px 8px rgba(255, 255, 255, 1) inset, -9px -9px 8px rgba(255, 255, 255, 1) inset;
     margin: 10px auto;
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
@@ -98,7 +105,7 @@ header {
     width: 75px;
 }
 
-.db_form input {
+.db_form input[type=text] {
     display: inline-block;
     margin: 3px;
     width: 125px;
@@ -109,7 +116,8 @@ header {
     outline: 1px solid #333;
     border: 1px solid #000;
     color: #f78d1d;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: normal;
     padding: 0 0 0 3px;
 }
 
