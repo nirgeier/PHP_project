@@ -1,19 +1,8 @@
 <?php
+    include_once '../src/common/includes.php';
+    include_once '../src/Users.php';
 
-    // Get the root directory of the project
-    $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
-
-    include_once $ROOT_PATH . '/src/CreateDB.php';
-
-    // read the db configuration and init the connection settings
-    $config = parse_ini_file($ROOT_PATH . '/config/config.ini');
-
-    $username = $config['db.username'];
-    $password = $config['db.password'];
-    $hostname = $config['db.hostname'];
-    $database = $config['db.database'];
-
-    $createDB = new CreateDB();
+    $users = new Users();
 
 ?>
 
@@ -48,14 +37,6 @@
 
                     <label for="password">Password</label>
                     <input id="password" name="password" type="text" value="<?php echo $password?>" readonly/>
-                    <br/>
-
-                    <label for="database">Database</label>
-                    <input id="database" name="database" type="text" value="<?php echo $database?>" readonly/>
-                    <br/>
-
-                    <label for="hostname">Host Name</label>
-                    <input id="hostname" name="hostname" type="text" value="<?php echo $hostname?>" readonly/>
                     <br/>
 
                     <span class="button orange medium" data-action="test"

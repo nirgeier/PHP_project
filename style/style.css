@@ -10,22 +10,14 @@ html {
     font-family: 'Ropa Sans', sans-serif;
 }
 
-.bgImg {
-    /** 2560x1600 */
-    background: url("../images/bg.jpg") top left no-repeat;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -800px 0 0 -1280px;
-    width: 2560px;
-    height: 1600px;
-}
-
 body {
+    height: 100%;
     width: 960px;
     margin: 0 auto;
     color: #D8D8D8;
     line-height: 20px;
+    background: url("../images/bg_smaller.jpg") bottom right no-repeat;
+
 }
 
 footer, header {
@@ -33,9 +25,6 @@ footer, header {
     z-index: 100;
     width: 100%;
     padding: 10px;
-}
-
-header {
     -webkit-box-shadow: 0 0 0 -6px black;
     -moz-box-shadow: 0 0 0 -6px black;
     box-shadow: 0 0 0 -6px black;
@@ -44,6 +33,18 @@ header {
     font-family: Tahoma;
     font-size: 13px;
     position: relative;
+}
+
+.main {
+    overflow: auto;
+    padding: 25px 0 64px 0;
+}
+
+/* must be same height as the footer */
+footer {
+    margin-top: -68px; /* negative value of footer height */
+    clear: both;
+    line-height: 48px;
 }
 
 .menuNav {
@@ -68,12 +69,9 @@ header {
 
 .pageContent {
     min-height: 100%;
-    height: auto !important;
     height: 100%;
-    margin: -4em auto -4em;
-    overflow: auto;
-    margin: 64px 0;
     z-index: 100;
+    margin: 0 auto -64px; /* the bottom margin is the negative value of the footer's height */
 }
 
 .logo {
@@ -83,29 +81,26 @@ header {
     display: inline-block;
 }
 
-.db_form {
+.dialog {
     width: 340px;
     padding: 25px;
-    -moz-box-shadow: 10px 10px 10px rgba(0, 0, 0, 1) inset, -9px -9px 8px rgba(0, 0, 0, 1) inset;
-    -webkit-box-shadow: 8px 8px 8px rgba(0, 0, 0, 1) inset, -9px -9px 8px rgba(0, 0, 0, 1) inset;
-    box-shadow: 8px 8px 8px rgba(255, 255, 255, 1) inset, -9px -9px 8px rgba(255, 255, 255, 1) inset;
+    box-shadow: 3px 3px 8px rgba(192, 192, 192, 1) inset, -5px -5px 8px rgba(0, 0, 0, 1) inset;
     margin: 10px auto;
-    -moz-border-radius: 25px;
-    -webkit-border-radius: 25px;
     border-radius: 25px;
     height: 100%;
     background: -moz-radial-gradient(50% 46% 90deg, circle closest-corner, #242424, #242424);
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 150, from(#242424), to(#242424));
+
 }
 
-.db_form label {
+.dialog label {
     display: inline-block;
     padding: 3px;
     font-size: 14px;
     width: 75px;
 }
 
-.db_form input[type=text] {
+.dialog input[type=text] {
     display: inline-block;
     margin: 3px;
     width: 125px;
@@ -121,8 +116,15 @@ header {
     padding: 0 0 0 3px;
 }
 
-.db_form input:focus {
+.dialog input:focus {
     outline: 1px solid #555;
+}
+
+.dialog .highlight {
+    background-color: rgba(192, 192, 192, 0.75);
+    padding: 0 3px;
+    color: #000000;
+    border-radius: 3px;
 }
 
 /** Orange button */
@@ -167,3 +169,4 @@ header {
     background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
     background: -moz-linear-gradient(top, #f47a20, #faa51a);
 }
+
