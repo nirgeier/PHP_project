@@ -76,7 +76,7 @@
             // try to connect to database. we expect error if the database does not exists
             try {
 
-                $this->pdo = new PDO('mysql:host=' . $hostname . ';dbname=' . $database . 'f', $username, $password);
+                $this->pdo = new PDO('mysql:host=' . $hostname . ';dbname=' . $database, $username, $password);
                 // If we reached this point we have a valid DB connection
 
                 // Load the sql's queries
@@ -117,9 +117,10 @@
          * This method will execute sql query
          * @return string
          */
-        public function executeQuery(String $queryId, Array $params) {
-            echo('Execute Query');
-            throw new Exception('aaa');
+        public function executeQuery($queryId, $params = null) {
+            // Get the query we wish to execute
+            $query = $this->sql_queries[$queryId];
+            return $query;
         }
 
         public function getUsername() {
@@ -136,6 +137,10 @@
 
         public function getDbname() {
             return $this->db_name;
+        }
+
+        public function getSqlQuery($queryId) {
+            return $this->sql_queries[$queryId];
         }
     }
 

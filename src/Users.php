@@ -1,10 +1,4 @@
 <?php
-    /**
-     * @author  Nir Geier
-     * Created: 03/08/12 18:49
-     *
-     *
-     */
     class Users {
 
         private $dbLayer;
@@ -14,10 +8,9 @@
 
         // CTOR
         public function __construct() {
-            echo('kkkkk');
             $this->dbLayer = DBLayer::getInstance();
 
-            echo($this->dbLayer . executeQuer());
+            //echo($this->dbLayer->executeQuery("users.select_user", null));
 
             // Get the action that we wish to execute
             // We use the isset so we will not see notice messageß
@@ -39,8 +32,7 @@
         }
 
         public function register() {
-            echo DBLayer::getInstance();
-
+            // register users ...
         }
 
         public function login() {

@@ -66,22 +66,15 @@ CREATE TABLE `users` (
   `username` varchar(25) NOT NULL DEFAULT '',
   `password` varchar(50) NOT NULL DEFAULT '',
   `email` varchar(100) NOT NULL DEFAULT '',
+  `first_name` varchar(25) NOT NULL DEFAULT '',
+  `last_name` varchar(25) NOT NULL DEFAULT '',
+  `nick_name` int(11) DEFAULT NULL,
   `is_admin` tinyint(1) DEFAULT NULL,
   `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `image` text,
   PRIMARY KEY (`username`,`password`),
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `is_admin`, `last_login`)
-VALUES
-	(1,'nirgeier','25357823','nirgeier@gmail.com',1,'2012-07-18 20:28:20');
-
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-
 
 # Dump of table users_playlists
 # ------------------------------------------------------------
@@ -97,23 +90,6 @@ CREATE TABLE `users_playlists` (
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `playlist_id` FOREIGN KEY (`playlist_id`) REFERENCES `playlists` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
-
-
-# Dump of table users_profiles
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `users_profiles`;
-
-CREATE TABLE `users_profiles` (
-  `user_id` int(11) NOT NULL,
-  `first_name` varchar(25) NOT NULL DEFAULT '',
-  `last_name` varchar(25) NOT NULL DEFAULT '',
-  `image` text,
-  `nick_name` int(11) DEFAULT NULL,
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `user_id_UNIQUE` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

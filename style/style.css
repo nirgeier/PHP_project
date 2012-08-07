@@ -20,6 +20,12 @@ body {
 
 }
 
+hr {
+    margin: 10px;
+    background-color: rgba(192, 192, 192, 0.75 );
+    height: 0px;
+}
+
 footer, header {
     height: 48px;
     z-index: 100;
@@ -33,6 +39,24 @@ footer, header {
     font-family: Tahoma;
     font-size: 13px;
     position: relative;
+}
+
+a {
+    color: #f78d1d;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header a {
+    color: yellow;
+}
+
+.highlight a {
+    color: #000000;
+    text-decoration: none;
 }
 
 .main {
@@ -90,14 +114,13 @@ footer {
     height: 100%;
     background: -moz-radial-gradient(50% 46% 90deg, circle closest-corner, #242424, #242424);
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 150, from(#242424), to(#242424));
-
+    position: relative;
 }
 
 .dialog label {
     display: inline-block;
-    padding: 3px;
     font-size: 14px;
-    width: 75px;
+    vertical-align: top;
 }
 
 .dialog input[type=text] {
@@ -170,3 +193,164 @@ footer {
     background: -moz-linear-gradient(top, #f47a20, #faa51a);
 }
 
+.signupImg {
+    float: left;
+    padding: 4px 10px 0 0;
+    height: 32px;
+    width: 32px;
+}
+
+.users .dialog {
+    width: 400px;
+}
+
+.users .dialog .label {
+    width: 105px;
+}
+
+.users .dialog input[type=text] {
+    width: 200px;
+}
+
+.buttons {
+    text-align: center;
+    width: 100%;
+    vertical-align: middle;
+}
+
+@-webkit-keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+}
+
+.blink {
+    -webkit-animation-name: blink;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1.0);
+    -webkit-animation-duration: 3s;
+}
+
+.hidden {
+    display: none;
+}
+
+.reuqired:before {
+    content: "*";
+    color: red;
+    padding: 0 5px 0 0;
+    font-weight: bold;
+    line-height: 25px;
+    vertical-align: middle;
+}
+
+.cssButtons label {
+    cursor: pointer;
+}
+
+.cssButtons label input[type="checkbox"],
+.cssButtons label input[type="radio"],
+.cssButtons label input[type="checkbox"] + span,
+.cssButtons label input[type="radio"] + span,
+.cssButtons label input[type="checkbox"] + span::before,
+.cssButtons label input[type="radio"] + span::before {
+    vertical-align: middle;
+}
+
+.cssButtons label input[type="checkbox"],
+.cssButtons label input[type="radio"] {
+    position: absolute;
+    filter: alpha(opacity = 0);
+    -moz-opacity: 0;
+    -webkit-opacity: 0;
+    opacity: 0;
+}
+
+.cssButtons label input[type="checkbox"] + span,
+.cssButtons label input[type="radio"] + span,
+.cssButtons label input[type="checkbox"] + span::before,
+.cssButtons label input[type="radio"] + span::before {
+    display: inline-block;
+}
+
+.cssButtons label input[type="checkbox"] + span,
+.cssButtons label input[type="radio"] + span {
+    font: normal 13px/14px "Segoe UI", Sans-serif;
+}
+
+.cssButtons label input[type="checkbox"] + span::before {
+    content: "\2714";
+}
+
+.cssButtons label input[type="checkbox"] + span::before,
+.cssButtons label input[type="radio"] + span::before {
+    text-indent: -9999px;
+    width: 12px;
+    height: 12px;
+    font: bold 12px/12px Garamond, "Segoe UI", Sans-serif;
+    text-transform: uppercase;
+    border: solid 1px #0b70cd;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 1px #ccc;
+    background: #0b70cd;
+    background: -moz-linear-gradient(-45deg, #fefefe, #0b70cd);
+    background: -webkit-linear-gradient(-45deg, #fefefe, #0b70cd);
+    background: -o-linear-gradient(-45deg, #fefefe, #0b70cd);
+    background: -ms-linear-gradient(-45deg, #fefefe, #0b70cd);
+    background: linear-gradient(-45deg, #fefefe, #0b70cd);
+    margin: 0 4px 0 0;
+}
+
+.cssButtons label:hover input[type="checkbox"]:not(:disabled) + span::before,
+.cssButtons label:hover input[type="radio"]:not(:disabled) + span::before {
+    background: #0b70cd;
+    background: -moz-linear-gradient(45deg, #fefefe, #0b70cd);
+    background: -webkit-linear-gradient(45deg, #fefefe, #0b70cd);
+    background: -o-linear-gradient(45deg, #fefefe, #0b70cd);
+    background: -ms-linear-gradient(45deg, #fefefe, #0b70cd);
+    background: linear-gradient(45deg, #fefefe, #0b70cd);
+    box-shadow: 0 0 1px 2px #ccc;
+}
+
+.cssButtons label input[type="checkbox"]:checked + span::before,
+.cssButtons label input[type="radio"]:checked + span::before {
+    text-indent: 2px;
+    color: #fff;
+    text-shadow: 0 0 2px #0b70cd;
+}
+
+.cssButtons label input[type="radio"] + span::before {
+    content: "\2022";
+    font-size: 22px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+}
+
+.cssButtons label input[type="radio"]:checked + span::before {
+    text-indent: 2px;
+}
+
+.cssButtons label input[type="checkbox"]:disabled + span::before,
+.cssButtons label input[type="radio"]:disabled + span::before {
+    filter: alpha(opacity = 50);
+    -moz-opacity: .5;
+    -webkit-opacity: .5;
+    opacity: .5;
+}
+
+.cssButtons label input[type="checkbox"]:disabled + span,
+.cssButtons label input[type="radio"]:disabled + span,
+.cssButtons label input[type="checkbox"]:disabled + span::before,
+.cssButtons label input[type="radio"]:disabled + span::before {
+    cursor: default;
+}
+
+.ajaxLoader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-image: url('../images/ajax-loader.gif');
+    height: 16px;
+    width: 16px;
+    margin: -8px -8px;
+}
