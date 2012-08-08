@@ -1,18 +1,13 @@
 <?php
 
 /**
- * This class is used as helper class.
+ * This class is used as helper functions.
  * It will include the common methods that we will need to use
  */
-class Utils {
+Class Utils {
 
-
-    public static function getGravatar($email) {
-
-        // in order to retrieve the gravatr details we need to hash the email address
-        $emailHash = md5(strtolower(trim($email)));
-        
-        
+    public static function getParam($name) {
+        $value = isset($_POST[$name]) ? $_POST[$name] : /*isset($_GET[$name]) ? $_GET[$name] :*/ '';
+        return htmlspecialchars($value);
     }
 }
-

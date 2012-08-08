@@ -1,41 +1,63 @@
+<!DOCTYPE html >
 <?php
-/**
- * Page-level DocBlock
- * @package pagepackage
- */
-/**
- * Define DocBlock
- */
+    include_once '../src/common/includes.php';
+    include_once '../src/Users.php';
+
+    $users = new Users();
+
+    // Get the values if the form was already submitted
+    $username = isset($_POST['username']) ? $_POST['username'] : 'nirgeier';
+    $password = isset($_POST['password']) ? $_POST['password'] : '25357823';
 
 ?>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <title>Music for your mood</title>
 
-<div style="padding: 100px 0 0 250px;">
+    <link href="/style/style.css" rel="stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Ropa+Sans&subset=latin,latin-ext' rel='stylesheet'
+          type='text/css'>
+</head>
 
-    <div id="login-box">
+<body>
+<div class="pageContent login">
+    <div class="main">
 
-        <H2>Login</H2>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        <br/>
-        <br/>
+        <div class="dialog login">
+            <h1>Login</h1>
 
-        <div>Email:</div>
-        <div>
-            <input name="q" class="form-login" title="Username" value="" size="30" maxlength="2048"/>
+            <div class="spacer"></div>
+            <form method="POST">
+                <input type="hidden" name="action" id="action">
+
+                <label class="label" for="username">User Name</label>
+                <input id="username" name="username" type="text" value="<?php echo $username?>"/>
+                <br/>
+
+                <label class="label" for="password">Password</label>
+                <input id="password" name="password" type="text" value="<?php echo $password?>"/>
+                <br/>
+
+                <div class="buttons">
+                    <span class="button orange" data-action="login">Login</span>
+                </div>
+
+                <div class="spacer"></div>
+
+                Not a member yet ?
+                <a href="register.php">Join us</a>
+
+            </form>
         </div>
-        <div>Password:</div>
-        <div>
-            <input name="q" type="password" class="form-login" title="Password" value="" size="30"
-                   maxlength="2048"/></div>
-        <br/>
-        <span class="login-box-options"><input type="checkbox" name="1" value="1"> Remember Me <a href="#"
-                                                                                                  style="margin-left:30px;">Forgot
-            password?</a></span>
-        <br/>
-        <br/>
-        <a href="#"><img src="../images/login-btn.png" width="103" height="42" style="margin-left:90px;"/></a>
-
-
     </div>
-
 </div>
-    
+<script src="../js/polyfills.js"></script>
+<script src="../js/script.js"></script>
+<script>
+
+    Moood.initForm();
+</script>
+
+</body>
+</html>

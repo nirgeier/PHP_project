@@ -10,8 +10,6 @@
         public function __construct() {
             $this->dbLayer = DBLayer::getInstance();
 
-            //echo($this->dbLayer->executeQuery("users.select_user", null));
-
             // Get the action that we wish to execute
             // We use the isset so we will not see notice messageß
             $action = isset($_POST['action']) ? $_POST['action'] : null;
@@ -32,10 +30,51 @@
         }
 
         public function register() {
-            // register users ...
+            // Get the form values
+            $params = array(
+                ':username' => Utils::getParam('username'),
+                ':password' => Utils::getParam('password'),
+                ':email' => Utils::getParam('email'),
+                ':first_name' => Utils::getParam('first_name'),
+                ':last_name' => Utils::getParam('last_name'),
+                ':nick_name' => Utils::getParam('nick_name')
+            );
+
+            // Get the user details from DB
+            $userDetails = $this->dbLayer->executeQuery('users.register', $params);
+
+            if ($userDetails) {
+                $userDetails = $userDetails[0];
+
+                // Get the userId
+                $userId = $userDetails['id'];
+
+                echo $userId;
+            }
+
+
         }
 
         public function login() {
+
+            // Get the form values
+            $params = array(
+                ':username' => Utils::getParam('username'),
+                ':password' => Utils::getParam('password')
+            );
+
+            // Get the user details from DB
+            $userDetails = $this->dbLayer->executeQuery('users.select_user', $params);
+
+            if ($userDetails) {
+                $userDetails = $userDetails[0];
+
+                // Get the userId
+                $userId = $userDetails['id'];
+
+                echo $userId;
+            }
+
         }
 
         public function logout() {

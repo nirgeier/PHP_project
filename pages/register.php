@@ -8,9 +8,9 @@
     $username = isset($_POST['username']) ? $_POST['username'] : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-    $nickName = isset($_POST['nickName']) ? $_POST['nickName'] : '';
-    $lastName = isset($_POST['lastName']) ? $_POST['lastName'] : '';
-    $firstName = isset($_POST['firstName']) ? $_POST['firstName'] : '';
+    $nick_name = isset($_POST['nick_name']) ? $_POST['nick_name'] : '';
+    $last_name = isset($_POST['last_name']) ? $_POST['last_name'] : '';
+    $first_name = isset($_POST['first_name']) ? $_POST['first_name'] : '';
     $email = isset($_POST['email']) ? $_POST['email'] : 'nirgeier@gmail.com';
     $img = isset($_POST['img']) ? $_POST['img'] : '../images/pixel.gif';
 
@@ -23,8 +23,7 @@
     <title>Music for your mood</title>
 
     <link href="../style/styles.css" rel="stylesheet" type="text/css"/>
-    <link href='http://fonts.googleapis.com/css?family=Ropa+Sans&subset=latin,latin-ext' rel='stylesheet'
-          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ropa+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -56,22 +55,22 @@
                     <input id="password2" name="password2" type="text" value="<?php echo $password?>"/>
                     <br/>
 
-                    <hr size=1>
+                    <div class="spacer"></div>
 
                     <label class="label" for="email">Email</label>
                     <input id="email" name="email" type="text" value="<?php echo $email?>"/>
                     <br/>
 
-                    <label class="label" for="nickname">Nick Name</label>
-                    <input id="nickname" name="nickname" type="text" value="<?php echo $nickName?>"/>
+                    <label class="label" for="nick_name">Nick Name</label>
+                    <input id="nick_name" name="nick_name" type="text" value="<?php echo $nick_name?>"/>
                     <br/>
 
-                    <label class="label" for="firstName">First Name</label>
-                    <input id="firstName" name="firstName" type="text" value="<?php echo $firstName?>"/>
+                    <label class="label" for="first_name">First Name</label>
+                    <input id="first_name" name="first_name" type="text" value="<?php echo $first_name?>"/>
                     <br/>
 
-                    <label class="label" for="lastName">Last Name</label>
-                    <input id="lastName" name="lastName" type="text" value="<?php echo $lastName?>"/>
+                    <label class="label" for="last_name">Last Name</label>
+                    <input id="last_name" name="last_name" type="text" value="<?php echo $last_name?>"/>
                     <br/>
 
                     <label class="label" for="img">Image</label>
@@ -113,7 +112,7 @@
         var checkbox = e.srcElement;
 
         if (checkbox.checked) {
-            $$('.gravatarDiv').classList.add('hidden');
+            //$$('.gravatarDiv').classList.add('hidden');
             $$('.ajaxLoader').classList.remove('hidden');
 
             Moood.ajax('/src/fetch_gravatar.php?email=' + $('email').value,
@@ -125,7 +124,7 @@
                     if (info) {
                         details = JSON.parse(info).entry[0];
                         console.log(details);
-                        $('nickname').value = (details.preferredUsername || '');
+                        $('nick_name').value = (details.preferredUsername || '');
                         $('username').value = (details.displayName || '');
                         $('img').src = (details.thumbnailUrl || '');
                     }

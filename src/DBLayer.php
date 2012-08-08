@@ -120,7 +120,10 @@
         public function executeQuery($queryId, $params = null) {
             // Get the query we wish to execute
             $query = $this->sql_queries[$queryId];
-            return $query;
+
+            $statment = $this->pdo->prepare($query, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+            $statment->execute($params);
+            return $statment->fetchAll();
         }
 
         public function getUsername() {

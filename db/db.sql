@@ -1,18 +1,24 @@
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*
+Navicat MySQL Data Transfer
 
-CREATE DATABASE moood;
+Source Server         : localhost_3306
+Source Server Version : 50522
+Source Host           : localhost:3306
+Source Database       : moood
 
-# Dump of table playlists
-# ------------------------------------------------------------
+Target Server Type    : MYSQL
+Target Server Version : 50522
+File Encoding         : 65001
 
+Date: 2012-08-08 05:44:51
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `playlists`
+-- ----------------------------
 DROP TABLE IF EXISTS `playlists`;
-
 CREATE TABLE `playlists` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) COLLATE utf8_bin DEFAULT NULL,
@@ -21,12 +27,14 @@ CREATE TABLE `playlists` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+-- ----------------------------
+-- Records of playlists
+-- ----------------------------
 
-# Dump of table songs
-# ------------------------------------------------------------
-
+-- ----------------------------
+-- Table structure for `songs`
+-- ----------------------------
 DROP TABLE IF EXISTS `songs`;
-
 CREATE TABLE `songs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) COLLATE utf8_bin DEFAULT NULL,
@@ -37,13 +45,14 @@ CREATE TABLE `songs` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+-- ----------------------------
+-- Records of songs
+-- ----------------------------
 
-
-# Dump of table songs_playlists
-# ------------------------------------------------------------
-
+-- ----------------------------
+-- Table structure for `songs_playlists`
+-- ----------------------------
 DROP TABLE IF EXISTS `songs_playlists`;
-
 CREATE TABLE `songs_playlists` (
   `song_id` int(11) NOT NULL,
   `playlist_id` int(11) NOT NULL,
@@ -54,13 +63,14 @@ CREATE TABLE `songs_playlists` (
   CONSTRAINT `plalist_id` FOREIGN KEY (`playlist_id`) REFERENCES `playlists` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+-- ----------------------------
+-- Records of songs_playlists
+-- ----------------------------
 
-
-# Dump of table users
-# ------------------------------------------------------------
-
+-- ----------------------------
+-- Table structure for `users`
+-- ----------------------------
 DROP TABLE IF EXISTS `users`;
-
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(25) NOT NULL DEFAULT '',
@@ -76,11 +86,15 @@ CREATE TABLE `users` (
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-# Dump of table users_playlists
-# ------------------------------------------------------------
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+INSERT INTO `users` VALUES ('1', 'nirgeier', '25357823', 'nirgeier@gmail.com', 'Nir', 'Geier', '0', '1', '2012-07-18 20:28:20', null);
 
+-- ----------------------------
+-- Table structure for `users_playlists`
+-- ----------------------------
 DROP TABLE IF EXISTS `users_playlists`;
-
 CREATE TABLE `users_playlists` (
   `user_id` int(11) NOT NULL,
   `playlist_id` int(11) DEFAULT NULL,
@@ -91,9 +105,6 @@ CREATE TABLE `users_playlists` (
   CONSTRAINT `playlist_id` FOREIGN KEY (`playlist_id`) REFERENCES `playlists` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- ----------------------------
+-- Records of users_playlists
+-- ----------------------------

@@ -17,13 +17,6 @@ body {
     color: #D8D8D8;
     line-height: 20px;
     background: url("../images/bg_smaller.jpg") bottom right no-repeat;
-
-}
-
-hr {
-    margin: 10px;
-    background-color: rgba(192, 192, 192, 0.75 );
-    height: 0px;
 }
 
 footer, header {
@@ -60,8 +53,19 @@ header a {
 }
 
 .main {
+    text-align: center;
     overflow: auto;
     padding: 25px 0 64px 0;
+    min-height: 100%;
+    margin: 0 auto;
+    display: table;
+
+}
+
+.main:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* must be same height as the footer */
@@ -106,15 +110,19 @@ footer {
 }
 
 .dialog {
-    width: 340px;
-    padding: 25px;
-    box-shadow: 3px 3px 8px rgba(192, 192, 192, 1) inset, -5px -5px 8px rgba(0, 0, 0, 1) inset;
-    margin: 10px auto;
-    border-radius: 25px;
-    height: 100%;
+    /*
     background: -moz-radial-gradient(50% 46% 90deg, circle closest-corner, #242424, #242424);
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 150, from(#242424), to(#242424));
+    */
+    width: 340px;
+    padding: 25px;
+    box-shadow: 0px 0px 5px rgba(24, 24, 24, 1) inset;
+    margin: 10px auto;
+    border-radius: 25px;
+    background: rgba(24, 24, 24, 0.5);
     position: relative;
+    text-align: left;
+    display: inline-block;
 }
 
 .dialog label {
@@ -126,13 +134,13 @@ footer {
 .dialog input[type=text] {
     display: inline-block;
     margin: 3px;
-    width: 125px;
-    background: #111;
-    -moz-box-shadow: 0px 0px 4px #000 inset;
-    -webkit-box-shadow: 0px 0px 4px #000 inset;
-    box-shadow: 0px 0px 4px #000 inset;
+    width: 200px;
+    background: rgba(24, 24, 24, 0.45);
+    -moz-box-shadow: 0px 0px 4px #242424 inset;
+    -webkit-box-shadow: 0px 0px 4px #242424 inset;
+    box-shadow: 0px 0px 1px #242424 inset;
     outline: 1px solid #333;
-    border: 1px solid #000;
+    border: 1px solid #242424;
     color: #f78d1d;
     font-size: 12px;
     font-weight: normal;
@@ -141,6 +149,8 @@ footer {
 
 .dialog input:focus {
     outline: 1px solid #555;
+    background: rgba(24, 24, 24, 0.75);
+
 }
 
 .dialog .highlight {
@@ -204,12 +214,16 @@ footer {
     width: 400px;
 }
 
-.users .dialog .label {
-    width: 105px;
-}
-
 .users .dialog input[type=text] {
     width: 200px;
+}
+
+.users .dialog {
+    width: 400px;
+}
+
+.dialog .label {
+    width: 105px;
 }
 
 .buttons {
@@ -288,26 +302,25 @@ footer {
     height: 12px;
     font: bold 12px/12px Garamond, "Segoe UI", Sans-serif;
     text-transform: uppercase;
-    border: solid 1px #0b70cd;
     border-radius: 3px;
     box-shadow: 0 0 1px 1px #ccc;
     background: #0b70cd;
-    background: -moz-linear-gradient(-45deg, #fefefe, #0b70cd);
-    background: -webkit-linear-gradient(-45deg, #fefefe, #0b70cd);
-    background: -o-linear-gradient(-45deg, #fefefe, #0b70cd);
-    background: -ms-linear-gradient(-45deg, #fefefe, #0b70cd);
-    background: linear-gradient(-45deg, #fefefe, #0b70cd);
+    background: -moz-linear-gradient(-45deg, #fefefe, #242424);
+    background: -webkit-linear-gradient(-45deg, #fefefe, #242424);
+    background: -o-linear-gradient(-45deg, #fefefe, #242424);
+    background: -ms-linear-gradient(-45deg, #fefefe, #242424);
+    background: linear-gradient(-45deg, #fefefe, #242424);
     margin: 0 4px 0 0;
 }
 
 .cssButtons label:hover input[type="checkbox"]:not(:disabled) + span::before,
 .cssButtons label:hover input[type="radio"]:not(:disabled) + span::before {
-    background: #0b70cd;
-    background: -moz-linear-gradient(45deg, #fefefe, #0b70cd);
-    background: -webkit-linear-gradient(45deg, #fefefe, #0b70cd);
-    background: -o-linear-gradient(45deg, #fefefe, #0b70cd);
-    background: -ms-linear-gradient(45deg, #fefefe, #0b70cd);
-    background: linear-gradient(45deg, #fefefe, #0b70cd);
+    background: #242424;
+    background: -moz-linear-gradient(45deg, #fefefe, #242424);
+    background: -webkit-linear-gradient(45deg, #fefefe, #242424);
+    background: -o-linear-gradient(45deg, #fefefe, #242424);
+    background: -ms-linear-gradient(45deg, #fefefe, #242424);
+    background: linear-gradient(45deg, #fefefe, #242424);
     box-shadow: 0 0 1px 2px #ccc;
 }
 
@@ -315,7 +328,7 @@ footer {
 .cssButtons label input[type="radio"]:checked + span::before {
     text-indent: 2px;
     color: #fff;
-    text-shadow: 0 0 2px #0b70cd;
+    text-shadow: 0 0 2px #242424;
 }
 
 .cssButtons label input[type="radio"] + span::before {
@@ -354,3 +367,28 @@ footer {
     width: 16px;
     margin: -8px -8px;
 }
+
+.dialog .spacer:after {
+    content: ' ';
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: 10px;
+    background: -moz-linear-gradient(left, rgba(192, 192, 192, 0) 0%, rgba(192, 192, 192, 0.8) 20%, rgba(192, 192, 192, 1) 53%, rgba(192, 192, 192, 0.8) 79%, rgba(192, 192, 192, 0) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(192, 192, 192, 0)), color-stop(20%, rgba(192, 192, 192, 0.8)), color-stop(53%, rgba(192, 192, 192, 1)), color-stop(79%, rgba(192, 192, 192, 0.8)), color-stop(100%, rgba(192, 192, 192, 0)));
+    background: -webkit-linear-gradient(left, rgba(192, 192, 192, 0) 0%, rgba(192, 192, 192, 0.8) 20%, rgba(192, 192, 192, 1) 53%, rgba(192, 192, 192, 0.8) 79%, rgba(192, 192, 192, 0) 100%);
+    background: -o-linear-gradient(left, rgba(192, 192, 192, 0) 0%, rgba(192, 192, 192, 0.8) 20%, rgba(192, 192, 192, 1) 53%, rgba(192, 192, 192, 0.8) 79%, rgba(192, 192, 192, 0) 100%);
+    background: -ms-linear-gradient(left, rgba(192, 192, 192, 0) 0%, rgba(192, 192, 192, 0.8) 20%, rgba(192, 192, 192, 1) 53%, rgba(192, 192, 192, 0.8) 79%, rgba(192, 192, 192, 0) 100%);
+    background: linear-gradient(left, rgba(192, 192, 192, 0) 0%, rgba(192, 192, 192, 0.8) 20%, rgba(192, 192, 192, 1) 53%, rgba(192, 192, 192, 0.8) 79%, rgba(192, 192, 192, 0) 100%);
+}
+
+.dialog h1 {
+    color: rgb(247, 141, 29);
+    font-size: 20px;
+    text-align: center;
+}
+.login .buttons{
+    text-align: right;
+    margin: 0 0 0 -22px;
+}
+​
