@@ -79,7 +79,7 @@ CREATE TABLE `users` (
   `first_name` varchar(25) NOT NULL DEFAULT '',
   `last_name` varchar(25) NOT NULL DEFAULT '',
   `nick_name` int(11) DEFAULT NULL,
-  `is_admin` tinyint(1) DEFAULT NULL,
+  `is_admin` varchar(25) DEFAULT NULL,
   `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `image` text,
   PRIMARY KEY (`username`,`password`),
@@ -89,7 +89,7 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'nirgeier', '25357823', 'nirgeier@gmail.com', 'Nir', 'Geier', '0', '1', '2012-07-18 20:28:20', null);
+INSERT INTO `users` VALUES ('1', 'nirgeier', '25357823', 'nirgeier@gmail.com', 'Nir', 'Geier', 'jsExpert', '1', '2012-07-18 20:28:20', null);
 
 -- ----------------------------
 -- Table structure for `users_playlists`

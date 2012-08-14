@@ -1,7 +1,7 @@
 <?php
 
     // Get the root directory of the project
-    $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
+    $ROOT_PATH = $_SERVER['SERVER_NAME'];
 
     include_once $ROOT_PATH . '/src/CreateDB.php';
 

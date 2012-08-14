@@ -25,7 +25,10 @@
     <div class="main">
 
         <div class="dialog login">
-            <h1>Login</h1>
+            <h1>
+                <img src="../images/logo_48.png" class="loginImg">
+                Login
+            </h1>
 
             <div class="spacer"></div>
             <form method="POST">
@@ -40,7 +43,12 @@
                 <br/>
 
                 <div class="buttons">
-                    <span class="button orange" data-action="login">Login</span>
+                    <span class="button orange disabled" data-action="login" id="loginButton">Login
+                        <span class="tooltip hidden">
+                            <span></span>
+                            Please fill in the required fields, before you can login
+                        </span>
+                    </span>
                 </div>
 
                 <div class="spacer"></div>
@@ -57,6 +65,33 @@
 <script>
 
     Moood.initForm();
+
+    (function () {
+
+        var valid,
+            username = document.querySelector('#username'),
+            password = document.querySelector('#password'),
+            loginButton = document.querySelector('#loginButton'),
+            tooltip = document.querySelector('.tooltip');
+
+        function validate() {
+            valid = true;
+
+            // Check the username field
+            valid &= username.value && username.value.length > 3;
+            valid &= password.value && password.value.length > 6;
+
+            // Set the disabled class
+            loginButton.classList[valid ? 'remove' : 'add']('disabled');
+            tooltip.classList[valid ? 'add' : 'remove']('hidden');
+
+        }
+
+        username.addEventListener('keydown', validate, false);
+        password.addEventListener('keydown', validate, false);
+
+    })();
+
 </script>
 
 </body>
