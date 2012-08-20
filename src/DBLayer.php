@@ -1,164 +1,168 @@
 <?php
 
-/**
- * This class will be used as the DB manager.<br/>
- * Here we will have all the DB related code.<br/>
- *
- * The purpose of the class is simply to lear how t parse config file and to initialize the db connection
- *
- * @class DBLayer
- */
-class DBLayer {
-
     /**
-     * Singleton pattern
-     */
-    private static $instance;
-
-    /**
-     * Database connection instance
+     * This class will be used as the DB manager.<br/>
+     * Here we will have all the DB related code.<br/>
      *
-     * @static
-     * @var pdo
-     */
-    private $pdo = '';
-
-    /**
-     * Database user name
-     * @var String $username - The database username
-     */
-    private $username = '';
-
-    /**
-     * Database password
+     * The purpose of the class is simply to lear how t parse config file and to initialize the db connection
      *
-     * @var String password
+     * @class DBLayer
      */
-    private $password = '';
+    class DBLayer {
 
-    /**
-     * Database host (ip/url)
-     *
-     * @var String host
-     */
-    private $hostname = '';
+        /**
+         * Singleton pattern
+         */
+        private static $instance;
 
-    /**
-     * Load the Database queries
-     *
-     * @var String host
-     */
-    private $sql_queries;
+        /**
+         * Database connection instance
+         *
+         * @static
+         * @var pdo
+         */
+        private $pdo = '';
 
-    /**
-     * Database/Schema name
-     * @var String $db_name
-     */
-    private $db_name = '';
+        /**
+         * Database user name
+         * @var String $username - The database username
+         */
+        private $username = '';
 
-    /**
-     * Constructor
-     * Here we will read the connection properties and initialize the connection object
-     */
-    private function __construct() {
-        if (!isset($_SESSION['validDB'])) {
-            $this->checkDB();
+        /**
+         * Database password
+         *
+         * @var String password
+         */
+        private $password = '';
+
+        /**
+         * Database host (ip/url)
+         *
+         * @var String host
+         */
+        private $hostname = '';
+
+        /**
+         * Load the Database queries
+         *
+         * @var String host
+         */
+        private $sql_queries;
+
+        /**
+         * Database/Schema name
+         * @var String $db_name
+         */
+        private $db_name = '';
+
+        /**
+         * Constructor
+         * Here we will read the connection properties and initialize the connection object
+         */
+        private function __construct() {
+
+            // check to see if we have valid id
+            //if (!isset($_REQUEST['validDB'])) {
+                $this->initDB();
+            //}
+
         }
 
-    }
+        private function initDB() {
+            // Use the global project root. The global defined in the global.src file
+            global $ROOT_PATH;
 
-    private function checkDB() {
-        // Use the global project root. The global defined in the global.src file
-        global $ROOT_PATH;
+            // read the db configuration and init the connection settings
+            $config = parse_ini_file($ROOT_PATH . '/config/config.ini');
 
-        // read the db configuration and init the connection settings
-        $config = parse_ini_file($ROOT_PATH . '/config/config.ini');
+            $username = $config['db.username'];
+            $password = $config['db.password'];
+            $hostname = $config['db.hostname'];
+            $database = $config['db.database'];
 
-        $username = $config['db.username'];
-        $password = $config['db.password'];
-        $hostname = $config['db.hostname'];
-        $database = $config['db.database'];
+            // try to connect to database. we expect error if the database does not exists
+            try {
+                $this->pdo = new PDO('mysql:host=' . $hostname . ';dbname=' . $database, $username, $password);
+                // If we reached this point we have a valid DB connection
 
-        // try to connect to database. we expect error if the database does not exists
-        try {
-            $this->pdo = new PDO('mysql:host=' . $hostname . ';dbname=' . $database, $username, $password);
-            // If we reached this point we have a valid DB connection
+                // Load the sql's queries
+                $this->sql_queries = parse_ini_file($ROOT_PATH . '/db/queries.sql');
 
-            // Load the sql's queries
-            $this->sql_queries = parse_ini_file($ROOT_PATH . '/db/queries.sql');
+                // Set the session flag that the db is accessible.
+                $_SESSION['validDB'] = true;
 
-            // Set the session flag that the db is accessible.
-            $_SESSION['validDB'] = true;
+            } catch (PDOException $e) {
+                print "Error!: " . $e->getMessage() . "<br/>";
+                // This error code 42000 means that we dont have the database yet,
+                // We are now going to create it.
 
-        } catch (PDOException $e) {
-            print "Error!: " . $e->getMessage() . "<br/>";
-            // This error code 42000 means that we dont have the database yet,
-            // We are now going to create it.
-
-            if ($e->getCode() === 1049) {
+                if ($e->getCode() === 1049) {
+                    echo 'Databse ' . $database . ' does not exist. creating new db';
+                    header('Location: /pages/create_db.php');
+                } else {
+                    die("DB ERROR: " . $e->getMessage());
+                }
+            } catch (Exception $e1) {
                 echo 'Databse ' . $database . ' does not exist. creating new db';
                 header('Location: /pages/create_db.php');
-            } else {
-                die("DB ERROR: " . $e->getMessage());
             }
-        } catch (Exception $e1) {
-            echo 'Databse ' . $database . ' does not exist. creating new db';
-            header('Location: /pages/create_db.php');
-
+            if (!$this->pdo) {
+                die('Could not connect to database');
+            }
         }
 
-        if (!$this->pdo) {
-            die('Could not connect to database');
-        } else {
-            $_SESSION['validDB'] = true;
-            header('Location: /pages/login.php');
-        }
-    }
+        /**
+         * get the instanceof the class
+         */
+        public static function getInstance() {
 
-    /**
-     * get the instanceof the class
-     */
-    public static function getInstance() {
+            if (!self::$instance) {
+                self::$instance = new DBLayer();
+            }
 
-        if (!self::$instance) {
-            self::$instance = new DBLayer();
+            return self::$instance;
         }
 
-        return self::$instance;
+
+        /**
+         * This method will execute sql query
+         * @return string
+         */
+        public function executeQuery($queryId, $params = null) {
+            // Get the query we wish to execute
+            $query = $this->sql_queries[$queryId];
+            $statment = $this->pdo->prepare($query);
+            $statment->setFetchMode(PDO::FETCH_ASSOC);
+            $statment->execute($params);
+
+            // Check to see if we have error or not
+            $error = $statment->errorInfo();
+            if ($error[0] > 0) {
+                $_REQUEST['DBLayer.executeQuery.error'] = $statment->errorInfo();
+            }
+            return $statment->fetchAll();
+        }
+
+
+        public function getUsername() {
+            return $this->username;
+        }
+
+        public function getPassword() {
+            return $this->password;
+        }
+
+        public function getHost() {
+            return $this->host;
+        }
+
+        public function getDbname() {
+            return $this->db_name;
+        }
+
+        public function getSqlQuery($queryId) {
+            return $this->sql_queries[$queryId];
+        }
     }
-
-
-    /**
-     * This method will execute sql query
-     * @return string
-     */
-    public function executeQuery($queryId, $params = null) {
-        // Get the query we wish to execute
-        $query = $this->sql_queries[$queryId];
-
-        $statment = $this->pdo->prepare($query, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-        $statment->execute($params);
-        return $statment->fetchAll();
-    }
-
-    public function getUsername() {
-        return $this->username;
-    }
-
-    public function getPassword() {
-        return $this->password;
-    }
-
-    public function getHost() {
-        return $this->host;
-    }
-
-    public function getDbname() {
-        return $this->db_name;
-    }
-
-    public function getSqlQuery($queryId) {
-        return $this->sql_queries[$queryId];
-    }
-}
 

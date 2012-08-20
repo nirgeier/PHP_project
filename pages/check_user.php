@@ -3,7 +3,8 @@
     include_once '../src/Users.php';
 
     /**
-     * This file will check to see if the desired username is free for registration or not
+     * This file will check to see if the desired username is free for registration or not.
+     * This page will be called using Ajax from the register page
      */
 
     // Get the username

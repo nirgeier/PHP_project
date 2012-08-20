@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50522
 File Encoding         : 65001
 
-Date: 2012-08-08 05:44:51
+Date: 2012-08-21 00:10:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -73,23 +73,25 @@ CREATE TABLE `songs_playlists` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(25) NOT NULL DEFAULT '',
-  `password` varchar(50) NOT NULL DEFAULT '',
-  `email` varchar(100) NOT NULL DEFAULT '',
-  `first_name` varchar(25) NOT NULL DEFAULT '',
-  `last_name` varchar(25) NOT NULL DEFAULT '',
-  `nick_name` int(11) DEFAULT NULL,
-  `is_admin` varchar(25) DEFAULT NULL,
+  `username` varchar(25) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `password` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `email` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `first_name` varchar(25) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `last_name` varchar(25) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `nick_name` varchar(25) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `is_admin` tinyint(1) DEFAULT NULL,
   `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `image` text,
-  PRIMARY KEY (`username`,`password`),
-  KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `image` text CHARACTER SET utf8,
+  PRIMARY KEY (`username`,`email`,`nick_name`),
+  UNIQUE KEY `username` (`username`) USING BTREE,
+  UNIQUE KEY `email` (`email`) USING BTREE,
+  KEY `id` (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'nirgeier', '25357823', 'nirgeier@gmail.com', 'Nir', 'Geier', 'jsExpert', '1', '2012-07-18 20:28:20', null);
+INSERT INTO `users` VALUES ('1', 'nirgeier', '25357823', 'nirgeier@gmail.com', 'Nir', 'Geier', 'jsExpert', '1', '2012-08-21 00:07:36', null);
 
 -- ----------------------------
 -- Table structure for `users_playlists`

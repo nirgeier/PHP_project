@@ -191,6 +191,20 @@ body {
     background: url("../images/bg_smaller.jpg") bottom right no-repeat;
 }
 
+@font-face {
+    font-family: 'Ropa Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Ropa Sans'), local('RopaSans-Regular'), url("RopaSans.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'Coming Soon';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Coming Soon'), local('ComingSoon'), url("CommingSoon.woff") format('woff');
+}
+
 footer, header {
     height: 48px;
     z-index: 100;
@@ -204,6 +218,7 @@ footer, header {
     font-family: Tahoma;
     font-size: 13px;
     position: relative;
+    outline: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 a {
@@ -227,7 +242,7 @@ header a {
 .main {
     text-align: center;
     overflow: auto;
-    padding: 25px 0 64px 0;
+    padding: 25px 10px 64px;
     min-height: 100%;
     margin: 0 auto;
     display: table;
@@ -286,7 +301,7 @@ footer {
     background: -moz-radial-gradient(50% 46% 90deg, circle closest-corner, #242424, #242424);
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 150, from(#242424), to(#242424));
     */
-    width: 340px;
+    width: 321px;
     padding: 25px;
     box-shadow: 0px 0px 5px rgba(24, 24, 24, 1) inset, 2px 2px 25px;
     margin: 10px auto;
@@ -303,20 +318,26 @@ footer {
     vertical-align: top;
 }
 
-.dialog input[type=text] {
+.dialog input[type=text], .dialog input[type=password] {
     display: inline-block;
-    margin: 3px;
     width: 200px;
     background: rgba(24, 24, 24, 0.45);
     -moz-box-shadow: 0px 0px 4px #242424 inset;
     -webkit-box-shadow: 0px 0px 4px #242424 inset;
     box-shadow: 0px 0px 1px #242424 inset;
-    outline: 1px solid #333;
+    outline: 1px solid rgba(255, 255, 255, 0.25);
     border: 1px solid #242424;
     color: #f78d1d;
     font-size: 12px;
     font-weight: normal;
     padding: 0 0 0 3px;
+    height: 15px;
+    margin: 2px 0;
+}
+
+.dialog input[type=text].input_error, .dialog input[type=password].input_error {
+    background-color: rgba(255, 0, 0, 0.85);
+    color: white;
 }
 
 .dialog input:focus {
@@ -428,7 +449,7 @@ footer {
     display: none !important;
 }
 
-.reuqired:before {
+.required:before {
     content: "*";
     color: red;
     padding: 0 5px 0 0;
@@ -581,4 +602,88 @@ footer {
     vertical-align: middle;
 }
 
-​
+.dialog .error {
+    text-shadow: 1px 1px 1px rgba(0, 0, 51, 0.25);
+    padding: 3px 0;
+    background-color: rgb(30, 32, 38);
+    border-radius: 5px;
+    text-align: center;
+    margin: 3px;
+    box-shadow: 0 0 25px red;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.inline_error {
+    margin: 0 0 0 110px;
+    color: yellow;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 0 0 2px 0;
+    font-family: 'Coming Soon', cursive;
+}
+
+.dialog .status_img {
+    vertical-align: middle;
+}
+
+.backoffice .dialog img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.backoffice table {
+    color: rgba(255, 255, 255, 0.75);
+    width: 100%;
+    padding: 25px 10px;
+}
+
+.backoffice thead {
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    text-shadow: 1px 1px 10px rgba(255, 255, 255, 1);
+    background-image: linear-gradient(bottom, rgba(115, 200, 245, 0.75) 0%, rgba(150, 192, 255, 0.25) 100%);
+    background-image: -o-linear-gradient(bottom, rgba(115, 200, 245, 0.75) 0%, rgba(150, 192, 255, 0.25) 100%);
+    background-image: -moz-linear-gradient(bottom, rgba(115, 200, 245, 0.75) 0%, rgba(150, 192, 255, 0.25) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgba(115, 200, 245, 0.75) 0%, rgba(150, 192, 255, 1) 100%);
+    background-image: -ms-linear-gradient(bottom, rgba(115, 200, 245, 0.75) 0%, rgba(150, 192, 255, 0.25) 50%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(115, 200, 245, 0.75)), color-stop(1, rgba(150, 192, 255, 0.25)));
+
+}
+
+.backoffice th {
+    padding: 5px;
+    text-align: left;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.backoffice td {
+    color: rgba(255, 161, 0, 0.75);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    padding: 3px;
+}
+
+.backoffice tbody tr:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.backoffice tbody tr:hover td {
+    color: #000000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.backoffice .dialog {
+    width: 100%;;
+}
+
+.backoffice .dialog img.adminImg {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+.center {
+    text-align: center;
+}
