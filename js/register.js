@@ -18,10 +18,10 @@
         var checkbox = e.srcElement;
 
         if (checkbox.checked) {
-            //$$('.gravatarDiv').classList.add('hidden');
+
             $$('.ajaxLoader').classList.remove('hidden');
 
-            Moood.ajax('/src/fetch_gravatar.php?email=' + email.value,
+            Moood.ajax('/src/helpers/fetch_gravatar.php?email=' + email.value,
                 function (info) {
 
                     var details;
@@ -33,6 +33,9 @@
                         img.value = details.thumbnailUrl || '';
                         $('nick_name').value = (details.preferredUsername || '');
                         $('img').src = (details.thumbnailUrl || '');
+                        checkUserName();
+                        checkbox.checked = false;
+
                     }
                 });
         }
@@ -64,7 +67,7 @@
     function checkUserName() {
         clearTimeout(timer);
 
-        Moood.ajax('/src/check_user.php?action=username&username=' + username.value,
+        Moood.ajax('/src/helpers/check_user.php?action=username&username=' + username.value,
             function (reply) {
                 var data = reply && JSON.parse(reply);
 
@@ -93,7 +96,7 @@
     function checkEmail() {
         clearTimeout(timer);
 
-        Moood.ajax('/src/check_user.php?action=email&email=' + email.value,
+        Moood.ajax('/src/helpers/check_user.php?action=email&email=' + email.value,
             function (reply) {
                 var data = reply && JSON.parse(reply);
 

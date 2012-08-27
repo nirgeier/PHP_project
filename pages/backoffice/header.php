@@ -6,8 +6,8 @@
         // Check to see if user is logged in already or not
         //if (isset($_SESSION['user']) && $_SESSION['user']['is_admin']) {
         ?>
-        <li><a href="/pages/backoffice/table_template.php">Users</a></li>
-        <li><a href="/pages/backoffice/login.php">Logout</a></li>
+        <li><a href="table_template.php?table_name=users&queryId=backoffice.users">Users</a></li>
+        <li><a href="login.php">Logout</a></li>
         <? //}?>
 
     </ul>

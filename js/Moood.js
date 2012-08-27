@@ -2,21 +2,29 @@
  * This is the main script for the project
  */
 
-// Check for namespace
-var Moood = Moood || {};
-
-
 // Common method shortcuts
-function $(id){
+function $(id) {
     return document.getElementById(id);
 }
-function $$( selector ){
+function $$(selector) {
     return document.querySelector(selector);
 }
 
-Moood = function () {
+(!function () {
 
-    return{
+    var Moood;
+
+    /**
+     * @constructor
+     */
+    Moood = function () {
+        // Feature detection that we will use in the application
+    };
+
+
+    Moood.prototype = {
+
+        constructor:Moood,
 
         /**
          * This method will init the forms in pages.
@@ -29,7 +37,7 @@ Moood = function () {
             function submitForm(e) {
 
                 // grab the button that was clicked
-                var src = e.srcElement,
+                var src = e.srcElement || e.target,
                     action;
 
                 // Get the action the user wish to execute
@@ -70,8 +78,10 @@ Moood = function () {
 
             xhr.send(this.postBody);
         }
-    }
+    };
 
-}();
+    // Publish Moood object.
+    // In this case the this == window
+    this.Moood = new Moood();
 
-
+}.apply(this));

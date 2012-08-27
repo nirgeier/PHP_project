@@ -1,0 +1,5 @@
+http_path = "/"
+css_dir = "style"
+sass_dir = "style"
+images_dir = "images"
+javascripts_dir = "js"

@@ -1,5 +1,6 @@
 <?php
-    class Users {
+
+    class UserActions {
 
         private $dbLayer;
 
@@ -65,7 +66,7 @@
         public function update() {
 
             // Place holder for the registration error
-            $_REQUEST['updateError'] = null;
+            $_REQUEST['error'] = null;
 
             // Get the form values
             $params = array(
@@ -82,7 +83,7 @@
             // This is a security check to see that the user we try to update (user_id_ is the current logged in user
             // and not some else who is trying to send different userId in the request
             if (Utils::getParam('id') != $_SESSION['userId']) {
-                $_REQUEST['updateError'] .= 'Project output only: Got you. You are trying to update different user :-)';
+                $_REQUEST['error'] .= 'Project output only: Got you. You are trying to update different user :-)';
                 return;
             }
 
@@ -90,20 +91,17 @@
             $this->dbLayer->executeQuery('users.update', $params);
 
             if (isset($_REQUEST['DBLayer.executeQuery.error'])) {
-                $_REQUEST['updateError'] .= $_REQUEST['DBLayer.executeQuery.error'][2];
+                $_REQUEST['error'] .= $_REQUEST['DBLayer.executeQuery.error'][2];
             } else {
-                $_REQUEST['updateError'] = 'Details updated successfully.';
+                $_REQUEST['error'] = 'Details updated successfully.';
             }
 
             // Load the updated user details
-            $userDetails = $this->dbLayer->executeQuery('users.select_user_by_id', array(':id' => $_SESSION['userId']));
+            $userData = $this->dbLayer->executeQuery('users.select_user_by_id', array(':id' => $_SESSION['userId']));
 
-            if ($userDetails) {
-                //var_dump($userDetails);
-                $userDetails = $userDetails[0];
-
+            if ($userData) {
                 // Set the user details
-                $_SESSION['user'] = $userDetails;
+                $_SESSION['user'] = new User($userData['id']);
             }
         }
 
@@ -115,24 +113,28 @@
                 ':password' => sha1(Utils::getParam('password'))
             );
 
-            // Get the user details from DB
-            $userDetails = $this->dbLayer->executeQuery('users.select_user', $params);
+            // Load the user details
+            $data = $this->dbLayer->executeQuery('users.select_user', $params);
 
-            if ($userDetails) {
-                $userDetails = $userDetails[0];
+            // Check to see if we have a valid user or not
+            if ($data) {
+                $userData = $data[0];
 
                 // Get the userId
-                $userId = $userDetails['id'];
-                $_SESSION['userId'] = $userId;
+                $_SESSION['userId'] = $userData['id'];
 
                 // Set the user details
-                $_SESSION['user'] = $userDetails;
+                $_SESSION['user'] = new User($userData['id']);
+
+                // Make sure all session content is flushed before redirected
+                session_write_close();
 
                 // We found the user login valid - redirect to the application page.
                 header("Location: /pages/playlists.php");
 
+                exit();
             } else {
-                $_REQUEST['loginError'] = 'Wrong user name/password. Please try again';
+                $_REQUEST['error'] = 'Wrong user name/password. Please try again';
             }
 
         }

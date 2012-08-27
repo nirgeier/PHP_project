@@ -1,4 +1,5 @@
 <?php
+
     /**
      * @author  Nir Geier
      *
@@ -48,7 +49,6 @@
             $userDetails = $this->dbLayer->executeQuery('backoffice.login', $params);
 
             if ($userDetails) {
-
                 $userDetails = $userDetails[0];
 
                 // Get the userId
@@ -59,7 +59,7 @@
                 $_SESSION['user'] = $userDetails;
 
                 // We found the user login valid - redirect to the application page.
-                header("Location: /pages/backoffice/table_template.php?table_name=users");
+                header("Location: /pages/backoffice/table_template.php?table_name=Users&queryId=backoffice.users");
             }
         }
 

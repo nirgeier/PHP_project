@@ -1,22 +1,21 @@
 <!DOCTYPE html >
 <?php
-
     $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
-    include_once $ROOT_PATH . '/src/common/includes.php';
-    include_once $ROOT_PATH . '/src/Users.php';
+    include_once $ROOT_PATH . '/src/includes.php';
 
     // Clear the previous user info - if any
     $_SESSION['userId'] = null;
     $_SESSION['user'] = null;
 
-    $users = new Users();
+    // Execute the desired action. All actions are defined inside the class CTOR
+    $actions = new UserActions();
 
     // Get the values if the form was already submitted
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
+    $username = isset($_POST['username']) ? $_POST['username'] : 'nirgeier';
+    $password = isset($_POST['password']) ? $_POST['password'] : '25357823';
 
     // Check if we have errors or not
-    $error = isset($_REQUEST['loginError']) ? $_REQUEST['loginError'] : null;
+    $error = isset($_REQUEST['error']) ? $_REQUEST['error'] : null;
     $errorClass = isset($error) ? '' : 'hidden';
 
 ?>
@@ -40,7 +39,6 @@
                 Login
             </h1>
 
-            <div class="spacer"></div>
             <div class="error <?= $errorClass ?>">
                 <?= $error ?>
             </div>
@@ -73,10 +71,11 @@
             </form>
         </div>
     </div>
+    <?php include 'footer.php' ?>
 </div>
-<?php include 'footer.php' ?>
+
 <script src="../js/polyfills.js"></script>
-<script src="../js/script.js"></script>
+<script src="../js/Moood.js"></script>
 <script>
 
     Moood.initForm();

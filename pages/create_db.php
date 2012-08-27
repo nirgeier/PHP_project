@@ -3,7 +3,7 @@
     // Get the root directory of the project
     $ROOT_PATH = $_SERVER['SERVER_NAME'];
 
-    include_once $ROOT_PATH . '/src/CreateDB.php';
+    include_once $ROOT_PATH . '/src/classes/CreateDB.php';
 
     // read the db configuration and init the connection settings
     $config = parse_ini_file($ROOT_PATH . '/config/config.ini');
@@ -23,7 +23,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
     <title>Music for your mood</title>
 
-    <link href="../style/styles.css" rel="stylesheet" type="text/css"/>
+    <link href="../style/style.css" rel="stylesheet" type="text/css"/>
     <link href='http://fonts.googleapis.com/css?family=Ropa+Sans&subset=latin,latin-ext' rel='stylesheet'
           type='text/css'>
 </head>
@@ -36,7 +36,8 @@
             <div class="border start">
                 Could not connect to the database.<br/>
                 Please verify that the following is the right configuration. <br/>
-                If the configuration is wrong edit the <span class="highlight">config/config.ini</span> and update the right values <br/>
+                If the configuration is wrong edit the <span class="highlight">config/config.ini</span> and update the
+                right values <br/>
                 <br/>
 
                 <form method="POST">
@@ -66,8 +67,9 @@
             </div>
         </div>
     </div>
+    <?php include 'footer.php' ?>
+
 </div>
-<?php include 'footer.php' ?>
 
 <script src="../js/polyfills.js"></script>
 <script>

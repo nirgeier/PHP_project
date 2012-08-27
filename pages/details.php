@@ -1,8 +1,7 @@
 <?php
-    include_once '../src/common/includes.php';
-    include_once '../src/Users.php';
+    include_once '../src/includes.php';
 
-    $users = new Users();
+    $users = new UserActions();
 
     // We use this page for registration and for updating the user details.
     // First of all check to see if this is a register or details page
@@ -10,16 +9,16 @@
 
     if ($isUpdate) {
 
-        $user = $_SESSION['user'];
-        $id = $user['id'];
-        $username = $user['username'];
-        $password = $user['password'];
+        $details = $_SESSION['user']->getUserData();
+        $id = $details['id'];
+        $username = $details['username'];
+        $password = $details['password'];
 
-        $nick_name = $user['nick_name'];
-        $last_name = $user['last_name'];
-        $first_name = $user['first_name'];
-        $email = $user['email'];
-        $img = $user['image'];
+        $nick_name = $details['nick_name'];
+        $last_name = $details['last_name'];
+        $first_name = $details['first_name'];
+        $email = $details['email'];
+        $img = $details['image'];
 
     } else {
         // Get the values if the form was already submitted
@@ -35,8 +34,7 @@
     }
 
     // Check if we have errors or not
-    $error = isset($_REQUEST['registerError']) ? $_REQUEST['registerError'] : null;
-    $error = isset($_REQUEST['updateError']) ? $_REQUEST['updateError'] : null;
+    $error = isset($_REQUEST['error']) ? $_REQUEST['error'] : null;
     $errorClass = isset($error) ? '' : 'hidden';
 ?>
 
@@ -46,7 +44,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
     <title>Music for your mood</title>
 
-    <link href="../style/styles.css" rel="stylesheet" type="text/css"/>
+    <link href="../style/style.css" rel="stylesheet" type="text/css"/>
 
 </head>
 
@@ -56,16 +54,18 @@
     <div class="main">
 
         <div class="dialog">
-            <img src="../images/signup.png" class="signupImg">
 
             <? if ($isUpdate) { ?>
+            <h1>My Profile</h1>
             Here you can update your details.<br/>
             * Username cannot be updated.
             <? } else { ?>
+            <h1>
+                <img src="../images/signup.png" class="signupImg">
+                Sign up
+            </h1>
             <a href="login.php">Click here</a> if you already have an account or
             Join now its <a class="highlight">Free</a> and get stuck with us for ever ....
-
-            <br/>
             <br/>
             <? }?>
             <div class="error <?= $errorClass ?>" id="errorDiv">
@@ -129,11 +129,9 @@
 
                 <div class="gravatarDiv">
                         <span class="cssButtons">
-                        <label>
                             <input type="checkbox" id="gravatar">
                             <span>Fetch details from <span
                                     class="highlight blink">Gravatar</span> [Email Required]</span>
-                        </label>
                         </span>
                 </div>
 
@@ -159,10 +157,9 @@
 
     </div>
 </div>
-<?php include 'footer.php' ?>
 
 <script src="../js/polyfills.js"></script>
-<script src="../js/script.js"></script>
+<script src="../js/Moood.js"></script>
 <?php  if (!$isUpdate) { ?>
 <script src="../js/register.js"></script>
     <? } else { ?>

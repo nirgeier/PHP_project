@@ -63,15 +63,16 @@
         private function __construct() {
 
             // check to see if we have valid id
-            //if (!isset($_REQUEST['validDB'])) {
+            if (!isset($_REQUEST['validDB'])) {
                 $this->initDB();
-            //}
+            }
 
         }
 
+
         private function initDB() {
             // Use the global project root. The global defined in the global.src file
-            global $ROOT_PATH;
+            $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
 
             // read the db configuration and init the connection settings
             $config = parse_ini_file($ROOT_PATH . '/config/config.ini');
@@ -129,7 +130,22 @@
          * This method will execute sql query
          * @return string
          */
-        public function executeQuery($queryId, $params = null) {
+        public function executeQuery($queryId = null, $params = null) {
+
+            if (!isset($queryId)) {
+                $queryId = $_REQUEST['queryId'];
+            }
+            // -----------------------------------------------------------------------------------
+            // -- If no parameters are passed auto build the params from all the GET/POST pairs --
+            // -----------------------------------------------------------------------------------
+            if (!isset($params)) {
+                $params = array();
+                foreach ($_REQUEST as $key => $value) {
+                    $params[':' . $key] = $value;
+                }
+
+            }
+
             // Get the query we wish to execute
             $query = $this->sql_queries[$queryId];
             $statment = $this->pdo->prepare($query);
@@ -164,5 +180,15 @@
         public function getSqlQuery($queryId) {
             return $this->sql_queries[$queryId];
         }
+
+        public function __sleep() {
+            return array();
+        }
+
+        public function __wakeup() {
+
+        }
+
+
     }
 

@@ -1,9 +1,8 @@
 <!DOCTYPE html >
 <?php
 
-    $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
-    include_once $ROOT_PATH . '/src/common/includes.php';
-    include_once $ROOT_PATH . '/src/Backoffice.php';
+    include_once $ROOT_PATH . '/src/includes.php';
+    include_once $ROOT_PATH . '/src/classes/Backoffice.php';
 
     $backOffice = new Backoffice();
 
@@ -28,8 +27,6 @@
                 Backoffice
             </h1>
 
-            <div class="spacer"></div>
-
             <form method="POST">
                 <input type="hidden" name="action" id="action">
 
@@ -51,7 +48,7 @@
 </div>
 
 <script src="../../js/polyfills.js"></script>
-<script src="../../js/script.js"></script>
+<script src="../../js/Moood.js"></script>
 <script>
 
     Moood.initForm();

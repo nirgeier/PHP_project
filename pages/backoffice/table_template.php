@@ -1,12 +1,13 @@
 <?php
 
     $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
-    include_once $ROOT_PATH . '/src/common/includes.php';
-    include_once $ROOT_PATH . '/src/Backoffice.php';
+    include_once $ROOT_PATH . '/src/includes.php';
+    include_once $ROOT_PATH . '/src/classes/Backoffice.php';
 
     // Load the table data that we need
     $dbLayer = DBLayer::getInstance();
-    $_SESSION['records'] = $dbLayer->executeQuery('backoffice.users');
+
+    $_REQUEST['records'] = $dbLayer->executeQuery(Utils::getParam('queryId'));
 
 ?>
 
@@ -23,11 +24,7 @@
     <?php include 'header.php' ?>
 
     <div class="main">
-        <div class="dialog">
-
-            List of <?= Utils::getParam('table_name') ?> in the system
-            <?php include 'table_data.php'; ?>
-        </div>
+        <?php include '../utils/generate_table.php'; ?>
     </div>
 </div>
 
