@@ -1,6 +1,6 @@
 <?php
-    include_once '../src/includes.php';
-    include_once '../src/classes/UserActions.php';
+    include_once '../src/bootstrap.php';
+    include_once '../src/classes/Actions.php';
 
     /**
      * This file will check to see if the desired username is free for registration or not.

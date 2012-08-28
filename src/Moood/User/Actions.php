@@ -1,6 +1,12 @@
 <?php
 
-    class UserActions {
+    namespace Moood\User;
+
+    use Moood\DBLayer;
+    use Moood\helpers\Utils;
+    use Moood\User\Info;
+
+    class Actions {
 
         private $dbLayer;
 
@@ -101,7 +107,7 @@
 
             if ($userData) {
                 // Set the user details
-                $_SESSION['user'] = new User($userData['id']);
+                $_SESSION['user'] = new Info($userData['id']);
             }
         }
 
@@ -124,7 +130,7 @@
                 $_SESSION['userId'] = $userData['id'];
 
                 // Set the user details
-                $_SESSION['user'] = new User($userData['id']);
+                $_SESSION['user'] = new Info($userData['id']);
 
                 // Make sure all session content is flushed before redirected
                 session_write_close();

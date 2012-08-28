@@ -1,8 +1,8 @@
 <?php
 
     $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
-    include_once $ROOT_PATH . '/src/includes.php';
-    include_once $ROOT_PATH . '/src/classes/Backoffice.php';
+    include_once $ROOT_PATH . '/src/bootstrap.php';
+    include_once $ROOT_PATH . '/src/Moood/Moood_Backofficeffice.php';
 
     // Load the table data that we need
     $dbLayer = DBLayer::getInstance();
@@ -10,10 +10,10 @@
     $_REQUEST['records'] = $dbLayer->executeQuery(Utils::getParam('queryId'));
 
 ?>
-
+<!DOCTYPE html >
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <meta charset='UTF-8'>
     <title>Music for your mood</title>
 
     <link href="../../style/style.css" rel="stylesheet" type="text/css"/>

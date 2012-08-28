@@ -1,5 +1,9 @@
 <?php
 
+    namespace Moood\User;
+    use Moood\helpers\Utils;
+    use Moood\DBLayer;
+
     class Playlists {
 
         private $dbLayer;

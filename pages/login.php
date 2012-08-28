@@ -1,14 +1,16 @@
-<!DOCTYPE html >
 <?php
+
+    use Moood\User\Actions;
+
     $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
-    include_once $ROOT_PATH . '/src/includes.php';
+    include_once $ROOT_PATH . '/src/bootstrap.php';
 
     // Clear the previous user info - if any
     $_SESSION['userId'] = null;
     $_SESSION['user'] = null;
 
     // Execute the desired action. All actions are defined inside the class CTOR
-    $actions = new UserActions();
+    $actions = new Moood\User\Actions();
 
     // Get the values if the form was already submitted
     $username = isset($_POST['username']) ? $_POST['username'] : 'nirgeier';
@@ -19,9 +21,10 @@
     $errorClass = isset($error) ? '' : 'hidden';
 
 ?>
+<!DOCTYPE html >
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <meta charset='UTF-8'>
     <title>Music for your mood</title>
 
     <link href="/style/style.css" rel="stylesheet" type="text/css"/>
@@ -35,7 +38,7 @@
 
         <div class="dialog login">
             <h1>
-                <img src="../images/logo_48.png" class="loginImg">
+                <img src="../images/login.png">
                 Login
             </h1>
 

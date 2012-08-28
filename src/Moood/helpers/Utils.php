@@ -1,5 +1,7 @@
 <?php
 
+    namespace Moood\helpers;
+
     /**
      * This class is used as helper functions.
      * It will include the common methods that we will need to use

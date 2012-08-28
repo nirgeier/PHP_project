@@ -1,7 +1,12 @@
 <?php
-    include_once '../src/includes.php';
+    include_once '../src/bootstrap.php';
 
-    $users = new UserActions();
+    use Moood\User\Actions;
+
+    // Execute the current action (if any)
+    // In real application i will not do it this way,
+    // i would have use Zend framework with views actions and forms.
+    new Actions();
 
     // We use this page for registration and for updating the user details.
     // First of all check to see if this is a register or details page
@@ -41,7 +46,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <meta charset='UTF-8'>
     <title>Music for your mood</title>
 
     <link href="../style/style.css" rel="stylesheet" type="text/css"/>
@@ -56,18 +61,18 @@
         <div class="dialog">
 
             <? if ($isUpdate) { ?>
-            <h1>My Profile</h1>
+            <h1><img src="../images/profile_edit.png">My Profile</h1>
             Here you can update your details.<br/>
             * Username cannot be updated.
             <? } else { ?>
             <h1>
-                <img src="../images/signup.png" class="signupImg">
-                Sign up
+                <img src="../images/signup.png">Sign up
             </h1>
             <a href="login.php">Click here</a> if you already have an account or
             Join now its <a class="highlight">Free</a> and get stuck with us for ever ....
             <br/>
             <? }?>
+
             <div class="error <?= $errorClass ?>" id="errorDiv">
                 <?= $error ?>
             </div>

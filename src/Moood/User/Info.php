@@ -1,5 +1,8 @@
 <?php
 
+    namespace Moood\User;
+    use Moood\DBLayer;
+
     /**
      * This class will store all the user information.
      * The user details, songs and playlist
@@ -7,7 +10,7 @@
      * it contains a small amount of data and its good practice to manage it.
      *
      */
-    class User {
+    class Info {
 
         // Database object reference
         private $dbLayer;

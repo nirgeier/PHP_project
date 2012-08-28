@@ -1,5 +1,6 @@
 <?php
 
+    namespace Moood;
     /**
      * @author  Nir Geier
      *
@@ -19,7 +20,7 @@
                 session_start();
             }
 
-            $this->dbLayer = DBLayer::getInstance();
+            $this->dbLayer = Moood_DBLayer::getInstance();
 
             // Get the action that we wish to execute
             // We use the isset so we will not see notice message

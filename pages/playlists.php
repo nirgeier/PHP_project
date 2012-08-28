@@ -1,8 +1,11 @@
 <?php
     /** This file will display the user playlists */
 
+    use Moood\helpers\Utils;
+    use Moood\DBLayer;
+
     $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
-    include_once $ROOT_PATH . '/src/includes.php';
+    include_once $ROOT_PATH . '/src/bootstrap.php';
 
     //Load the playlists for the current user
     $user = $_SESSION['user'];
@@ -19,7 +22,7 @@
 ?>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <meta charset='UTF-8'>
     <title>Music for your mood</title>
     <link href="/style/style.css" rel="stylesheet" type="text/css"/>
 </head>

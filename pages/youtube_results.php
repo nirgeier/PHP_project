@@ -1,5 +1,7 @@
 <?php
 
+    use Moood\helpers\Utils;
+
     /**
      * This file will print out the playlist songs so user can choose from the list
      */

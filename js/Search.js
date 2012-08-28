@@ -39,10 +39,10 @@ var Moood = Moood || {};
          * Toggle the search dialog
          */
         toggleSearchDialog:function () {
-            var dialog = $$('.dialog.search');
-
-            dialog.classList.toggle('transparent');
-            dialog.classList.toggle('visible');
+            var dialog = $$('.dialogWrapper'),
+                toggleText = $$('.searchToggle');
+            dialog.classList.toggle('closed');
+            toggleText.classList.toggle('hidden');
 
         }
 

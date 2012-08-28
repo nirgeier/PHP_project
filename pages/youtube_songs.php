@@ -1,7 +1,7 @@
 <?php
     $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
-    include_once $ROOT_PATH . '/src/common/includes.php';
-    include_once $ROOT_PATH . '/src/Backoffice.php';
+    include_once $ROOT_PATH . '/src/common/bootstrap.php';
+    include_once $ROOT_PATH . '/src/MooodBackoffice.phpce.php';
 
 
     /**

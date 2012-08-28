@@ -3,7 +3,7 @@
     // Get the root directory of the project
     $ROOT_PATH = $_SERVER['SERVER_NAME'];
 
-    include_once $ROOT_PATH . '/src/classes/CreateDB.php';
+    include_once $ROOT_PATH . '/src/Moood/Moood_CreateDBateDB.php';
 
     // read the db configuration and init the connection settings
     $config = parse_ini_file($ROOT_PATH . '/config/config.ini');
@@ -13,14 +13,14 @@
     $hostname = $config['db.hostname'];
     $database = $config['db.database'];
 
-    $createDB = new CreateDB();
+    $createDB = new Moood_CreateDB();
 
 ?>
 
 <!DOCTYPE html >
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <meta charset='UTF-8'>
     <title>Music for your mood</title>
 
     <link href="../style/style.css" rel="stylesheet" type="text/css"/>

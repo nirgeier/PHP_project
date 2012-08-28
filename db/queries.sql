@@ -4,7 +4,7 @@ test='select * from users'
 ;Create the needed schema
 create.db='CREATE DATABASE my_db'
 
-;UserActions
+;Actions
 users.check_username='select count(1) as count from users where username=:username'
 users.check_email='select count(1) as count from users where email=:email'
 users.select_user='select * from users where username=:username and password=:password'
