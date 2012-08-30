@@ -14,6 +14,8 @@
     // Get the playlist content
     $songs = $_REQUEST['songs'];
 
+    // Get the playlist HTML code
+
     // Print out the playlists
     foreach ($songs as $song) {
 
@@ -25,17 +27,10 @@
     <section class="dialog playlistEntry">
         <details open>
             <summary><?= $song['title']?></summary>
-            <form class="add_song">
-                <input type="hidden" name="videoId" value="<?= $song['videoId'] ?>">
-                <span class="cssButtons">
-                    <input type="checkbox">
-                    <span>Add to my playlist</span>
-                </span>
-            </form>
-
+            <? include 'playlist_dropdown.php'; ?>
             <p><?= $song['content'] ?></p>
             <iframe id="ytplayer" type="text/html" width="480" height="292"
-                    src="http://www.youtube.com/embed/<?= $song['videoId'] ?>?autoplay=0&origin=http://codeblue.project"
+                    src="http://www.youtube.com/embed/<?= $song['videoId'] ?>?autoplay=0&origin=<?= $_SERVER['SERVER_NAME'] ?>"
                     frameborder="0"></iframe>
         </details>
     </section>

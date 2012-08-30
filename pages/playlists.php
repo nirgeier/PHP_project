@@ -1,24 +1,6 @@
-<?php
-    /** This file will display the user playlists */
-
-    use Moood\helpers\Utils;
-    use Moood\DBLayer;
-
+<?
     $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
     include_once $ROOT_PATH . '/src/bootstrap.php';
-
-    //Load the playlists for the current user
-    $user = $_SESSION['user'];
-
-    // Check if we have errors or not
-    $error = isset($_REQUEST['error']) ? $_REQUEST['error'] : null;
-    $errorClass = isset($error) ? '' : 'hidden';
-
-    // Load the table data that we need
-    $dbLayer = DBLayer::getInstance();
-
-    $_REQUEST['records'] = $dbLayer->executeQuery('users.playlists', array(':user_id' => $_SESSION['userId']));
-
 ?>
 <html>
 <head>
@@ -28,31 +10,50 @@
 </head>
 
 <body>
-<div class="pageContent playlists">
+<div class="pageContent">
     <?php include 'header.php' ?>
 
     <div class="main playlists">
 
         <div class="buttons">
-            <span class="button orange" data-action="create">Create new playlist</span>
+            <span class="button orange playlistToggle">Create new playlist</span>
         </div>
-        <?php
-        // load the user playlists.
-        // We currently already have it in the $user->getPlaylists()
-        // but i decided to do it this way to demonstrate how the DBLayer extract the params from the
-        // url and executing the query :-)
-        include 'utils/generate_table.php';
-        ?>
+
+        <div class="dialogWrapper closed">
+            <div class="dialog playlist">
+
+                <img class="close" src="../images/close.png">
+
+                <h1>
+                    <img src="../images/list.png" width="48">New playlist
+                </h1>
+
+                <fieldset>
+                    <legend>Playlist name</legend>
+                    <input id="name" name="name" type="text" value=""/>
+
+                    <div class="buttons">
+                        <span class="button orange" id="buttonAdd">Add</span>
+                    </div>
+
+                </fieldset>
+            </div>
+        </div>
+
+        <div id="playlistsContent">
+            <? include 'utils\playlist_content.php'; ?>
+        </div>
 
     </div>
-    <?php include 'footer.php' ?>
 </div>
+<?php include 'footer.php' ?>
 
 <script src="../js/polyfills.js"></script>
 <script src="../js/Moood.js"></script>
+<script src="../js/Playlists.js"></script>
 <script>
 
-    Moood.initForm();
+    Moood.Playlists.init();
 
 </script>
 

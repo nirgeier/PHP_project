@@ -77,7 +77,25 @@ function $$(selector) {
             }
 
             xhr.send(this.postBody);
+        },
+
+        bindEvents:function (selector, event, callback) {
+
+            var nodes;
+            // Attach the delete button actions
+            nodes = document.querySelectorAll(selector);
+
+            // Convert the nodes to real array
+            nodes = Array.prototype.slice.call(nodes);
+
+            // Loop and attach the eventsListeners
+            nodes.forEach(function (item) {
+                item[event] = callback;
+            });
+
         }
+
+
     };
 
     // Publish Moood object.

@@ -32,17 +32,34 @@ var Moood = Moood || {};
             $$('#numberOfSongs').onchange();
 
             // Listen to click on the close button + the toggle link
-            $$('.close').onclick = $$('.searchToggle').onclick = this.toggleSearchDialog;
+            $$('.close').onclick = $$('.searchToggle').onclick = this.toggleDialog;
+
+            // Attach the add to playlist enent
+            moood.bindEvents('.playlists_list', 'onchange', this.addSong);
+
         },
 
         /**
          * Toggle the search dialog
          */
-        toggleSearchDialog:function () {
+        toggleDialog:function () {
             var dialog = $$('.dialogWrapper'),
                 toggleText = $$('.searchToggle');
             dialog.classList.toggle('closed');
             toggleText.classList.toggle('hidden');
+
+        },
+
+
+        addSong:function (e) {
+            // grab the button that was clicked
+            var src = e.srcElement || e.target,
+                url = src.dataset['url'];
+
+            Moood.ajax('../pages/utils/song_add.php?action=addSong&pId=' + src.value + '&url=' + encodeURIComponent(url),
+                function (reply) {
+
+                });
 
         }
 

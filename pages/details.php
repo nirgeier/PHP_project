@@ -61,7 +61,7 @@
         <div class="dialog">
 
             <? if ($isUpdate) { ?>
-            <h1><img src="../images/profile_edit.png">My Profile</h1>
+            <h1><img src="../images/profile.png" width="48">My Profile</h1>
             Here you can update your details.<br/>
             * Username cannot be updated.
             <? } else { ?>
@@ -162,6 +162,7 @@
 
     </div>
 </div>
+<?php include 'footer.php' ?>
 
 <script src="../js/polyfills.js"></script>
 <script src="../js/Moood.js"></script>

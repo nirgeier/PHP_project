@@ -10,6 +10,7 @@
     $songs = isset($_REQUEST['songs']) ? $_REQUEST['songs'] : null;
 
     $dialogClass = isset($songs) ? 'closed' : '';
+
 ?>
 <!DOCTYPE html >
 <html>
@@ -27,7 +28,7 @@
 
     <div class="main">
 
-        <a href="#" class="searchToggle hidden">Show Search dialog</a>
+        <a href="#" class="searchToggle">Show Search dialog</a>
 
         <div class="spacer"></div>
         <div class="dialogWrapper <?=$dialogClass?>">
@@ -36,7 +37,7 @@
                 <img class="close" src="../images/close.png">
 
                 <h1>
-                    <img src="../images/search.png">Search
+                    <img src="../images/search.png">Search Music
                 </h1>
 
                 <form method="POST">
@@ -67,19 +68,19 @@
         </div>
 
         <div class="songsList">
-            <?php include 'youtube_results.php' ?>
+            <?php include 'utils\songs_list.php' ?>
         </div>
     </div>
-
-    <?php include 'footer.php' ?>
 </div>
+
+<?php include 'footer.php' ?>
 
 <script src="../js/polyfills.js"></script>
 <script src="../js/Moood.js"></script>
 <script src="../js/Search.js"></script>
 <script>
     Moood.Search.init();
-        <?= isset($songs) ? 'Moood.Search.toggleSearchDialog()' : '' ?>
+        <?= isset($songs) ? 'Moood.Search.toggleDialog()' : '' ?>
 </script>
 
 </body>

@@ -18,7 +18,8 @@
 </head>
 
 <body>
-<div class="pageContent login">
+
+<div class="pageContent login clearfix">
     <?php include 'header.php' ?>
 
     <div class="main">
@@ -48,6 +49,7 @@
         </div>
     </div>
 </div>
+<?php include 'footer.php' ?>
 
 <script src="../../js/polyfills.js"></script>
 <script src="../../js/Moood.js"></script>

@@ -10,10 +10,7 @@
      * it contains a small amount of data and its good practice to manage it.
      *
      */
-    class Info {
-
-        // Database object reference
-        private $dbLayer;
+    class User {
 
         // The userId
         private $userId;
@@ -30,8 +27,6 @@
             // Set the userId. Will be used later on to load all data from database
             $this->userId = $userId;
 
-            $this->dbLayer = DBLayer::getInstance();
-
             // Load the user data
             $this->loadUser();
 
@@ -45,8 +40,12 @@
          * Load the user details from database
          */
         private function loadUser() {
+            $dbLayer = DBLayer::getInstance();
+
+            $this->userData = null;
+
             // Load the user details
-            $data = $this->dbLayer->executeQuery('users.select_user_by_id', array(':id' => $this->userId));
+            $data = $dbLayer->executeQuery('users.select_user_by_id', array(':user_id' => $this->userId));
 
             if ($data) {
                 $this->userData = $data[0];
@@ -54,8 +53,12 @@
         }
 
         private function loadPlaylists() {
+            $dbLayer = DBLayer::getInstance();
+
+            $this->playlists = null;
+
             // load the user playlists
-            $data = $this->dbLayer->executeQuery('users.playlists', array(':id' => $this->userId));
+            $data = $dbLayer->executeQuery('users.playlists', array(':user_id' => $this->userId));
 
             if ($data) {
                 // Clear prevoius data - if any
@@ -65,9 +68,15 @@
                 foreach ($data as $item) {
                     array_push($items, $item);
                 }
+
+                $this->playlists = $items;
             }
 
-            $this->playlists = $items;
+        }
+
+        public function reload() {
+            $this->loadUser();
+            $this->loadPlaylists();
         }
 
         public function getPlaylists() {

@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 4, style.scss */
+/* line 5, style.scss */
 * {
   margin: 0;
 }
@@ -97,59 +97,59 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-webkit-keyframes blink {
-  /* line 37, style.scss */
+  /* line 38, style.scss */
   0% {
     opacity: _1;
   }
 
-  /* line 38, style.scss */
+  /* line 39, style.scss */
   50% {
     opacity: _0;
   }
 }
 
 @-moz-keyframes blink {
-  /* line 42, style.scss */
+  /* line 43, style.scss */
   0% {
     opacity: _1;
   }
 
-  /* line 43, style.scss */
+  /* line 44, style.scss */
   50% {
     opacity: _0;
   }
 }
 
 @-o-keyframes blink {
-  /* line 47, style.scss */
+  /* line 48, style.scss */
   0% {
     opacity: _1;
   }
 
-  /* line 48, style.scss */
+  /* line 49, style.scss */
   50% {
     opacity: _0;
   }
 }
 
 @keyframes blink {
-  /* line 52, style.scss */
+  /* line 53, style.scss */
   0% {
     opacity: _1;
   }
 
-  /* line 53, style.scss */
+  /* line 54, style.scss */
   50% {
     opacity: _0;
   }
 }
 
-/* line 56, style.scss */
+/* line 57, style.scss */
 img {
   vertical-align: middle;
 }
 
-/* line 60, style.scss */
+/* line 61, style.scss */
 .add_song {
   outline: 1px;
   margin: 5px;
@@ -157,7 +157,7 @@ img {
   padding: 10px;
 }
 
-/* line 67, style.scss */
+/* line 68, style.scss */
 .ajaxLoader {
   background: url('/images/../images/ajax-loader.gif?1346097471');
   height: 16px;
@@ -168,43 +168,37 @@ img {
   width: 16px;
 }
 
-/* line 77, style.scss */
+/* line 78, style.scss */
 .backoffice .dialog {
   width: 100%;
 }
 
-/* line 81, style.scss */
+/* line 82, style.scss */
 .backoffice .dialog img {
   height: 24px;
   width: 24px;
 }
 
-/* line 86, style.scss */
-.backoffice .dialog img.adminImg {
-  height: 16px;
-  width: 16px;
-}
-
-/* line 91, style.scss */
+/* line 87, style.scss */
 .data_table {
   color: rgba(255, 255, 255, 0.75);
   padding: 25px 10px;
   width: 100%;
 }
 
-/* line 97, style.scss */
+/* line 93, style.scss */
 .data_table tbody tr:hover {
   background-color: #ccc;
   cursor: pointer;
 }
 
-/* line 102, style.scss */
+/* line 98, style.scss */
 .data_table tbody tr:hover td {
   color: #000000;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* line 107, style.scss */
+/* line 103, style.scss */
 .data_table td, .data_table th {
   border-right: 1px solid rgba(0, 0, 0, 0.25);
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
@@ -212,24 +206,24 @@ img {
   font-weight: normal;
 }
 
-/* line 114, style.scss */
+/* line 110, style.scss */
 .data_table td {
   color: rgba(255, 161, 0, 0.75);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
 }
 
-/* line 119, style.scss */
+/* line 115, style.scss */
 .data_table th {
   padding: 5px;
   text-align: left;
 }
 
-/* line 124, style.scss */
+/* line 120, style.scss */
 .data_table td:first-child, .data_table th:first-child {
   border-left: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-/* line 129, style.scss */
+/* line 125, style.scss */
 .data_table thead {
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, rgba(115, 200, 245, 0.75)), color-stop(100%, rgba(150, 192, 255, 0.25)));
   background-image: -webkit-linear-gradient(bottom, rgba(115, 200, 245, 0.75) 0%, rgba(150, 192, 255, 0.25) 100%);
@@ -240,7 +234,7 @@ img {
   text-shadow: 1px 1px 10px white;
 }
 
-/* line 135, style.scss */
+/* line 131, style.scss */
 .blink {
   -webkit-animation-name: blink;
   -moz-animation-name: blink;
@@ -269,7 +263,7 @@ img {
   animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 }
 
-/* line 143, style.scss */
+/* line 139, style.scss */
 .button {
   border-radius: .5em;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
@@ -287,7 +281,7 @@ img {
   zoom: 1;
 }
 
-/* line 160, style.scss */
+/* line 156, style.scss */
 .button.disabled, .button.disabled:hover {
   background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, rgba(250, 165, 26, 0.5)), color-stop(100%, rgba(244, 122, 32, 0.5)));
   background-image: -webkit-linear-gradient(left top, rgba(250, 165, 26, 0.5) 0%, rgba(244, 122, 32, 0.5) 100%);
@@ -298,31 +292,31 @@ img {
   color: rgba(0, 0, 0, 0.55);
 }
 
-/* line 166, style.scss */
+/* line 162, style.scss */
 .buttons {
   text-align: center;
   vertical-align: middle;
   width: 100%;
 }
 
-/* line 172, style.scss */
+/* line 168, style.scss */
 .center {
   text-align: center;
 }
 
-/* line 176, style.scss */
+/* line 172, style.scss */
 .cssButtons {
   cursor: pointer;
 }
 
-/* line 181, style.scss */
+/* line 177, style.scss */
 .cssButtons input[type="checkbox"] + span,
 .cssButtons input[type="radio"] + span {
   font: normal 13px/14px "Segoe UI", Sans-serif;
   padding: 0 0 0 5px;
 }
 
-/* line 189, style.scss */
+/* line 185, style.scss */
 .cssButtons input[type="checkbox"] + span,
 .cssButtons input[type="radio"] + span,
 .cssButtons input[type="checkbox"] + span::before,
@@ -330,12 +324,12 @@ img {
   display: inline-block;
 }
 
-/* line 193, style.scss */
+/* line 189, style.scss */
 .cssButtons input[type="checkbox"] + span::before {
   content: "\2714";
 }
 
-/* line 198, style.scss */
+/* line 194, style.scss */
 .cssButtons input[type="checkbox"] + span::before,
 .cssButtons input[type="radio"] + span::before {
   background: #0b70cd;
@@ -354,7 +348,7 @@ img {
   width: 12px;
 }
 
-/* line 215, style.scss */
+/* line 211, style.scss */
 .cssButtons input[type="checkbox"],
 .cssButtons input[type="radio"] {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -362,7 +356,7 @@ img {
   position: absolute;
 }
 
-/* line 221, style.scss */
+/* line 217, style.scss */
 .cssButtons input[type="checkbox"]:checked + span::before,
 .cssButtons input[type="radio"]:checked + span::before {
   color: #fff;
@@ -370,7 +364,7 @@ img {
   text-shadow: 0 0 2px #242424;
 }
 
-/* line 230, style.scss */
+/* line 226, style.scss */
 .cssButtons input[type="checkbox"]:disabled + span,
 .cssButtons input[type="radio"]:disabled + span,
 .cssButtons input[type="checkbox"]:disabled + span::before,
@@ -378,26 +372,26 @@ img {
   cursor: default;
 }
 
-/* line 235, style.scss */
+/* line 231, style.scss */
 .cssButtons input[type="checkbox"]:disabled + span::before,
 .cssButtons input[type="radio"]:disabled + span::before {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
 }
 
-/* line 239, style.scss */
+/* line 235, style.scss */
 .cssButtons input[type="radio"] + span::before {
   content: "\2022";
   font-size: 22px;
   border-radius: 12px;
 }
 
-/* line 245, style.scss */
+/* line 241, style.scss */
 .cssButtons input[type="radio"]:checked + span::before {
   text-indent: 2px;
 }
 
-/* line 250, style.scss */
+/* line 246, style.scss */
 .cssButtons:hover input[type="checkbox"]:not(:disabled) + span::before,
 .cssButtons:hover input[type="radio"]:not(:disabled) + span::before {
   background: #242424;
@@ -408,7 +402,7 @@ img {
   box-shadow: 0px 0px 1px 2px #ccc;
 }
 
-/* line 256, style.scss */
+/* line 252, style.scss */
 .highlight {
   background-color: rgba(192, 192, 192, 0.75);
   border-radius: 3px;
@@ -416,7 +410,7 @@ img {
   padding: 0 3px;
 }
 
-/* line 263, style.scss */
+/* line 259, style.scss */
 .dialog {
   background: rgba(24, 24, 24, 0.5);
   border-radius: 25px;
@@ -428,15 +422,17 @@ img {
   text-align: left;
   width: 321px;
 }
-/* line 274, style.scss */
+/* line 270, style.scss */
 .dialog h1 img {
   padding: 0 10px;
+  width: 48px;
+  height: 48px;
 }
-/* line 277, style.scss */
+/* line 276, style.scss */
 .dialog .label {
   width: 105px;
 }
-/* line 281, style.scss */
+/* line 280, style.scss */
 .dialog h1 {
   background-color: rgba(24, 24, 24, 0.35);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
@@ -449,11 +445,11 @@ img {
   text-align: center;
   vertical-align: middle;
 }
-/* line 294, style.scss */
+/* line 293, style.scss */
 .dialog input:focus {
   background: rgba(24, 24, 24, 0.75);
 }
-/* line 299, style.scss */
+/* line 298, style.scss */
 .dialog input[type=text],
 .dialog input[type=password] {
   background: rgba(24, 24, 24, 0.45);
@@ -469,38 +465,110 @@ img {
   padding: 0 0 0 4px;
   width: 200px;
 }
-/* line 315, style.scss */
+/* line 314, style.scss */
 .dialog input[type=text].input_error,
 .dialog input[type=password].input_error {
   background-color: rgba(255, 0, 0, 0.65);
   color: white;
 }
-/* line 320, style.scss */
+/* line 319, style.scss */
 .dialog label {
   display: inline-block;
   font-size: 14px;
   text-shadow: 1px 1px 2px black;
   vertical-align: top;
 }
-/* line 327, style.scss */
-.dialog .playlistEntry {
+
+/* line 328, style.scss */
+.playlistEntry {
   width: 960px;
 }
+/* line 331, style.scss */
+.playlistEntry iframe {
+  vertical-align: top;
+  box-shadow: 1px 1px 10px black, -1px -1px 5px black;
+}
+/* line 336, style.scss */
+.playlistEntry p {
+  display: inline-block;
+  width: 475px;
+  overflow: hidden;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
+}
+/* line 343, style.scss */
+.playlistEntry summary {
+  color: #f78d1d;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 1px 1px 25px black;
+}
+/* line 350, style.scss */
+.playlistEntry .playlist_dropdown {
+  padding: 5px;
+  line-height: 32px;
+  vertical-align: middle;
+}
+/* line 355, style.scss */
+.playlistEntry .playlist_dropdown label {
+  font-size: 20px;
+  text-shadow: 1px 1px 1px black, 2px 2px 1px black, 3px 3px 1px black;
+  color: lime;
+}
+/* line 363, style.scss */
+.playlistEntry .noPlaylist {
+  margin: 5px 0;
+  padding: 5px;
+  color: #ffdead;
+  outline: 1px solid #ffdead;
+}
+/* line 369, style.scss */
+.playlistEntry select {
+  background: rgba(192, 192, 192, 0.75) top right url("../images/select_down.png") no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0 25px 0 0;
+  vertical-align: middle;
+  line-height: 16px;
+  height: 28px;
+  border-radius: 13px;
+  width: 150px;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px black;
+}
+/* line 385, style.scss */
+.playlistEntry select:hover {
+  color: black;
+}
 
-/* line 333, style.scss */
+/* line 390, style.scss */
 .dialog.search {
   height: 120px;
   border-radius: 25px 0 25px 25px;
 }
-/* line 337, style.scss */
-.dialog.search .close {
+
+/* line 395, style.scss */
+.dialog .close {
   cursor: pointer;
   position: absolute;
   right: -9px;
   top: -9px;
 }
 
-/* line 346, style.scss */
+/* line 402, style.scss */
+fieldset {
+  padding: 0 5px 7px 5px;
+  border: 1px solid rgba(24, 24, 24, 0.75);
+  border-radius: 10px;
+}
+
+/* line 408, style.scss */
+legend {
+  padding: 3px;
+}
+
+/* line 412, style.scss */
 .dialogWrapper {
   -webkit-backface-visibility: hidden;
   -moz-background-clip: padding;
@@ -517,6 +585,7 @@ img {
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
+  transform: scale(1);
   -webkit-transition: -webkit-transform ease-out .35s, all ease-out .4s;
   -moz-transition: -moz-transform ease-out .35s, all ease-out .4s;
   -ms-transition: -ms-transform ease-out .35s, all ease-out .4s;
@@ -524,7 +593,7 @@ img {
   transition: -o-transform ease-out .35s, all ease-out .4s;
 }
 
-/* line 371, style.scss */
+/* line 434, style.scss */
 .dialogWrapper.closed {
   margin: 0;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -538,7 +607,14 @@ img {
   transform: scale(0);
 }
 
-/* line 385, style.scss */
+/* line 444, style.scss */
+.dialog.playlist {
+  height: 120px;
+  border-radius: 25px 0 25px 25px;
+  text-align: center;
+}
+
+/* line 450, style.scss */
 .error {
   background-color: #1e2026;
   border-radius: 5px;
@@ -550,18 +626,18 @@ img {
   text-shadow: 1px 1px 1px rgba(0, 0, 51, 0.25);
 }
 
-/* line 396, style.scss */
+/* line 461, style.scss */
 .hidden {
   display: none !important;
 }
 
-/* line 400, style.scss */
+/* line 465, style.scss */
 .highlight a {
   color: #000000;
   text-decoration: none;
 }
 
-/* line 405, style.scss */
+/* line 470, style.scss */
 .inline_error {
   color: yellow;
   font-family: 'Coming Soon', cursive;
@@ -571,13 +647,13 @@ img {
   padding: 0 0 2px 0;
 }
 
-/* line 414, style.scss */
+/* line 479, style.scss */
 .login .buttons {
   margin: 0 0 0 -22px;
   text-align: right;
 }
 
-/* line 419, style.scss */
+/* line 484, style.scss */
 .logo {
   background: url("../images/logo_48.png") top center no-repeat;
   display: inline-block;
@@ -585,7 +661,7 @@ img {
   width: 48px;
 }
 
-/* line 426, style.scss */
+/* line 491, style.scss */
 .main {
   display: table;
   margin: 0 auto;
@@ -596,14 +672,14 @@ img {
   text-align: center;
 }
 
-/* line 436, style.scss */
+/* line 501, style.scss */
 .main:before {
   content: '';
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 442, style.scss */
+/* line 507, style.scss */
 .orange {
   background: #f78d1d;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #faa51a), color-stop(100%, #f47a20));
@@ -618,7 +694,7 @@ img {
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* line 453, style.scss */
+/* line 518, style.scss */
 .orange:active {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f47a20), color-stop(100%, #faa51a));
   background-image: -webkit-linear-gradient(top, #f47a20, #faa51a);
@@ -628,7 +704,7 @@ img {
   color: #fcd3a5;
 }
 
-/* line 458, style.scss */
+/* line 523, style.scss */
 .orange:hover {
   background: #f47c20;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f88e11), color-stop(100%, #f06015));
@@ -640,33 +716,15 @@ img {
   text-shadow: -1px -1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* line 465, style.scss */
+/* line 530, style.scss */
 .pageContent {
-  height: 100%;
+  height: auto;
   margin: 0 auto -64px;
   min-height: 100%;
   z-index: 100;
 }
 
-/* line 472, style.scss */
-.playlistEntry iframe {
-  padding: 0 0 0 20px;
-  vertical-align: top;
-}
-
-/* line 477, style.scss */
-.playlistEntry p {
-  display: inline-block;
-  width: 450px;
-}
-
-/* line 482, style.scss */
-.playlistEntry summary {
-  color: #eda634;
-  font-weight: bold;
-}
-
-/* line 487, style.scss */
+/* line 537, style.scss */
 .rangeValue {
   background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #222931), color-stop(100%, #181d21));
   background-image: -webkit-linear-gradient(left top, #222931, #181d21);
@@ -687,7 +745,7 @@ img {
   width: 18px;
 }
 
-/* line 502, style.scss */
+/* line 552, style.scss */
 .required:before {
   color: red;
   content: "*";
@@ -697,12 +755,36 @@ img {
   vertical-align: middle;
 }
 
-/* line 511, style.scss */
+/* line 562, style.scss */
+#playlistsContent .data_table tbody tr {
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+/* line 568, style.scss */
+#playlistsContent .data_table tbody tr:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+/* line 574, style.scss */
 .searchToggle {
   color: yellow;
 }
 
-/* line 515, style.scss */
+/* line 578, style.scss */
 .skew {
   color: yellow;
   display: inline-block;
@@ -718,7 +800,7 @@ img {
   text-shadow: -1px 3px 10px black, 2px 2px 10px rgba(128, 129, 128, 0.75);
 }
 
-/* line 526, style.scss */
+/* line 589, style.scss */
 .slider {
   display: inline-block;
   height: 20px;
@@ -727,7 +809,7 @@ img {
   width: 205px;
 }
 
-/* line 534, style.scss */
+/* line 597, style.scss */
 .slider .bar {
   background-color: #da7c0c;
   border-radius: 10px;
@@ -737,19 +819,19 @@ img {
   width: 175px;
 }
 
-/* line 543, style.scss */
+/* line 606, style.scss */
 .songsList {
   text-align: left;
 }
 
-/* line 547, style.scss */
+/* line 610, style.scss */
 .songsList H1 {
   font-size: 36px;
   font-weight: bold;
   padding: 10px;
 }
 
-/* line 553, style.scss */
+/* line 616, style.scss */
 .spacer:after {
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(192, 192, 192, 0)), color-stop(20%, rgba(192, 192, 192, 0.8)), color-stop(53%, #c0c0c0), color-stop(79%, rgba(192, 192, 192, 0.8)), color-stop(100%, rgba(192, 192, 192, 0)));
   background-image: -webkit-linear-gradient(left, rgba(192, 192, 192, 0) 0%, rgba(192, 192, 192, 0.8) 20%, #c0c0c0 53%, rgba(192, 192, 192, 0.8) 79%, rgba(192, 192, 192, 0) 100%);
@@ -763,7 +845,7 @@ img {
   width: 100%;
 }
 
-/* line 562, style.scss */
+/* line 625, style.scss */
 .tooltip {
   background: #FFFBCF;
   border: 1px solid #EFE795;
@@ -786,7 +868,7 @@ img {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 white;
 }
 
-/* line 580, style.scss */
+/* line 643, style.scss */
 .tooltip span {
   background: #FFFBCF;
   border: 0;
@@ -806,33 +888,33 @@ img {
   width: 10px;
 }
 
-/* line 595, style.scss */
+/* line 658, style.scss */
 .users .dialog {
   width: 400px;
 }
 
-/* line 599, style.scss */
+/* line 662, style.scss */
 .users .dialog {
   width: 400px;
 }
 
-/* line 603, style.scss */
+/* line 666, style.scss */
 .users .dialog input[type=text], .users .dialog input[type="password"] {
   width: 200px;
 }
 
-/* line 607, style.scss */
+/* line 670, style.scss */
 a {
   color: #f78d1d;
   text-decoration: none;
 }
 
-/* line 612, style.scss */
+/* line 675, style.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 616, style.scss */
+/* line 679, style.scss */
 body {
   background: url("../images/bg_smaller.jpg") bottom right no-repeat;
   background-attachment: fixed;
@@ -844,7 +926,7 @@ body {
   font-family: "Ropa Sans";
 }
 
-/* line 627, style.scss */
+/* line 690, style.scss */
 div > .tooltip, li > .tooltip, a > .tooltip, span > .tooltip {
   margin-left: -65px;
   margin-top: -10px;
@@ -859,13 +941,13 @@ div > .tooltip, li > .tooltip, a > .tooltip, span > .tooltip {
   -moz-transition-duration: 0.5s, 0.3s, 0.5s, 0.3s;
   -o-transition-duration: 0.5s, 0.3s, 0.5s, 0.3s;
   transition-duration: 0.5s, 0.3s, 0.5s, 0.3s;
-  -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-ou;
-  -moz-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-ou;
-  -o-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-ou;
-  transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-ou;
+  -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+  -moz-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+  -o-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
 }
 
-/* line 638, style.scss */
+/* line 701, style.scss */
 div:hover > .tooltip, li:hover > .tooltip, a:hover > .tooltip, span:hover > .tooltip,
 a .tooltip:hover, span .tooltip:hover, li .tooltip:hover, div .tooltip:hover {
   display: inline;
@@ -883,19 +965,13 @@ a .tooltip:hover, span .tooltip:hover, li .tooltip:hover, div .tooltip:hover {
   -moz-transition-duration: 0.5s, 0.3s, 0.5s, 0.3s;
   -o-transition-duration: 0.5s, 0.3s, 0.5s, 0.3s;
   transition-duration: 0.5s, 0.3s, 0.5s, 0.3s;
-  -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-ou;
-  -moz-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-ou;
-  -o-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-ou;
-  transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-ou;
+  -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+  -moz-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+  -o-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
 }
 
-/* line 650, style.scss */
-footer {
-  clear: both;
-  line-height: 48px;
-}
-
-/* line 655, style.scss */
+/* line 713, style.scss */
 footer, header {
   background-color: rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 0 -6px black;
@@ -910,66 +986,84 @@ footer, header {
   z-index: 100;
 }
 
-/* line 671, style.scss */
+/* line 729, style.scss */
 header .menuNav {
   display: inline-block;
   line-height: 48px;
   list-style: none;
   position: absolute;
   right: 20px;
+  top: 7px;
   vertical-align: middle;
 }
-/* line 680, style.scss */
+/* line 738, style.scss */
 header .menuNav li {
   display: inline-block;
   line-height: 32px;
   border-radius: 7px;
   color: #000000;
-  padding: 3px 10px;
+  padding: 3px 7px;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  margin: 0 15px;
 }
-/* line 688, style.scss */
+/* line 750, style.scss */
+header .menuNav li img {
+  height: 48px;
+}
+/* line 754, style.scss */
 header .menuNav li.spacer {
   width: 3px;
   background-color: rgba(255, 255, 255, 0.25);
 }
-/* line 693, style.scss */
-header .menuNav li.user {
+/* line 759, style.scss */
+header .menuNav li.user, header .menuNav li.user:hover {
   border-radius: 15px;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(25%, #f6e6b4), color-stop(50%, #ed9017), color-stop(100%, #f6e6b4));
-  background-image: -webkit-linear-gradient(top, #f6e6b4 25%, #ed9017 50%, #f6e6b4 100%);
-  background-image: -moz-linear-gradient(top, #f6e6b4 25%, #ed9017 50%, #f6e6b4 100%);
-  background-image: -o-linear-gradient(top, #f6e6b4 25%, #ed9017 50%, #f6e6b4 100%);
-  background-image: linear-gradient(top, #f6e6b4 25%, #ed9017 50%, #f6e6b4 100%);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
 }
-/* line 698, style.scss */
-header .menuNav li.user:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(25%, #ed9017), color-stop(50%, #f6e6b4), color-stop(100%, #ed9017));
-  background-image: -webkit-linear-gradient(top, #ed9017 25%, #f6e6b4 50%, #ed9017 100%);
-  background-image: -moz-linear-gradient(top, #ed9017 25%, #f6e6b4 50%, #ed9017 100%);
-  background-image: -o-linear-gradient(top, #ed9017 25%, #f6e6b4 50%, #ed9017 100%);
-  background-image: linear-gradient(top, #ed9017 25%, #f6e6b4 50%, #ed9017 100%);
-}
-/* line 703, style.scss */
+/* line 765, style.scss */
 header .menuNav li:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(25%, #ed9017), color-stop(75%, #f6e6b4));
-  background-image: -webkit-linear-gradient(top, #ed9017 25%, #f6e6b4 75%);
-  background-image: -moz-linear-gradient(top, #ed9017 25%, #f6e6b4 75%);
-  background-image: -o-linear-gradient(top, #ed9017 25%, #f6e6b4 75%);
-  background-image: linear-gradient(top, #ed9017 25%, #f6e6b4 75%);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.5);
+  box-shadow: 1px 1px 50px black;
   border-radius: 15px;
   cursor: pointer;
 }
-/* line 710, style.scss */
+/* line 772, style.scss */
 header .menuNav li a {
   color: rgba(255, 255, 0, 0.9);
 }
-/* line 714, style.scss */
+/* line 776, style.scss */
 header .menuNav li:hover a {
   text-decoration: none;
 }
 
-/* line 720, style.scss */
+/* line 783, style.scss */
+footer {
+  clear: both;
+  line-height: 48px;
+  position: relative;
+  margin-top: -68px;
+}
+
+/* line 790, style.scss */
 html {
   font-family: 'Ropa Sans', sans-serif;
   height: 100%;
@@ -978,14 +1072,14 @@ html {
   width: 100%;
 }
 
-/* line 728, style.scss */
+/* line 798, style.scss */
 input[type="range"] {
   background-color: black;
   height: 2px;
   -webkit-appearance: none;
 }
 
-/* line 734, style.scss */
+/* line 804, style.scss */
 input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-slider-thumb {
   background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #ebf1f6), color-stop(50%, #abd3ee), color-stop(51%, #89c3eb), color-stop(100%, #d5ebfb));
   background-image: -webkit-linear-gradient(left top, #ebf1f6 0%, #abd3ee 50%, #89c3eb 51%, #d5ebfb 100%);

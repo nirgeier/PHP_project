@@ -74,8 +74,8 @@
             </form>
         </div>
     </div>
-    <?php include 'footer.php' ?>
 </div>
+<?php include 'footer.php' ?>
 
 <script src="../js/polyfills.js"></script>
 <script src="../js/Moood.js"></script>

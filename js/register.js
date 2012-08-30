@@ -21,7 +21,7 @@
 
             $$('.ajaxLoader').classList.remove('hidden');
 
-            Moood.ajax('/src/helpers/fetch_gravatar.php?email=' + email.value,
+            Moood.ajax('../src/Moood/helpers/fetch_gravatar.php?email=' + email.value,
                 function (info) {
 
                     var details;
@@ -67,7 +67,7 @@
     function checkUserName() {
         clearTimeout(timer);
 
-        Moood.ajax('/src/helpers/check_user.php?action=username&username=' + username.value,
+        Moood.ajax('../src/Moood/helpers/check_user.php?action=username&username=' + username.value,
             function (reply) {
                 var data = reply && JSON.parse(reply);
 
@@ -96,7 +96,7 @@
     function checkEmail() {
         clearTimeout(timer);
 
-        Moood.ajax('/src/helpers/check_user.php?action=email&email=' + email.value,
+        Moood.ajax('../src/Moood/helpers/check_user.php?action=email&email=' + email.value,
             function (reply) {
                 var data = reply && JSON.parse(reply);
 

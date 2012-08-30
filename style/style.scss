@@ -1,5 +1,6 @@
 @import "compass/css3";
 @import "compass/reset";
+@import "compass/css3/user-interface";
 
 * {
   margin: 0;
@@ -81,11 +82,6 @@ img {
 .backoffice .dialog img {
   height: 24px;
   width: 24px;
-}
-
-.backoffice .dialog img.adminImg {
-  height: 16px;
-  width: 16px;
 }
 
 .data_table {
@@ -273,7 +269,10 @@ img {
 
   h1 img {
     padding: 0 10px;
+    width: 48px;
+    height: 48px;
   }
+
   .label {
     width: 105px;
   }
@@ -324,23 +323,90 @@ img {
     vertical-align: top;
   }
 
-  .playlistEntry {
-    width: 960px;
+}
+
+.playlistEntry {
+  width: 960px;
+
+  iframe {
+    vertical-align: top;
+    box-shadow: 1px 1px 10px black, -1px -1px 5px black;
   }
 
+  p {
+    display: inline-block;
+    width: 475px;
+    overflow: hidden;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
+  }
+
+  summary {
+    color: rgb(247, 141, 29);
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 1px 1px 25px black;
+  }
+
+  .playlist_dropdown {
+    padding: 5px;
+    line-height: 32px;
+    vertical-align: middle;
+
+    label {
+      font-size: 20px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 1), 2px 2px 1px rgba(0, 0, 0, 1), 3px 3px 1px rgba(0, 0, 0, 1);
+      color: rgba(0, 255, 0, 1);
+    }
+
+  }
+
+  .noPlaylist {
+    margin: 5px 0;
+    padding: 5px;
+    color: #ffdead;
+    outline: 1px solid #ffdead;
+  }
+  select {
+    background: rgba(192, 192, 192, 0.75) top right url('../images/select_down.png') no-repeat;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0 25px 0 0;
+    vertical-align: middle;
+    line-height: 16px;
+    height: 28px;
+    border-radius: 13px;
+    width: 150px;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+  }
+
+  select:hover {
+    color: rgba(0, 0, 0, 1);
+  }
 }
 
 .dialog.search {
   height: 120px;
   border-radius: 25px 0 25px 25px;
+}
 
-  .close {
-    cursor: pointer;
-    position: absolute;
-    right: -9px;
-    top: -9px;
-  }
+.dialog .close {
+  cursor: pointer;
+  position: absolute;
+  right: -9px;
+  top: -9px;
+}
 
+fieldset {
+  padding: 0 5px 7px 5px;
+  border: 1px solid rgba(24, 24, 24, 0.75);
+  border-radius: 10px;
+}
+
+legend {
+  padding: 3px;
 }
 
 .dialogWrapper {
@@ -355,10 +421,7 @@ img {
 
   @include transform-origin(0px -30px);
 
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
+  @include transform(scale(1));
 
   -webkit-transition: -webkit-transform ease-out .35s, all ease-out .4s;
   -moz-transition: -moz-transform ease-out .35s, all ease-out .4s;
@@ -374,12 +437,14 @@ img {
   padding: 0;
   height: 0;
 
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  transform: scale(0);
+  @include transform(scale(0));
 
+}
+
+.dialog.playlist {
+  height: 120px;
+  border-radius: 25px 0 25px 25px;
+  text-align: center;
 }
 
 .error {
@@ -463,25 +528,10 @@ img {
 }
 
 .pageContent {
-  height: 100%;
+  height: auto;
   margin: 0 auto -64px;
   min-height: 100%;
   z-index: 100;
-}
-
-.playlistEntry iframe {
-  padding: 0 0 0 20px;
-  vertical-align: top;
-}
-
-.playlistEntry p {
-  display: inline-block;
-  width: 450px;
-}
-
-.playlistEntry summary {
-  color: rgb(237, 166, 52);
-  font-weight: bold;
 }
 
 .rangeValue {
@@ -506,6 +556,19 @@ img {
   line-height: 25px;
   padding: 0 5px 0 0;
   vertical-align: middle;
+}
+
+#playlistsContent {
+  .data_table tbody tr {
+    @include transition-property(all);
+    @include transition-duration(0.25s);
+    @include transition-timing-function(ease-in-out);
+  }
+
+  .data_table tbody tr:hover {
+    @include transform(scale(1.05));
+  }
+
 }
 
 .searchToggle {
@@ -631,7 +694,7 @@ div > .tooltip, li > .tooltip, a > .tooltip, span > .tooltip {
   visibility: hidden;
   @include transition-property(opacity, margin-top, visibility, margin-left);
   @include transition-duration(0.5s, 0.3s, 0.5s, 0.3s);
-  @include transition-timing-function(ease-in-out, ease-in-out, ease-in-out, ease-in-ou);
+  @include transition-timing-function(ease-in-out, ease-in-out, ease-in-out, ease-in-out);
 }
 
 div:hover > .tooltip, li:hover > .tooltip, a:hover > .tooltip, span:hover > .tooltip,
@@ -644,12 +707,7 @@ a .tooltip:hover, span .tooltip:hover, li .tooltip:hover, div .tooltip:hover {
   visibility: visible;
   @include transition-property(opacity, margin-top, visibility, margin-left);
   @include transition-duration(0.5s, 0.3s, 0.5s, 0.3s);
-  @include transition-timing-function(ease-in-out, ease-in-out, ease-in-out, ease-in-ou);
-}
-
-footer {
-  clear: both;
-  line-height: 48px;
+  @include transition-timing-function(ease-in-out, ease-in-out, ease-in-out, ease-in-out);
 }
 
 footer, header {
@@ -674,47 +732,59 @@ header {
     list-style: none;
     position: absolute;
     right: 20px;
+    top: 7px;
     vertical-align: middle;
+
+    li {
+      display: inline-block;
+      line-height: 32px;
+      border-radius: 7px;
+      color: #000000;
+      padding: 3px 7px;
+      @include transition-property(all);
+      @include transition-duration(0.2s);
+      @include transition-timing-function(ease-in-out);
+      margin: 0 15px;
+    }
+
+    li img {
+      height: 48px;
+    }
+
+    li.spacer {
+      width: 3px;
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    li.user, li.user:hover {
+      border-radius: 15px;
+      @include transform(scale(1));
+
+    }
+
+    li:hover {
+      @include transform(scale(1.5));
+      box-shadow: 1px 1px 50px rgba(0, 0, 0, 1);
+      border-radius: 15px;
+      cursor: pointer;
+    }
+
+    li a {
+      color: rgba(255, 255, 0, 0.9)
+    }
+
+    li:hover a {
+      text-decoration: none;
+    }
   }
 
-  .menuNav li {
-    display: inline-block;
-    line-height: 32px;
-    border-radius: 7px;
-    color: #000000;
-    padding: 3px 10px;
-  }
+}
 
-  .menuNav li.spacer {
-    width: 3px;
-    background-color: rgba(255, 255, 255, 0.25);
-  }
-
-  .menuNav li.user {
-    border-radius: 15px;
-    @include background-image(linear-gradient(top, rgb(246, 230, 180) 25%, rgb(237, 144, 23) 50%, rgb(246, 230, 180) 100%));
-  }
-
-  .menuNav li.user:hover {
-    @include background-image(linear-gradient(top, rgb(237, 144, 23) 25%, rgb(246, 230, 180) 50%, rgb(237, 144, 23) 100%));
-
-  }
-
-  .menuNav li:hover {
-    @include background-image(linear-gradient(top, rgb(237, 144, 23) 25%, rgb(246, 230, 180) 75%));
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
-    border-radius: 15px;
-    cursor: pointer;
-  }
-
-  .menuNav li a {
-    color: rgba(255, 255, 0, 0.9)
-  }
-
-  .menuNav li:hover a {
-    text-decoration: none;
-  }
-
+footer {
+  clear: both;
+  line-height: 48px;
+  position: relative;
+  margin-top: -68px;
 }
 
 html {
@@ -743,5 +813,3 @@ input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-slider-thum
   width: 13px;
   z-index: 1;
 }
-
-

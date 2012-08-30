@@ -24,6 +24,15 @@
                     case 'load':
                         $this->loadUserPlaylists();
                         break;
+                    case 'add':
+                        $this->addPlaylist();
+                        break;
+                    case 'delete':
+                        $this->deletePlaylist();
+                        break;
+                    case 'addSong':
+                        $this->addSong();
+                        break;
                 }
             }
         }
@@ -72,7 +81,7 @@
                     'title' => $title,
                     'content' => $content,
                     'href' => $videoURL,
-                    'videoId' => $videoId
+                    'videoId' => $videoId,
                 ));
 
             }
@@ -82,8 +91,45 @@
 
         }
 
-        public function loadUserPlaylists() {
+        /**
+         * This function will add new playlist to the database
+         */
+        public function addPlaylist() {
+
+            $this->dbLayer->executeQuery('playlists.add', array(
+                ':user_id' => $_SESSION['userId'],
+                ':name' => Utils::getParam("name")
+            ));
+
+            $user = $_SESSION['user'];
+            $user->reload();
         }
+
+        /**
+         * This function will add new playlist to the database
+         */
+        public function deletePlaylist() {
+
+            $this->dbLayer->executeQuery('playlists.delete', array(
+                ':user_id' => $_SESSION['userId'],
+                ':p_id' => Utils::getParam("pId")
+            ));
+
+            $user = $_SESSION['user'];
+            $user->reload();
+        }
+
+        public function addSong() {
+
+            print_r('Here...');
+            $this->dbLayer->executeQuery('playlists.add.song', array(
+                ':url' => Utils::getParam("url"),
+                ':p_id' => Utils::getParam("pId")
+            ));
+
+        }
+
+
     }
 
 
