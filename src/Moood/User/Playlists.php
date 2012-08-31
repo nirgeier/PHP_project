@@ -6,11 +6,8 @@
 
     class Playlists {
 
-        private $dbLayer;
-
         // CTOR
         public function __construct() {
-            $this->dbLayer = DBLayer::getInstance();
 
             // Get the action that we wish to execute
             // We use the isset so we will not see notice message
@@ -21,9 +18,6 @@
                     case 'search':
                         $this->searchYouTube();
                         break;
-                    case 'load':
-                        $this->loadUserPlaylists();
-                        break;
                     case 'add':
                         $this->addPlaylist();
                         break;
@@ -32,6 +26,9 @@
                         break;
                     case 'addSong':
                         $this->addSong();
+                        break;
+                    case 'songs_list':
+                        $this->loadSongs();
                         break;
                 }
             }
@@ -96,7 +93,9 @@
          */
         public function addPlaylist() {
 
-            $this->dbLayer->executeQuery('playlists.add', array(
+            $dbLayer = DBLayer::getInstance();
+
+            $dbLayer->executeQuery('playlists.add', array(
                 ':user_id' => $_SESSION['userId'],
                 ':name' => Utils::getParam("name")
             ));
@@ -110,7 +109,9 @@
          */
         public function deletePlaylist() {
 
-            $this->dbLayer->executeQuery('playlists.delete', array(
+            $dbLayer = DBLayer::getInstance();
+
+            $dbLayer->executeQuery('playlists.delete', array(
                 ':user_id' => $_SESSION['userId'],
                 ':p_id' => Utils::getParam("pId")
             ));
@@ -121,14 +122,26 @@
 
         public function addSong() {
 
-            print_r('Here...');
-            $this->dbLayer->executeQuery('playlists.add.song', array(
-                ':url' => Utils::getParam("url"),
-                ':p_id' => Utils::getParam("pId")
-            ));
+            $dbLayer = DBLayer::getInstance();
 
+            $dbLayer->executeQuery('playlists.add.song', array(
+                ':videoId' => Utils::getParam("id"),
+                ':pId' => Utils::getParam("pId"),
+                ':title' => Utils::getParam("title"),
+            ));
         }
 
+        public function loadSongs() {
+            $dbLayer = DBLayer::getInstance();
+
+            $data = $dbLayer->executeQuery('playlists.songs', array(
+                ':pId' => Utils::getParam("pId")
+            ));
+
+            if ($data) {
+                $_REQUEST['songs'] = $data;
+            }
+        }
 
     }
 

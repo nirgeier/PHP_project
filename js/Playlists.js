@@ -19,6 +19,9 @@ var Moood = Moood || {};
          * Init the specific playlist form
          */
         init:function () {
+
+            moood.initForm();
+
             // Listen to click on the close button + the toggle link
             $$('.close').onclick = $$('.playlistToggle').onclick = this.toggleDialog;
 
@@ -32,7 +35,9 @@ var Moood = Moood || {};
 
             moood.bindEvents('[data-delete]', 'onclick', this.deletePlaylist);
             moood.bindEvents('[data-search]', 'onclick', this.redirectToSearch);
+            moood.bindEvents('[data-play]', 'onclick', this.showSongs);
 
+            moood.bindEvents('#name', 'onkeyup', moood.submitForm);
         },
 
         /**
@@ -65,12 +70,25 @@ var Moood = Moood || {};
             Moood.ajax('../pages/utils/playlist_content.php?action=delete&pId=' + pId,
                 function (reply) {
                     $('playlistsContent').innerHTML = reply;
+                    $('songsContent').innerHTML = '';
                     moood.Playlists.attachEvents();
                 });
         },
 
         redirectToSearch:function () {
             window.location.href = '/pages/youtube_search.php';
+        },
+
+        showSongs:function (e) {
+            // grab the button that was clicked
+            var src = e.srcElement || e.target,
+                pId = src.dataset['play'],
+                name = src.dataset['name'];
+
+            Moood.ajax('../pages/utils/songs_list.php?action=songs_list&pId=' + pId + '&name=' + name,
+                function (reply) {
+                    $('songsContent').innerHTML = reply;
+                });
         }
 
     };

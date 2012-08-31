@@ -33,7 +33,7 @@
                     <input id="name" name="name" type="text" value=""/>
 
                     <div class="buttons">
-                        <span class="button orange" id="buttonAdd">Add</span>
+                        <span class="button orange" id="buttonAdd" data-action="add" >Add</span>
                     </div>
 
                 </fieldset>
@@ -44,6 +44,7 @@
             <? include 'utils\playlist_content.php'; ?>
         </div>
 
+        <div id="songsContent"></div>
     </div>
 </div>
 <?php include 'footer.php' ?>

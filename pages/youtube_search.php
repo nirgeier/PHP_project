@@ -9,8 +9,6 @@
     $playlists = new Playlists();
     $songs = isset($_REQUEST['songs']) ? $_REQUEST['songs'] : null;
 
-    $dialogClass = isset($songs) ? 'closed' : '';
-
 ?>
 <!DOCTYPE html >
 <html>
@@ -28,10 +26,11 @@
 
     <div class="main">
 
-        <a href="#" class="searchToggle">Show Search dialog</a>
+        <div class="searchToggle hidden">
+            <a href="#">Show Search dialog</a>
+        </div>
 
-        <div class="spacer"></div>
-        <div class="dialogWrapper <?=$dialogClass?>">
+        <div class="dialogWrapper">
             <div class="dialog search">
 
                 <img class="close" src="../images/close.png">
@@ -40,7 +39,7 @@
                     <img src="../images/search.png">Search Music
                 </h1>
 
-                <form method="POST">
+                <form method="POST" onsubmit="return false;">
                     <input type="hidden" name="action" id="action">
 
                     <label class="label" for="query">Search for: </label>
@@ -67,8 +66,10 @@
             <br/>
         </div>
 
+        <div class="spacer"></div>
+
         <div class="songsList">
-            <?php include 'utils\songs_list.php' ?>
+            <?php include 'utils\songs_results.php' ?>
         </div>
     </div>
 </div>

@@ -65,6 +65,7 @@
                         echo '<td class="center">';
                         echo '<img src="../images/trash_delete.png" title="delete" data-delete="' . $record[$key] . '">';
                         echo '&nbsp;<img src="../images/list_add.png" title="Search for more" data-search="" width="24px">';
+                        echo '&nbsp;<img src="../images/play_songs.png" title="Play songs" data-play="' . $record[$key] . '" data-name="' . $record['Name'] . '" width="24px">';
                         echo '</td>';
                         break;
                     default:

@@ -93,9 +93,23 @@ function $$(selector) {
                 item[event] = callback;
             });
 
+        },
+
+        /**
+         * This method will check for ENTER key for submitting the form
+         * @param e
+         */
+        submitForm:function (e) {
+
+            var keyCode = 0;
+            e = (window.event) ? event : e;
+            keyCode = (e.keyCode) ? e.keyCode : e.charCode;
+
+            if (keyCode == "13") {
+                document.querySelector('[data-action]').click();
+            }
+
         }
-
-
     };
 
     // Publish Moood object.

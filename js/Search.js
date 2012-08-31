@@ -37,6 +37,8 @@ var Moood = Moood || {};
             // Attach the add to playlist enent
             moood.bindEvents('.playlists_list', 'onchange', this.addSong);
 
+            moood.bindEvents('#query', 'onkeyup', moood.submitForm);
+
         },
 
         /**
@@ -54,11 +56,21 @@ var Moood = Moood || {};
         addSong:function (e) {
             // grab the button that was clicked
             var src = e.srcElement || e.target,
-                url = src.dataset['url'];
+                videoId = src.dataset['vid'],
+                title = src.dataset['title'],
+                url = [],
+                html = '<br/>Song was successfully added to: ';
 
-            Moood.ajax('../pages/utils/song_add.php?action=addSong&pId=' + src.value + '&url=' + encodeURIComponent(url),
+
+            url.push('../pages/utils/song_add.php');
+            url.push('?action=addSong');
+            url.push('&pId=' + src.value);
+            url.push('&id=' + encodeURIComponent(videoId));
+            url.push('&title=' + encodeURIComponent(title));
+
+            Moood.ajax(url.join(''),
                 function (reply) {
-
+                    $('message_' + videoId).innerHTML = html + src[src.selectedIndex].text + '<br/>';
                 });
 
         }

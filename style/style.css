@@ -480,53 +480,56 @@ img {
 }
 
 /* line 328, style.scss */
-.playlistEntry {
+.playlistEntry, .playlistSongs {
   width: 960px;
 }
 /* line 331, style.scss */
-.playlistEntry iframe {
+.playlistEntry iframe, .playlistSongs iframe {
+  margin: 20px 0 0 0;
   vertical-align: top;
   box-shadow: 1px 1px 10px black, -1px -1px 5px black;
 }
-/* line 336, style.scss */
-.playlistEntry p {
+/* line 337, style.scss */
+.playlistEntry p, .playlistSongs p {
   display: inline-block;
   width: 475px;
   overflow: hidden;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
 }
-/* line 343, style.scss */
-.playlistEntry summary {
+/* line 344, style.scss */
+.playlistEntry summary, .playlistSongs summary {
   color: #f78d1d;
   font-weight: bold;
   font-size: 18px;
-  text-shadow: 1px 1px 25px black;
+  text-shadow: 1px 1px 2px black;
+  outline: none;
+  cursor: pointer;
 }
-/* line 350, style.scss */
-.playlistEntry .playlist_dropdown {
+/* line 353, style.scss */
+.playlistEntry .playlist_dropdown, .playlistSongs .playlist_dropdown {
   padding: 5px;
   line-height: 32px;
   vertical-align: middle;
 }
-/* line 355, style.scss */
-.playlistEntry .playlist_dropdown label {
+/* line 358, style.scss */
+.playlistEntry .playlist_dropdown label, .playlistSongs .playlist_dropdown label {
   font-size: 20px;
   text-shadow: 1px 1px 1px black, 2px 2px 1px black, 3px 3px 1px black;
   color: lime;
 }
-/* line 363, style.scss */
-.playlistEntry .noPlaylist {
+/* line 366, style.scss */
+.playlistEntry .noPlaylist, .playlistSongs .noPlaylist {
   margin: 5px 0;
   padding: 5px;
   color: #ffdead;
   outline: 1px solid #ffdead;
 }
-/* line 369, style.scss */
-.playlistEntry select {
+/* line 372, style.scss */
+.playlistEntry select, .playlistSongs select {
   background: rgba(192, 192, 192, 0.75) top right url("../images/select_down.png") no-repeat;
   -webkit-appearance: none;
   -moz-appearance: none;
-  padding: 0 25px 0 0;
+  padding: 0 25px 0 10px;
   vertical-align: middle;
   line-height: 16px;
   height: 28px;
@@ -537,18 +540,29 @@ img {
   font-weight: bold;
   box-shadow: 2px 2px 2px black;
 }
-/* line 385, style.scss */
-.playlistEntry select:hover {
+/* line 388, style.scss */
+.playlistEntry select:hover, .playlistSongs select:hover {
   color: black;
 }
 
-/* line 390, style.scss */
+/* line 393, style.scss */
+.playlistSongs {
+  width: 920px !important;
+  box-shadow: 5px 5px 100px #181818 inset !important;
+}
+
+/* line 398, style.scss */
+.playlistSongs:hover {
+  box-shadow: 3px 3px 15px silver inset !important;
+}
+
+/* line 402, style.scss */
 .dialog.search {
   height: 120px;
   border-radius: 25px 0 25px 25px;
 }
 
-/* line 395, style.scss */
+/* line 407, style.scss */
 .dialog .close {
   cursor: pointer;
   position: absolute;
@@ -556,19 +570,19 @@ img {
   top: -9px;
 }
 
-/* line 402, style.scss */
+/* line 414, style.scss */
 fieldset {
   padding: 0 5px 7px 5px;
   border: 1px solid rgba(24, 24, 24, 0.75);
   border-radius: 10px;
 }
 
-/* line 408, style.scss */
+/* line 420, style.scss */
 legend {
   padding: 3px;
 }
 
-/* line 412, style.scss */
+/* line 424, style.scss */
 .dialogWrapper {
   -webkit-backface-visibility: hidden;
   -moz-background-clip: padding;
@@ -593,7 +607,7 @@ legend {
   transition: -o-transform ease-out .35s, all ease-out .4s;
 }
 
-/* line 434, style.scss */
+/* line 446, style.scss */
 .dialogWrapper.closed {
   margin: 0;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -607,14 +621,14 @@ legend {
   transform: scale(0);
 }
 
-/* line 444, style.scss */
+/* line 456, style.scss */
 .dialog.playlist {
   height: 120px;
   border-radius: 25px 0 25px 25px;
   text-align: center;
 }
 
-/* line 450, style.scss */
+/* line 462, style.scss */
 .error {
   background-color: #1e2026;
   border-radius: 5px;
@@ -626,18 +640,18 @@ legend {
   text-shadow: 1px 1px 1px rgba(0, 0, 51, 0.25);
 }
 
-/* line 461, style.scss */
+/* line 473, style.scss */
 .hidden {
   display: none !important;
 }
 
-/* line 465, style.scss */
+/* line 477, style.scss */
 .highlight a {
   color: #000000;
   text-decoration: none;
 }
 
-/* line 470, style.scss */
+/* line 482, style.scss */
 .inline_error {
   color: yellow;
   font-family: 'Coming Soon', cursive;
@@ -647,21 +661,54 @@ legend {
   padding: 0 0 2px 0;
 }
 
-/* line 479, style.scss */
+/* line 491, style.scss */
 .login .buttons {
   margin: 0 0 0 -22px;
   text-align: right;
 }
 
-/* line 484, style.scss */
-.logo {
-  background: url("../images/logo_48.png") top center no-repeat;
+/* line 496, style.scss */
+.logo, .admin {
   display: inline-block;
   height: 48px;
   width: 48px;
 }
 
-/* line 491, style.scss */
+/* line 502, style.scss */
+.logo {
+  background: url("../images/logo_48.png") top center no-repeat;
+}
+
+/* line 506, style.scss */
+.admin {
+  background: url("../images/security_camera.png") top center no-repeat;
+  background-size: 100% 100%;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  margin: 0 0 0 50px;
+  cursor: pointer;
+}
+
+/* line 516, style.scss */
+.admin:hover {
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  -o-transform: scale(2);
+  transform: scale(2);
+}
+
+/* line 520, style.scss */
 .main {
   display: table;
   margin: 0 auto;
@@ -672,14 +719,14 @@ legend {
   text-align: center;
 }
 
-/* line 501, style.scss */
+/* line 530, style.scss */
 .main:before {
   content: '';
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 507, style.scss */
+/* line 536, style.scss */
 .orange {
   background: #f78d1d;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #faa51a), color-stop(100%, #f47a20));
@@ -694,7 +741,7 @@ legend {
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* line 518, style.scss */
+/* line 547, style.scss */
 .orange:active {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f47a20), color-stop(100%, #faa51a));
   background-image: -webkit-linear-gradient(top, #f47a20, #faa51a);
@@ -704,7 +751,7 @@ legend {
   color: #fcd3a5;
 }
 
-/* line 523, style.scss */
+/* line 552, style.scss */
 .orange:hover {
   background: #f47c20;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f88e11), color-stop(100%, #f06015));
@@ -716,7 +763,7 @@ legend {
   text-shadow: -1px -1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* line 530, style.scss */
+/* line 559, style.scss */
 .pageContent {
   height: auto;
   margin: 0 auto -64px;
@@ -724,7 +771,7 @@ legend {
   z-index: 100;
 }
 
-/* line 537, style.scss */
+/* line 566, style.scss */
 .rangeValue {
   background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #222931), color-stop(100%, #181d21));
   background-image: -webkit-linear-gradient(left top, #222931, #181d21);
@@ -745,7 +792,7 @@ legend {
   width: 18px;
 }
 
-/* line 552, style.scss */
+/* line 581, style.scss */
 .required:before {
   color: red;
   content: "*";
@@ -755,7 +802,7 @@ legend {
   vertical-align: middle;
 }
 
-/* line 562, style.scss */
+/* line 591, style.scss */
 #playlistsContent .data_table tbody tr {
   -webkit-transition-property: all;
   -moz-transition-property: all;
@@ -770,7 +817,7 @@ legend {
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 568, style.scss */
+/* line 597, style.scss */
 #playlistsContent .data_table tbody tr:hover {
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
@@ -779,13 +826,13 @@ legend {
   transform: scale(1.05);
 }
 
-/* line 574, style.scss */
+/* line 603, style.scss */
 .searchToggle {
   color: yellow;
 }
 
-/* line 578, style.scss */
-.skew {
+/* line 607, style.scss */
+.skew, .skew_small {
   color: yellow;
   display: inline-block;
   font-family: 'Coming Soon', cursive;
@@ -800,7 +847,16 @@ legend {
   text-shadow: -1px 3px 10px black, 2px 2px 10px rgba(128, 129, 128, 0.75);
 }
 
-/* line 589, style.scss */
+/* line 618, style.scss */
+.skew_small {
+  font-size: 14px;
+  line-height: 14px;
+  display: block;
+  vertical-align: middle;
+  padding: 10px 0;
+}
+
+/* line 626, style.scss */
 .slider {
   display: inline-block;
   height: 20px;
@@ -809,7 +865,7 @@ legend {
   width: 205px;
 }
 
-/* line 597, style.scss */
+/* line 634, style.scss */
 .slider .bar {
   background-color: #da7c0c;
   border-radius: 10px;
@@ -819,19 +875,24 @@ legend {
   width: 175px;
 }
 
-/* line 606, style.scss */
+/* line 643, style.scss */
 .songsList {
   text-align: left;
 }
 
-/* line 610, style.scss */
-.songsList H1 {
+/* line 647, style.scss */
+.songsList h1, #songsContent h1 {
   font-size: 36px;
   font-weight: bold;
   padding: 10px;
 }
 
-/* line 616, style.scss */
+/* line 653, style.scss */
+#songsContent h1 {
+  text-align: left;
+}
+
+/* line 657, style.scss */
 .spacer:after {
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(192, 192, 192, 0)), color-stop(20%, rgba(192, 192, 192, 0.8)), color-stop(53%, #c0c0c0), color-stop(79%, rgba(192, 192, 192, 0.8)), color-stop(100%, rgba(192, 192, 192, 0)));
   background-image: -webkit-linear-gradient(left, rgba(192, 192, 192, 0) 0%, rgba(192, 192, 192, 0.8) 20%, #c0c0c0 53%, rgba(192, 192, 192, 0.8) 79%, rgba(192, 192, 192, 0) 100%);
@@ -845,7 +906,7 @@ legend {
   width: 100%;
 }
 
-/* line 625, style.scss */
+/* line 666, style.scss */
 .tooltip {
   background: #FFFBCF;
   border: 1px solid #EFE795;
@@ -868,7 +929,7 @@ legend {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 white;
 }
 
-/* line 643, style.scss */
+/* line 684, style.scss */
 .tooltip span {
   background: #FFFBCF;
   border: 0;
@@ -888,33 +949,33 @@ legend {
   width: 10px;
 }
 
-/* line 658, style.scss */
+/* line 699, style.scss */
 .users .dialog {
   width: 400px;
 }
 
-/* line 662, style.scss */
+/* line 703, style.scss */
 .users .dialog {
   width: 400px;
 }
 
-/* line 666, style.scss */
+/* line 707, style.scss */
 .users .dialog input[type=text], .users .dialog input[type="password"] {
   width: 200px;
 }
 
-/* line 670, style.scss */
+/* line 711, style.scss */
 a {
   color: #f78d1d;
   text-decoration: none;
 }
 
-/* line 675, style.scss */
+/* line 716, style.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 679, style.scss */
+/* line 720, style.scss */
 body {
   background: url("../images/bg_smaller.jpg") bottom right no-repeat;
   background-attachment: fixed;
@@ -926,7 +987,7 @@ body {
   font-family: "Ropa Sans";
 }
 
-/* line 690, style.scss */
+/* line 731, style.scss */
 div > .tooltip, li > .tooltip, a > .tooltip, span > .tooltip {
   margin-left: -65px;
   margin-top: -10px;
@@ -947,7 +1008,7 @@ div > .tooltip, li > .tooltip, a > .tooltip, span > .tooltip {
   transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
 }
 
-/* line 701, style.scss */
+/* line 742, style.scss */
 div:hover > .tooltip, li:hover > .tooltip, a:hover > .tooltip, span:hover > .tooltip,
 a .tooltip:hover, span .tooltip:hover, li .tooltip:hover, div .tooltip:hover {
   display: inline;
@@ -971,7 +1032,7 @@ a .tooltip:hover, span .tooltip:hover, li .tooltip:hover, div .tooltip:hover {
   transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
 }
 
-/* line 713, style.scss */
+/* line 754, style.scss */
 footer, header {
   background-color: rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 0 -6px black;
@@ -986,7 +1047,7 @@ footer, header {
   z-index: 100;
 }
 
-/* line 729, style.scss */
+/* line 770, style.scss */
 header .menuNav {
   display: inline-block;
   line-height: 48px;
@@ -996,7 +1057,7 @@ header .menuNav {
   top: 7px;
   vertical-align: middle;
 }
-/* line 738, style.scss */
+/* line 779, style.scss */
 header .menuNav li {
   display: inline-block;
   line-height: 32px;
@@ -1017,16 +1078,16 @@ header .menuNav li {
   transition-timing-function: ease-in-out;
   margin: 0 15px;
 }
-/* line 750, style.scss */
+/* line 791, style.scss */
 header .menuNav li img {
   height: 48px;
 }
-/* line 754, style.scss */
+/* line 795, style.scss */
 header .menuNav li.spacer {
   width: 3px;
   background-color: rgba(255, 255, 255, 0.25);
 }
-/* line 759, style.scss */
+/* line 800, style.scss */
 header .menuNav li.user, header .menuNav li.user:hover {
   border-radius: 15px;
   -webkit-transform: scale(1);
@@ -1035,7 +1096,7 @@ header .menuNav li.user, header .menuNav li.user:hover {
   -o-transform: scale(1);
   transform: scale(1);
 }
-/* line 765, style.scss */
+/* line 806, style.scss */
 header .menuNav li:hover {
   -webkit-transform: scale(1.5);
   -moz-transform: scale(1.5);
@@ -1046,16 +1107,16 @@ header .menuNav li:hover {
   border-radius: 15px;
   cursor: pointer;
 }
-/* line 772, style.scss */
+/* line 813, style.scss */
 header .menuNav li a {
   color: rgba(255, 255, 0, 0.9);
 }
-/* line 776, style.scss */
+/* line 817, style.scss */
 header .menuNav li:hover a {
   text-decoration: none;
 }
 
-/* line 783, style.scss */
+/* line 824, style.scss */
 footer {
   clear: both;
   line-height: 48px;
@@ -1063,7 +1124,7 @@ footer {
   margin-top: -68px;
 }
 
-/* line 790, style.scss */
+/* line 831, style.scss */
 html {
   font-family: 'Ropa Sans', sans-serif;
   height: 100%;
@@ -1072,14 +1133,14 @@ html {
   width: 100%;
 }
 
-/* line 798, style.scss */
+/* line 839, style.scss */
 input[type="range"] {
   background-color: black;
   height: 2px;
   -webkit-appearance: none;
 }
 
-/* line 804, style.scss */
+/* line 845, style.scss */
 input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-slider-thumb {
   background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #ebf1f6), color-stop(50%, #abd3ee), color-stop(51%, #89c3eb), color-stop(100%, #d5ebfb));
   background-image: -webkit-linear-gradient(left top, #ebf1f6 0%, #abd3ee 50%, #89c3eb 51%, #d5ebfb 100%);

@@ -12,14 +12,15 @@
         return;
     }
 ?>
-<div class="playlist_dropdown">
+<div class="playlist_dropdown" data-vid="<?= $song['videoId'] ?>">
     <label>Add to playlist:</label>
-    <select class="playlists_list" data-url="<?= $song['href'] ?>">
+    <select class="playlists_list" data-vid="<?= $song['videoId'] ?>" data-title="<?= $song['title'] ?>">
         <option>&nbsp;</option>
         <?
         foreach ($playlists as $item) {
             echo '<option value="' . $item['id'] . '">' . $item['name'];
         }
         ?>
-    </select><br/>
+    </select>
+    <div class="skew_small" id="message_<?= $song['videoId'] ?>"></div>
 </div>
