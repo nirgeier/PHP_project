@@ -1,6 +1,10 @@
 <?php
 
     namespace Moood;
+
+    use Moood\DBLayer;
+    use Moood\helpers\Utils;
+
     /**
      * @author  Nir Geier
      *
@@ -11,16 +15,12 @@
      */
     class Backoffice {
 
-        private $dbLayer;
-
         // CTOR
         public function __construct() {
 
             if (!isset($_SESSION)) {
                 session_start();
             }
-
-            $this->dbLayer = Moood_DBLayer::getInstance();
 
             // Get the action that we wish to execute
             // We use the isset so we will not see notice message
@@ -40,6 +40,9 @@
 
         public function login() {
 
+            $dbLayer = DBLayer::getInstance();
+
+
             // Get the form values
             $params = array(
                 ':username' => Utils::getParam('username'),
@@ -47,7 +50,7 @@
             );
 
             // Get the user details from DB
-            $userDetails = $this->dbLayer->executeQuery('backoffice.login', $params);
+            $userDetails = $dbLayer->executeQuery('backoffice.login', $params);
 
             if ($userDetails) {
                 $userDetails = $userDetails[0];
@@ -60,12 +63,13 @@
                 $_SESSION['user'] = $userDetails;
 
                 // We found the user login valid - redirect to the application page.
-                header("Location: /pages/backoffice/table_template.php?table_name=Users&queryId=backoffice.users");
+                header("Location: /views/backoffice/table_template.php?table_name=Users&queryId=backoffice.users");
             }
         }
 
         public function getData($queryId, $params = null) {
-            $data = $this->dbLayer->executeQuery($queryId, $params);
+            $dbLayer = DBLayer::getInstance();
+            $data = $dbLayer->executeQuery($queryId, $params);
 
             if (isset($_REQUEST['DBLayer.executeQuery.error'])) {
                 $_REQUEST['backoffice.error'] = $_REQUEST['DBLayer.executeQuery.error'][2];

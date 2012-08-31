@@ -15,11 +15,7 @@
          * @return null|string - The value of the param or null if not found
          */
         public static function getParam($name, $default = null) {
-            $value = isset($_POST[$name]) ? $_POST[$name] : $default;
-            if (!isset($value)) {
-                $value = isset($_GET[$name]) ? $_GET[$name] : $default;
-
-            }
+            $value = isset($_REQUEST[$name]) ? $_REQUEST[$name] : $default;
             return isset($value) ? htmlspecialchars($value) : $default;
         }
 

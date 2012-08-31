@@ -2,6 +2,7 @@
 
     namespace Moood;
     use PDO;
+    use Moood\helpers\Utils;
 
     /**
      * This class will be used as the DB manager.<br/>
@@ -21,43 +22,17 @@
         /**
          * Database connection instance
          *
-         * @static
          * @var pdo
          */
         private $pdo = '';
 
         /**
-         * Database user name
-         * @var String $username - The database username
-         */
-        private $username = '';
-
-        /**
-         * Database password
-         *
-         * @var String password
-         */
-        private $password = '';
-
-        /**
-         * Database host (ip/url)
-         *
-         * @var String host
-         */
-        private $hostname = '';
-
-        /**
-         * Load the Database queries
+         * Load the Database queries.
+         * All the queries defined in sql file: db/queries.sql
          *
          * @var String host
          */
         private $sql_queries;
-
-        /**
-         * Database/Schema name
-         * @var String $db_name
-         */
-        private $db_name = '';
 
         /**
          * Constructor
@@ -71,7 +46,6 @@
             }
 
         }
-
 
         private function initDB() {
             // Use the global project root. The global defined in the global.src file
@@ -103,13 +77,13 @@
 
                 if ($e->getCode() === 1049) {
                     echo 'Databse ' . $database . ' does not exist. creating new db';
-                    header('Location: /pages/create_db.php');
+                    header('Location: /views/create_db.php');
                 } else {
                     die("DB ERROR: " . $e->getMessage());
                 }
             } catch (Exception $e1) {
                 echo 'Databse ' . $database . ' does not exist. creating new db';
-                header('Location: /pages/create_db.php');
+                header('Location: /views/create_db.php');
             }
             if (!$this->pdo) {
                 die('Could not connect to database');
@@ -130,19 +104,27 @@
 
 
         /**
-         * This method will execute sql query
+         * This method will execute sql query.
+         *
+         * @param queryId - The query id to execute. if no value is given the method will seach for it as request param.
+         *
          * @return string
          */
         public function executeQuery($queryId = null, $params = null) {
 
             if (!isset($queryId)) {
-                $queryId = $_REQUEST['queryId'];
+                $queryId = Utils::getParam('queryId', null);
+                if (!isset($queryId)) {
+                    throw new Exception('Missing queryId');
+                }
             }
             // -----------------------------------------------------------------------------------
             // -- If no parameters are passed auto build the params from all the GET/POST pairs --
             // -----------------------------------------------------------------------------------
             if (!isset($params)) {
                 $params = array();
+
+                // We read the parameters form the request since it contains both get and post params
                 foreach ($_REQUEST as $key => $value) {
                     $params[':' . $key] = $value;
                 }
@@ -157,41 +139,14 @@
 
             // Check to see if we have error or not
             $error = $statment->errorInfo();
+
+            // Set the error message
             if ($error[0] > 0) {
                 $_REQUEST['DBLayer.executeQuery.error'] = $statment->errorInfo();
             }
+
+            // return all the rows
             return $statment->fetchAll();
         }
-
-
-        public function getUsername() {
-            return $this->username;
-        }
-
-        public function getPassword() {
-            return $this->password;
-        }
-
-        public function getHost() {
-            return $this->host;
-        }
-
-        public function getDbname() {
-            return $this->db_name;
-        }
-
-        public function getSqlQuery($queryId) {
-            return $this->sql_queries[$queryId];
-        }
-
-        public function __sleep() {
-            return array();
-        }
-
-        public function __wakeup() {
-
-        }
-
-
     }
 

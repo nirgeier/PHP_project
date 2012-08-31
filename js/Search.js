@@ -35,7 +35,7 @@ var Moood = Moood || {};
             $$('.close').onclick = $$('.searchToggle').onclick = this.toggleDialog;
 
             // Attach the add to playlist enent
-            moood.bindEvents('.playlists_list', 'onchange', this.addSong);
+            moood.bindEvents('.playlist_list', 'onchange', this.addSong);
 
             moood.bindEvents('#query', 'onkeyup', moood.submitForm);
 
@@ -62,7 +62,7 @@ var Moood = Moood || {};
                 html = '<br/>Song was successfully added to: ';
 
 
-            url.push('../pages/utils/song_add.php');
+            url.push('/views/songs/song_add.php');
             url.push('?action=addSong');
             url.push('&pId=' + src.value);
             url.push('&id=' + encodeURIComponent(videoId));
@@ -70,7 +70,7 @@ var Moood = Moood || {};
 
             Moood.ajax(url.join(''),
                 function (reply) {
-                    $('message_' + videoId).innerHTML = html + src[src.selectedIndex].text + '<br/>';
+                    $('message_' + videoId).innerHTML = html + src[src.selectedIndex].text + ' playlist<br/>';
                 });
 
         }

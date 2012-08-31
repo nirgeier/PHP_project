@@ -18,8 +18,8 @@
         // The user details information (Table users)
         private $userData;
 
-        // List of users playlists
-        private $playlists;
+        // List of users playlist
+        private $playlist;
 
         // CTOR
         public function __construct($userId) {
@@ -30,8 +30,8 @@
             // Load the user data
             $this->loadUser();
 
-            // Load user playlists
-            $this->loadPlaylists();
+            // Load user playlist
+            $this->loadPlaylist();
 
             return $this;
         }
@@ -52,35 +52,35 @@
             }
         }
 
-        private function loadPlaylists() {
+        private function loadPlaylist() {
             $dbLayer = DBLayer::getInstance();
 
-            $this->playlists = null;
+            $this->playlist = null;
 
-            // load the user playlists
-            $data = $dbLayer->executeQuery('users.playlists', array(':user_id' => $this->userId));
+            // load the user playlist
+            $data = $dbLayer->executeQuery('users.playlist', array(':user_id' => $this->userId));
 
             if ($data) {
                 // Clear prevoius data - if any
                 $items = array();
 
-                // Get all the playlists records
+                // Get all the playlist records
                 foreach ($data as $item) {
                     array_push($items, $item);
                 }
 
-                $this->playlists = $items;
+                $this->playlist = $items;
             }
 
         }
 
         public function reload() {
             $this->loadUser();
-            $this->loadPlaylists();
+            $this->loadPlaylist();
         }
 
-        public function getPlaylists() {
-            return $this->playlists;
+        public function getPlaylist() {
+            return $this->playlist;
         }
 
         public function getUserData() {

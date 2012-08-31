@@ -1,4 +1,4 @@
-(function () {
+!(function () {
 
     var valid,
         timer,
@@ -21,7 +21,7 @@
 
             $$('.ajaxLoader').classList.remove('hidden');
 
-            Moood.ajax('../src/Moood/helpers/fetch_gravatar.php?email=' + email.value,
+            Moood.ajax('/views/utils/fetch_gravatar.php?email=' + email.value,
                 function (info) {
 
                     var details;
@@ -67,7 +67,7 @@
     function checkUserName() {
         clearTimeout(timer);
 
-        Moood.ajax('../src/Moood/helpers/check_user.php?action=username&username=' + username.value,
+        Moood.ajax('/views/utils/check_user.php?action=username&username=' + username.value,
             function (reply) {
                 var data = reply && JSON.parse(reply);
 
@@ -75,10 +75,10 @@
                     username.classList.add('input_error');
                     $('username_error').innerHTML = data.error;
                     $('username_error').classList.remove('hidden');
-                    $('username_status').src = '../images/not_ok.png';
+                    $('username_status').src = '/images/not_ok.png';
                     $('username_status').classList.remove('hidden');
                 } else {
-                    $('username_status').src = '../images/ok.png';
+                    $('username_status').src = '/images/ok.png';
                     $('username_status').classList.remove('hidden');
                 }
             });
@@ -96,7 +96,7 @@
     function checkEmail() {
         clearTimeout(timer);
 
-        Moood.ajax('../src/Moood/helpers/check_user.php?action=email&email=' + email.value,
+        Moood.ajax('/views/utils/check_user.php?action=email&email=' + email.value,
             function (reply) {
                 var data = reply && JSON.parse(reply);
 
@@ -104,11 +104,11 @@
                     email.classList.add('input_error');
                     $('email_error').innerHTML = data.error;
                     $('email_error').classList.remove('hidden');
-                    $('email_status').src = '../images/not_ok.png';
+                    $('email_status').src = '/images/not_ok.png';
                     $('email_status').classList.remove('hidden');
 
                 } else {
-                    $('email_status').src = '../images/ok.png';
+                    $('email_status').src = '/images/ok.png';
                     $('email_status').classList.remove('hidden');
                 }
 

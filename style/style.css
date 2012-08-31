@@ -159,7 +159,7 @@ img {
 
 /* line 68, style.scss */
 .ajaxLoader {
-  background: url('/images/../images/ajax-loader.gif?1346097471');
+  background: url('/images/ajax-loader.gif?1346097471');
   height: 16px;
   left: 50%;
   margin: -8px -8px;
@@ -526,7 +526,7 @@ img {
 }
 /* line 372, style.scss */
 .playlistEntry select, .playlistSongs select {
-  background: rgba(192, 192, 192, 0.75) top right url("../images/select_down.png") no-repeat;
+  background: rgba(192, 192, 192, 0.75) top right url("/images/select_down.png") no-repeat;
   -webkit-appearance: none;
   -moz-appearance: none;
   padding: 0 25px 0 10px;
@@ -672,16 +672,17 @@ legend {
   display: inline-block;
   height: 48px;
   width: 48px;
+  vertical-align: top;
 }
 
-/* line 502, style.scss */
+/* line 503, style.scss */
 .logo {
-  background: url("../images/logo_48.png") top center no-repeat;
+  background: url("/images/logo_48.png") top center no-repeat;
 }
 
-/* line 506, style.scss */
+/* line 507, style.scss */
 .admin {
-  background: url("../images/security_camera.png") top center no-repeat;
+  background: url("/images/security_camera.png") top center no-repeat;
   background-size: 100% 100%;
   -webkit-transition-property: all;
   -moz-transition-property: all;
@@ -699,7 +700,7 @@ legend {
   cursor: pointer;
 }
 
-/* line 516, style.scss */
+/* line 517, style.scss */
 .admin:hover {
   -webkit-transform: scale(2);
   -moz-transform: scale(2);
@@ -708,7 +709,7 @@ legend {
   transform: scale(2);
 }
 
-/* line 520, style.scss */
+/* line 521, style.scss */
 .main {
   display: table;
   margin: 0 auto;
@@ -719,14 +720,14 @@ legend {
   text-align: center;
 }
 
-/* line 530, style.scss */
+/* line 531, style.scss */
 .main:before {
   content: '';
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 536, style.scss */
+/* line 537, style.scss */
 .orange {
   background: #f78d1d;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #faa51a), color-stop(100%, #f47a20));
@@ -741,7 +742,7 @@ legend {
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* line 547, style.scss */
+/* line 548, style.scss */
 .orange:active {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f47a20), color-stop(100%, #faa51a));
   background-image: -webkit-linear-gradient(top, #f47a20, #faa51a);
@@ -751,7 +752,7 @@ legend {
   color: #fcd3a5;
 }
 
-/* line 552, style.scss */
+/* line 553, style.scss */
 .orange:hover {
   background: #f47c20;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f88e11), color-stop(100%, #f06015));
@@ -763,7 +764,7 @@ legend {
   text-shadow: -1px -1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* line 559, style.scss */
+/* line 560, style.scss */
 .pageContent {
   height: auto;
   margin: 0 auto -64px;
@@ -771,7 +772,7 @@ legend {
   z-index: 100;
 }
 
-/* line 566, style.scss */
+/* line 567, style.scss */
 .rangeValue {
   background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #222931), color-stop(100%, #181d21));
   background-image: -webkit-linear-gradient(left top, #222931, #181d21);
@@ -792,7 +793,7 @@ legend {
   width: 18px;
 }
 
-/* line 581, style.scss */
+/* line 582, style.scss */
 .required:before {
   color: red;
   content: "*";
@@ -802,8 +803,8 @@ legend {
   vertical-align: middle;
 }
 
-/* line 591, style.scss */
-#playlistsContent .data_table tbody tr {
+/* line 592, style.scss */
+#playlistContent .data_table tbody tr {
   -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -817,8 +818,8 @@ legend {
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 597, style.scss */
-#playlistsContent .data_table tbody tr:hover {
+/* line 598, style.scss */
+#playlistContent .data_table tbody tr:hover {
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -826,12 +827,12 @@ legend {
   transform: scale(1.05);
 }
 
-/* line 603, style.scss */
+/* line 604, style.scss */
 .searchToggle {
   color: yellow;
 }
 
-/* line 607, style.scss */
+/* line 608, style.scss */
 .skew, .skew_small {
   color: yellow;
   display: inline-block;
@@ -847,7 +848,7 @@ legend {
   text-shadow: -1px 3px 10px black, 2px 2px 10px rgba(128, 129, 128, 0.75);
 }
 
-/* line 618, style.scss */
+/* line 619, style.scss */
 .skew_small {
   font-size: 14px;
   line-height: 14px;
@@ -856,7 +857,7 @@ legend {
   padding: 10px 0;
 }
 
-/* line 626, style.scss */
+/* line 627, style.scss */
 .slider {
   display: inline-block;
   height: 20px;
@@ -865,7 +866,7 @@ legend {
   width: 205px;
 }
 
-/* line 634, style.scss */
+/* line 635, style.scss */
 .slider .bar {
   background-color: #da7c0c;
   border-radius: 10px;
@@ -875,24 +876,24 @@ legend {
   width: 175px;
 }
 
-/* line 643, style.scss */
+/* line 644, style.scss */
 .songsList {
   text-align: left;
 }
 
-/* line 647, style.scss */
+/* line 648, style.scss */
 .songsList h1, #songsContent h1 {
   font-size: 36px;
   font-weight: bold;
   padding: 10px;
 }
 
-/* line 653, style.scss */
+/* line 654, style.scss */
 #songsContent h1 {
   text-align: left;
 }
 
-/* line 657, style.scss */
+/* line 658, style.scss */
 .spacer:after {
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(192, 192, 192, 0)), color-stop(20%, rgba(192, 192, 192, 0.8)), color-stop(53%, #c0c0c0), color-stop(79%, rgba(192, 192, 192, 0.8)), color-stop(100%, rgba(192, 192, 192, 0)));
   background-image: -webkit-linear-gradient(left, rgba(192, 192, 192, 0) 0%, rgba(192, 192, 192, 0.8) 20%, #c0c0c0 53%, rgba(192, 192, 192, 0.8) 79%, rgba(192, 192, 192, 0) 100%);
@@ -906,7 +907,7 @@ legend {
   width: 100%;
 }
 
-/* line 666, style.scss */
+/* line 667, style.scss */
 .tooltip {
   background: #FFFBCF;
   border: 1px solid #EFE795;
@@ -929,7 +930,7 @@ legend {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 white;
 }
 
-/* line 684, style.scss */
+/* line 685, style.scss */
 .tooltip span {
   background: #FFFBCF;
   border: 0;
@@ -949,35 +950,35 @@ legend {
   width: 10px;
 }
 
-/* line 699, style.scss */
+/* line 700, style.scss */
 .users .dialog {
   width: 400px;
 }
 
-/* line 703, style.scss */
+/* line 704, style.scss */
 .users .dialog {
   width: 400px;
 }
 
-/* line 707, style.scss */
+/* line 708, style.scss */
 .users .dialog input[type=text], .users .dialog input[type="password"] {
   width: 200px;
 }
 
-/* line 711, style.scss */
+/* line 712, style.scss */
 a {
   color: #f78d1d;
   text-decoration: none;
 }
 
-/* line 716, style.scss */
+/* line 717, style.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 720, style.scss */
+/* line 721, style.scss */
 body {
-  background: url("../images/bg_smaller.jpg") bottom right no-repeat;
+  background: url("/images/bg_smaller.jpg") bottom right no-repeat;
   background-attachment: fixed;
   color: #D8D8D8;
   height: 100%;
@@ -987,7 +988,7 @@ body {
   font-family: "Ropa Sans";
 }
 
-/* line 731, style.scss */
+/* line 732, style.scss */
 div > .tooltip, li > .tooltip, a > .tooltip, span > .tooltip {
   margin-left: -65px;
   margin-top: -10px;
@@ -1008,7 +1009,7 @@ div > .tooltip, li > .tooltip, a > .tooltip, span > .tooltip {
   transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
 }
 
-/* line 742, style.scss */
+/* line 743, style.scss */
 div:hover > .tooltip, li:hover > .tooltip, a:hover > .tooltip, span:hover > .tooltip,
 a .tooltip:hover, span .tooltip:hover, li .tooltip:hover, div .tooltip:hover {
   display: inline;
@@ -1032,7 +1033,7 @@ a .tooltip:hover, span .tooltip:hover, li .tooltip:hover, div .tooltip:hover {
   transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
 }
 
-/* line 754, style.scss */
+/* line 755, style.scss */
 footer, header {
   background-color: rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 0 -6px black;
@@ -1047,7 +1048,7 @@ footer, header {
   z-index: 100;
 }
 
-/* line 770, style.scss */
+/* line 771, style.scss */
 header .menuNav {
   display: inline-block;
   line-height: 48px;
@@ -1057,7 +1058,7 @@ header .menuNav {
   top: 7px;
   vertical-align: middle;
 }
-/* line 779, style.scss */
+/* line 780, style.scss */
 header .menuNav li {
   display: inline-block;
   line-height: 32px;
@@ -1078,16 +1079,16 @@ header .menuNav li {
   transition-timing-function: ease-in-out;
   margin: 0 15px;
 }
-/* line 791, style.scss */
+/* line 792, style.scss */
 header .menuNav li img {
   height: 48px;
 }
-/* line 795, style.scss */
+/* line 796, style.scss */
 header .menuNav li.spacer {
   width: 3px;
   background-color: rgba(255, 255, 255, 0.25);
 }
-/* line 800, style.scss */
+/* line 801, style.scss */
 header .menuNav li.user, header .menuNav li.user:hover {
   border-radius: 15px;
   -webkit-transform: scale(1);
@@ -1096,7 +1097,7 @@ header .menuNav li.user, header .menuNav li.user:hover {
   -o-transform: scale(1);
   transform: scale(1);
 }
-/* line 806, style.scss */
+/* line 807, style.scss */
 header .menuNav li:hover {
   -webkit-transform: scale(1.5);
   -moz-transform: scale(1.5);
@@ -1107,16 +1108,16 @@ header .menuNav li:hover {
   border-radius: 15px;
   cursor: pointer;
 }
-/* line 813, style.scss */
+/* line 814, style.scss */
 header .menuNav li a {
   color: rgba(255, 255, 0, 0.9);
 }
-/* line 817, style.scss */
+/* line 818, style.scss */
 header .menuNav li:hover a {
   text-decoration: none;
 }
 
-/* line 824, style.scss */
+/* line 825, style.scss */
 footer {
   clear: both;
   line-height: 48px;
@@ -1124,7 +1125,7 @@ footer {
   margin-top: -68px;
 }
 
-/* line 831, style.scss */
+/* line 832, style.scss */
 html {
   font-family: 'Ropa Sans', sans-serif;
   height: 100%;
@@ -1133,14 +1134,14 @@ html {
   width: 100%;
 }
 
-/* line 839, style.scss */
+/* line 840, style.scss */
 input[type="range"] {
   background-color: black;
   height: 2px;
   -webkit-appearance: none;
 }
 
-/* line 845, style.scss */
+/* line 846, style.scss */
 input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-slider-thumb {
   background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #ebf1f6), color-stop(50%, #abd3ee), color-stop(51%, #89c3eb), color-stop(100%, #d5ebfb));
   background-image: -webkit-linear-gradient(left top, #ebf1f6 0%, #abd3ee 50%, #89c3eb 51%, #d5ebfb 100%);

@@ -1,9 +1,12 @@
 <?php
 
-    set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__ . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT'] . '/ZendFramework-1.11.13');
+    //
+    //  This file is the application entry point (bootstrap).
+    //  All the application views/views will include this file
+    //
 
     //
-    // Register the Moood auto loader. (anonymous function)
+    // Register the Moood auto loader. (using anonymous function)
     //
     spl_autoload_register(function ($className) {
 
@@ -15,3 +18,11 @@
     if (!isset($_SESSION)) {
         session_start();
     }
+    ;
+    // Check to see if the user is logged in or not.
+    // If user is not logged in and trying to load any page but login - redirect to login page
+    //if (!isset($_SESSION['user']) &&
+    //    (strcmp(basename($_SERVER['PHP_SELF']), 'index.php') == -1 || strcmp(basename($_SERVER['PHP_SELF']), 'details.php') == -1)
+    //) {
+    //    header('Location: /views/user/login.php');
+    //}

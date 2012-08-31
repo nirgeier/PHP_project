@@ -66,7 +66,7 @@ img {
 }
 
 .ajaxLoader {
-  @include background(image-url('../images/ajax-loader.gif'));
+  @include background(image-url('/images/ajax-loader.gif'));
   height: 16px;
   left: 50%;
   margin: -8px -8px;
@@ -370,7 +370,7 @@ img {
     outline: 1px solid #ffdead;
   }
   select {
-    background: rgba(192, 192, 192, 0.75) top right url('../images/select_down.png') no-repeat;
+    background: rgba(192, 192, 192, 0.75) top right url('/images/select_down.png') no-repeat;
     -webkit-appearance: none;
     -moz-appearance: none;
     padding: 0 25px 0 10px;
@@ -497,14 +497,15 @@ legend {
   display: inline-block;
   height: 48px;
   width: 48px;
+  vertical-align: top;
 }
 
 .logo {
-  background: url("../images/logo_48.png") top center no-repeat;
+  background: url("/images/logo_48.png") top center no-repeat;
 }
 
 .admin {
-  background: url("../images/security_camera.png") top center no-repeat;
+  background: url("/images/security_camera.png") top center no-repeat;
   background-size: 100% 100%;
   @include transition-property(all);
   @include transition-duration(0.25s);
@@ -587,7 +588,7 @@ legend {
   vertical-align: middle;
 }
 
-#playlistsContent {
+#playlistContent {
   .data_table tbody tr {
     @include transition-property(all);
     @include transition-duration(0.25s);
@@ -718,7 +719,7 @@ a:hover {
 }
 
 body {
-  background: url("../images/bg_smaller.jpg") bottom right no-repeat;
+  background: url("/images/bg_smaller.jpg") bottom right no-repeat;
   background-attachment: fixed;
   color: #D8D8D8;
   height: 100%;

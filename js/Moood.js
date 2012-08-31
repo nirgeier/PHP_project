@@ -27,7 +27,7 @@ function $$(selector) {
         constructor:Moood,
 
         /**
-         * This method will init the forms in pages.
+         * This method will init the forms in views.
          * It will setup the action defined in teh forms
          */
         initForm:function () {
