@@ -40,7 +40,7 @@
         $nick_name = isset($_POST['nick_name']) ? $_POST['nick_name'] : '';
         $last_name = isset($_POST['last_name']) ? $_POST['last_name'] : '';
         $first_name = isset($_POST['first_name']) ? $_POST['first_name'] : '';
-        $email = isset($_POST['email']) ? $_POST['email'] : 'nirgeier@gmail.com';
+        $email = isset($_POST['email']) ? $_POST['email'] : '';
         $img = isset($_POST['img']) ? $_POST['img'] : '/images/pixel.gif';
     }
 
@@ -65,6 +65,12 @@
     <div class="main">
 
         <div class="dialog">
+
+            <div class="ajaxLoader animate hidden">
+                <span>
+                    <span></span>
+                </span>
+            </div>
 
             <? if ($isUpdate) { ?>
             <h1><img src="/images/profile.png" width="48">My Profile</h1>
@@ -135,9 +141,6 @@
                 <input type="hidden" id="profile_image" name="image" value="<?php echo $img?>">
                 <img id="img" src="<?php echo $img?>"/>
 
-
-                <div class="ajaxLoader hidden"></div>
-
                 <div class="gravatarDiv">
                         <span class="cssButtons">
                             <input type="checkbox" id="gravatar">
@@ -173,7 +176,7 @@
 <script src="/js/polyfills.js"></script>
 <script src="/js/Moood.js"></script>
 <?php  if (!$isUpdate) { ?>
-<script src="/js/register.js"></script>
+<script src="/js/Register.js"></script>
     <? } else { ?>
 <script>
     Moood.initForm();

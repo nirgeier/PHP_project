@@ -33,7 +33,7 @@
     // Verify that the user has data.
     // If no data found we display a message telling the user to create new playlist.
     if (!isset($records) || count($records) == 0) {
-        echo 'You did not created any playlist yet.<br/>Use the above for to do so.';
+        echo '<div class="empty">You did not created any playlist yet.<br/>Use the above button to do so.</div>';
         return;
     }
 ?>

@@ -24,7 +24,7 @@
 <body>
 
 <div class="pageContent login clearfix">
-    <?php include 'header.php' ?>
+    <?php include '../header.php' ?>
 
     <div class="main">
 
@@ -38,11 +38,11 @@
                 <input type="hidden" name="action" id="action">
 
                 <label class="label" for="username">User Name</label>
-                <input id="username" name="username" type="text" value="nirgeier"/>
+                <input id="username" name="username" type="text" value=""/>
                 <br/>
 
                 <label class="label" for="password">Password</label>
-                <input id="password" name="password" type="password" value="25357823"/>
+                <input id="password" name="password" type="password" value=""/>
                 <br/>
 
                 <div class="buttons">

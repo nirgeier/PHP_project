@@ -51,12 +51,12 @@
 
                 <label class="label" for="username">User Name</label>
                 <input id="username" name="username" type="text"
-                       value="<?php echo Utils::getParam('username', 'nirgeier')?>"/>
+                       value="<?php echo Utils::getParam('username', '')?>"/>
                 <br/>
 
                 <label class="label" for="password">Password</label>
                 <input id="password" name="password" type="password"
-                       value="<?php echo Utils::getParam('password', '25357823')?>"/>
+                       value="<?php echo Utils::getParam('password', '')?>"/>
                 <br/>
 
                 <div class="buttons">

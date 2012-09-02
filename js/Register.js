@@ -15,7 +15,8 @@
     // This is a specific function for this page.
     // It will grab teh user details form Gravatar if the email is registered there.
     $('gravatar').onchange = (function (e) {
-        var checkbox = e.srcElement;
+
+        var checkbox = e.srcElement || e.target;
 
         if (checkbox.checked) {
 

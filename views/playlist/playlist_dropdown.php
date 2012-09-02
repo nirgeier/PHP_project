@@ -8,7 +8,7 @@
 
     // Check to see that we have data in the playlist.
     if (count($playlist) == 0) {
-        echo '<div class="noPlaylist"><a href="/views/playlist/playlist.php">CLick here</a> to create playlist</div>';
+        echo '<div class="noPlaylist"><a href="/views/playlist/playlist.php">Click here</a> to create playlist</div>';
         return;
     }
 ?>

@@ -9,6 +9,7 @@
      */
 ?>
 <footer>
-    Footer ...
+    All right reseverd to Nir Geier & Ori Perez. 2012-2098
+
 </footer>
     

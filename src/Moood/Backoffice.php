@@ -4,6 +4,7 @@
 
     use Moood\DBLayer;
     use Moood\helpers\Utils;
+    use Moood\User\User;
 
     /**
      * @author  Nir Geier
@@ -42,7 +43,6 @@
 
             $dbLayer = DBLayer::getInstance();
 
-
             // Get the form values
             $params = array(
                 ':username' => Utils::getParam('username'),
@@ -60,7 +60,7 @@
                 $_SESSION['userId'] = $userId;
 
                 // Set the user details
-                $_SESSION['user'] = $userDetails;
+                $_SESSION['user'] = new User($userId);
 
                 // We found the user login valid - redirect to the application page.
                 header("Location: /views/backoffice/table_template.php?table_name=Users&queryId=backoffice.users");

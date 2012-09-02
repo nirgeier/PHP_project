@@ -23,7 +23,7 @@
 
 <body>
 <div class="pageContent backoffice records">
-    <?php include 'header.php' ?>
+    <?php include '../header.php' ?>
 
     <div class="main">
         <?php include '../utils/generate_table.php'; ?>
