@@ -5,10 +5,11 @@
     use Moood\helpers\Utils;
 
     /**
-     * This class will be used as the DB manager.<br/>
+     * This class will be used as the DB handler.<br/>
      * Here we will have all the DB related code.<br/>
      *
-     * The purpose of the class is simply to lear how t parse config file and to initialize the db connection
+     * The purpose of the class was simply to learn how to parse config file and to initialize the db connection.
+     * The class contain
      *
      * @class DBLayer
      */
@@ -42,12 +43,16 @@
 
             // check to see if we have valid id
             if (!isset($_REQUEST['validDB'])) {
-                $this->initDB();
+                $this->initDBConnection();
             }
 
         }
 
-        private function initDB() {
+        /**
+         * This method will open the connection to the database.
+         * Once the PDO object created we load the sql file and store it locally
+         */
+        private function initDBConnection() {
             // Use the global project root. The global defined in the global.src file
             $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
 
@@ -61,6 +66,7 @@
 
             // try to connect to database. we expect error if the database does not exists
             try {
+
                 $this->pdo = new PDO('mysql:host=' . $hostname . ';dbname=' . $database, $username, $password);
                 // If we reached this point we have a valid DB connection
 
@@ -107,8 +113,10 @@
          * This method will execute sql query.
          *
          * @param queryId - The query id to execute. if no value is given the method will seach for it as request param.
+         * @param params -  List of parameters to bind to teh stored procedure.
+         *                  If no parameters are passed all the request params will be used as bind parameters.
          *
-         * @return string
+         * @return - Returns an array containing all of the result set rows
          */
         public function executeQuery($queryId = null, $params = null) {
 

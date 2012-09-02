@@ -9,7 +9,7 @@
      */
 ?>
 <footer>
-    All right reseverd to Nir Geier & Ori Perez. 2012-2098
+    &reg; &copy; All right reserved to Nir Geier & Ori Perez. 2012-2098
 
 </footer>
     

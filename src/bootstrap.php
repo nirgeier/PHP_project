@@ -18,11 +18,13 @@
     if (!isset($_SESSION)) {
         session_start();
     }
-    ;
+
     // Check to see if the user is logged in or not.
     // If user is not logged in and trying to load any page but login - redirect to login page
-    //if (!isset($_SESSION['user']) &&
-    //    (strcmp(basename($_SERVER['PHP_SELF']), 'index.php') == -1 || strcmp(basename($_SERVER['PHP_SELF']), 'details.php') == -1)
-    //) {
-    //    header('Location: /views/user/login.php');
-    //}
+    if (!isset($_SESSION['user']) and
+        !(strstr(basename($_SERVER['PHP_SELF']), 'login.php') or
+            strstr(basename($_SERVER['PHP_SELF']), 'details.php') or
+            strstr(basename($_SERVER['PHP_SELF']), 'index.php'))
+    ) {
+        header('Location: /views/user/login.php');
+    }

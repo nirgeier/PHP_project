@@ -7,13 +7,16 @@
     use Moood\User\User;
 
     /**
-     * This class will handle teh different user actions.
+     * This class will handle the different user actions.
      * We create instance of this class every time we have actions to execute and in the CTOR
      * we process the requested action
      */
     class UserActions {
 
-        // CTOR
+        /**
+         * This method will process the request and will execute the desired action.
+         * The function read the action from the request.
+         */
         public function processRequest() {
 
             // Get the action that we wish to execute
@@ -22,11 +25,13 @@
 
             if (isset($action)) {
                 switch ($action) {
+                    // Check to see if the username is unique or not.(If its not registred yet)
                     case 'username':
-                        $this->checkField('username', 'users.check_username', 'The username you requested is already registered');
+                        $this->checkUniqueValue('username', 'users.check_username', 'The username you requested is already registered');
                         break;
+                    // Check to see if the email is unique or not.(If its not registred yet)
                     case 'email':
-                        $this->checkField('email', 'users.check_email', 'This email is already registered');
+                        $this->checkUniqueValue('email', 'users.check_email', 'This email is already registered');
                         break;
                     case 'register':
                         $this->register();
@@ -44,6 +49,15 @@
             }
         }
 
+        /**
+         * Register new user.
+         * This method extract all the required data from the request and register user.
+         *
+         * In real application we would have added some validations like: match passwords, valid email address etc.
+         * We would have send Emil with verification link of a simple welcome mail.
+         *
+         * For the scope of the project we simply register new user.
+         */
         public function register() {
 
             // Place holder for the registration error
@@ -63,6 +77,7 @@
             // Get the user details from DB
             DBLayer::getInstance()->executeQuery('users.register', $params);
 
+            // Check to see if there were any errors
             if ($_REQUEST['DBLayer.executeQuery.error'] !== null) {
                 $_REQUEST['registerError'] .= $_REQUEST['DBLayer.executeQuery.error'][2];
             } else {
@@ -71,6 +86,9 @@
             }
         }
 
+        /**
+         * Update user details.
+         */
         public function update() {
 
             // Place holder for the registration error
@@ -90,6 +108,7 @@
             // !!!Important -
             // This is a security check to see that the user we try to update (user_id_ is the current logged in user
             // and not some else who is trying to send different userId in the request
+            echo(Utils::getParam('id') .','. $_SESSION['userId']);
             if (Utils::getParam('id') != $_SESSION['userId']) {
                 $_REQUEST['error'] .= 'Project output only: Got you. You are trying to update different user :-)';
                 return;
@@ -113,7 +132,14 @@
             }
         }
 
-        public function checkField($filedName, $sqlId, $errorMessage) {
+        /**
+         * @param $filedName - The request param that we want to check. We extract the value from the request
+         * @param $sqlId - The sql query id for checking if the given value is unique or not
+         * @param $errorMessage - Error message in case the value is not unique
+         *
+         * @return string - JSON reply with status:ok or error:errorMessage.
+         */
+        public function checkUniqueValue($filedName, $sqlId, $errorMessage) {
             // Get the form values
             $params = array(
                 ':' . $filedName => Utils::getParam($filedName),

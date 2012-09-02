@@ -1,15 +1,16 @@
 <?php
 
+    // -------------------------------------------------------
+    // This class is deprecated and not in used right now.
+    // The intention was to create the DB once its not found.
+    // -------------------------------------------------------
     namespace Moood;
 
     use PDO;
 
     /**
-     * Created by JetBrains PhpStorm.
-     * Info: nir
-     * Date: 7/31/12
-     * Time: 8:04 PM
-     * To change this template use File | Settings | File Templates.
+     * This class is deprecated and not in used right now.
+     * The purpose of this class was to check if the DB was created and if not to create the DB for the user.
      */
     class CreateDB {
 

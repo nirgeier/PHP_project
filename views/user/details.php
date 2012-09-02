@@ -1,51 +1,61 @@
 <?php
     /**
      * This view is for registering or update users.
+     * Here user will create/update his profile information.
+     *
+     * If we are in update mode user can not update his username
      */
 
     $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
     include_once $ROOT_PATH . '/src/bootstrap.php';
 
     use Moood\User\UserActions;
+    use Moood\helpers\Utils;
 
     // Execute the current action (if any)
     // In real application i will not do it this way,
     // i would have use Zend framework with views actions and forms.
-    $action = new UserActions();
-    $action->processRequest();
+
+    // We need to execute action only after the user has filled in the details.
+    // we can know it by checking if there is a userId in the form
+    if (Utils::getParam("id", null) != null) {
+        $action = new UserActions();
+        $action->processRequest();
+    }
 
     // We use this page for registration and for updating the user details.
     // First of all check to see if this is a register or details page
     $isUpdate = isset($_GET['action']) && $_GET['action'] === 'update';
 
+    // We use the same form for registration and for updating user information.
+    // Find out if this is a registration or update action
     if ($isUpdate) {
+        $userData = $_SESSION['user']->getUserData();
+        $id = $userData['id'];
+        $username = $userData['username'];
+        $password = $userData['password'];
 
-        $details = $_SESSION['user']->getUserData();
-        $id = $details['id'];
-        $username = $details['username'];
-        $password = $details['password'];
-
-        $nick_name = $details['nick_name'];
-        $last_name = $details['last_name'];
-        $first_name = $details['first_name'];
-        $email = $details['email'];
-        $img = $details['image'];
+        $nick_name = $userData['nick_name'];
+        $last_name = $userData['last_name'];
+        $first_name = $userData['first_name'];
+        $email = $userData['email'];
+        $img = $userData['image'];
 
     } else {
         // Get the values if the form was already submitted
         $id = -1;
-        $username = isset($_POST['username']) ? $_POST['username'] : '';
-        $password = isset($_POST['password']) ? $_POST['password'] : '';
+        $username = Utils::getParam('username', '');
+        $password = Utils::getParam('password', '');
 
-        $nick_name = isset($_POST['nick_name']) ? $_POST['nick_name'] : '';
-        $last_name = isset($_POST['last_name']) ? $_POST['last_name'] : '';
-        $first_name = isset($_POST['first_name']) ? $_POST['first_name'] : '';
-        $email = isset($_POST['email']) ? $_POST['email'] : '';
-        $img = isset($_POST['img']) ? $_POST['img'] : '/images/pixel.gif';
+        $nick_name = Utils::getParam('nick_name', '');
+        $last_name = Utils::getParam('last_name', '');
+        $first_name = Utils::getParam('first_name', '');
+        $email = Utils::getParam('email', '');
+        $img = Utils::getParam('img', '/images/pixel.gif');
     }
 
     // Check if we have errors or not
-    $error = isset($_REQUEST['error']) ? $_REQUEST['error'] : null;
+    $error = Utils::getParam('error', null);
     $errorClass = isset($error) ? '' : 'hidden';
 ?>
 

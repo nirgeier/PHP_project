@@ -591,10 +591,10 @@ legend {
 
   .empty {
     margin: 30px;
-    color: rgba(0, 0, 255, 0.75);
+    color: rgba(0, 0, 255, 1);
     font-size: 36px;
-    text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.75);
-    line-height: 36px
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.75);
+    line-height: 36px;
   }
 }
 
@@ -765,9 +765,7 @@ footer, header {
 
 footer {
   text-align: center;
-  font-family: "Coming Soon";
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 14px;
 }
 
 header {

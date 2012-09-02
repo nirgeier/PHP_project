@@ -817,9 +817,9 @@ legend {
 /* line 592, style.scss */
 #playlistContent .empty {
   margin: 30px;
-  color: rgba(0, 0, 255, 0.75);
+  color: blue;
   font-size: 36px;
-  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.75);
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.75);
   line-height: 36px;
 }
 
@@ -1047,12 +1047,10 @@ footer, header {
 /* line 766, style.scss */
 footer {
   text-align: center;
-  font-family: "Coming Soon";
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 14px;
 }
 
-/* line 775, style.scss */
+/* line 773, style.scss */
 header .menuNav {
   display: inline-block;
   line-height: 48px;
@@ -1062,7 +1060,7 @@ header .menuNav {
   top: 7px;
   vertical-align: middle;
 }
-/* line 784, style.scss */
+/* line 782, style.scss */
 header .menuNav li {
   display: inline-block;
   line-height: 32px;
@@ -1083,16 +1081,16 @@ header .menuNav li {
   transition-timing-function: ease-in-out;
   margin: 0 15px;
 }
-/* line 796, style.scss */
+/* line 794, style.scss */
 header .menuNav li img {
   height: 48px;
 }
-/* line 800, style.scss */
+/* line 798, style.scss */
 header .menuNav li.spacer {
   width: 3px;
   background-color: rgba(255, 255, 255, 0.25);
 }
-/* line 805, style.scss */
+/* line 803, style.scss */
 header .menuNav li.user, header .menuNav li.user:hover {
   border-radius: 15px;
   -webkit-transform: scale(1);
@@ -1103,11 +1101,11 @@ header .menuNav li.user, header .menuNav li.user:hover {
   color: silver;
   font-size: 14px;
 }
-/* line 811, style.scss */
+/* line 809, style.scss */
 header .menuNav li.user img {
   border-radius: 15px;
 }
-/* line 815, style.scss */
+/* line 813, style.scss */
 header .menuNav li:hover {
   -webkit-transform: scale(1.5);
   -moz-transform: scale(1.5);
@@ -1118,16 +1116,16 @@ header .menuNav li:hover {
   border-radius: 15px;
   cursor: pointer;
 }
-/* line 822, style.scss */
+/* line 820, style.scss */
 header .menuNav li a {
   color: rgba(255, 255, 0, 0.9);
 }
-/* line 826, style.scss */
+/* line 824, style.scss */
 header .menuNav li:hover a {
   text-decoration: none;
 }
 
-/* line 833, style.scss */
+/* line 831, style.scss */
 footer {
   clear: both;
   line-height: 48px;
@@ -1135,7 +1133,7 @@ footer {
   margin-top: -68px;
 }
 
-/* line 840, style.scss */
+/* line 838, style.scss */
 html {
   font-family: 'Ropa Sans', sans-serif;
   height: 100%;
@@ -1144,14 +1142,14 @@ html {
   width: 100%;
 }
 
-/* line 848, style.scss */
+/* line 846, style.scss */
 input[type="range"] {
   background-color: black;
   height: 2px;
   -webkit-appearance: none;
 }
 
-/* line 854, style.scss */
+/* line 852, style.scss */
 input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-slider-thumb {
   background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #ebf1f6), color-stop(50%, #abd3ee), color-stop(51%, #89c3eb), color-stop(100%, #d5ebfb));
   background-image: -webkit-linear-gradient(left top, #ebf1f6 0%, #abd3ee 50%, #89c3eb 51%, #d5ebfb 100%);
@@ -1170,12 +1168,12 @@ input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-slider-thum
 }
 
 /** CSS loader **/
-/* line 868, style.scss */
+/* line 866, style.scss */
 .animate > span {
   width: 100%;
 }
 
-/* line 872, style.scss */
+/* line 870, style.scss */
 .animate > span > span {
   content: "";
   position: absolute;
@@ -1207,24 +1205,24 @@ input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-slider-thum
 }
 
 @-webkit-keyframes move {
-  /* line 903, style.scss */
+  /* line 901, style.scss */
   0% {
     background-position: 0 0;
   }
 
-  /* line 904, style.scss */
+  /* line 902, style.scss */
   100% {
     background-position: 50px 50px;
   }
 }
 
 @-moz-keyframes move {
-  /* line 908, style.scss */
+  /* line 906, style.scss */
   0% {
     background-position: 0 0;
   }
 
-  /* line 909, style.scss */
+  /* line 907, style.scss */
   100% {
     background-position: 50px 50px;
   }

@@ -6,7 +6,10 @@
 
     class Playlist {
 
-        // CTOR
+        /**
+         * Execute the action.
+         * The action is extracted from the request
+         */
         public function processRequest() {
 
             // Get the action that we wish to execute
@@ -35,8 +38,10 @@
         }
 
         /**
-         * This method will fetch the playlist form you tube.
-         * Once we get the playlist we will parse and process the results
+         * This method will fetch the playlist form YouTube.
+         * Once we get the playlist we will parse and process the results.
+         *
+         * The function sets a REQUEST value names 'song' with an array of the results.
          */
         private function searchYouTube() {
 
@@ -90,6 +95,8 @@
 
         /**
          * This function will add new playlist to the database
+         * Once the playlist was added we relaod the user playlist so it will be displayed on the page instantly.
+         *
          */
         public function addPlaylist() {
 
@@ -105,7 +112,10 @@
         }
 
         /**
-         * This function will add new playlist to the database
+         * This function will delete playlist form the database.
+         * Deleting a playlist require to delete records from several tables in a specific order
+         * since there are FOREIGN_KEYS in the database. Due to that the delete is done using SQL PROCEDURE
+         * which can found in the dump.sql file.
          */
         public function deletePlaylist() {
 
@@ -120,6 +130,9 @@
             $user->reload();
         }
 
+        /**
+         * Adds a new song to the playlist
+         */
         public function addSong() {
 
             $dbLayer = DBLayer::getInstance();
@@ -131,6 +144,10 @@
             ));
         }
 
+        /**
+         * Load songs of the given playlist.
+         * The playlist id is extracted from the request and the data is store as REQUEST['songs']
+         */
         public function loadSongs() {
             $dbLayer = DBLayer::getInstance();
 

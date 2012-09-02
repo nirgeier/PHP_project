@@ -1,5 +1,11 @@
 <?php
 
+    // -------------------------------------------------------------------------------
+    // This class is deprecated.
+    // The intention was to create the DB once its not found.
+    // This form is for entering the DB connection parameters form installing the DB.
+    // -------------------------------------------------------------------------------
+
     // Get the root directory of the project
     $ROOT_PATH = $_SERVER['SERVER_NAME'];
 
@@ -72,8 +78,8 @@
 <script src="/js/polyfills.js"></script>
 <script>
     function submitForm(action) {
-        document.getElementById('action').value = action;
-        document.querySelector('form').submit();
+    document.getElementById('action').value = action;
+    document.querySelector('form').submit();
     }
 </script>
 </body>
