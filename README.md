@@ -20,7 +20,7 @@ Installing
 ------------
 
 None.
-
+  
 When the application is loaded it check to see if there the database exist and if not it will create it automatically.
 
 
