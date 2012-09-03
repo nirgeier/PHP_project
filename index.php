@@ -14,7 +14,7 @@
         This movie is a short tutorail on how to use our application. Enjoy
     </div>
     <div class="main">
-        <embed src="/movie/Moood.swf" quality="high" type="application/x-shockwave-flash" width="100%"
+        <embed src="http://www.nirgeier.net/moood/Moood.swf" quality="high" type="application/x-shockwave-flash" width="100%"
                height="100%" pluginspage="http://www.macromedia.com/go/getflashplayer"/>
 
     </div>
