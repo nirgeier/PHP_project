@@ -1,15 +1,12 @@
 <?php
+    // ----------------------------------------------------
+    // This page/view is used to get the database connection
+    // properties and to create the DB when needed.
+    //-------------------------------------------------------
 
-    // -------------------------------------------------------------------------------
-    // This class is deprecated.
-    // The intention was to create the DB once its not found.
-    // This form is for entering the DB connection parameters form installing the DB.
-    // -------------------------------------------------------------------------------
+    $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
 
-    // Get the root directory of the project
-    $ROOT_PATH = $_SERVER['SERVER_NAME'];
-
-    include_once $ROOT_PATH . '/src/Moood/Moood_CreateDBateDB.php';
+    include_once '../src/Moood/CreateDB.php';
 
     // read the db configuration and init the connection settings
     $config = parse_ini_file($ROOT_PATH . '/config/config.ini');
@@ -19,8 +16,12 @@
     $hostname = $config['db.hostname'];
     $database = $config['db.database'];
 
-    $createDB = new Moood_CreateDB();
+    $createDB = new \Moood\CreateDB();
+    $createDB->processRequest();
 
+    // Check if we have errors or not
+    $error = isset($_REQUEST['error']) ? $_REQUEST['error'] : null;
+    $errorClass = isset($error) ? '' : 'hidden';
 ?>
 
 <!DOCTYPE html >
@@ -33,16 +34,20 @@
 </head>
 
 <body>
-<div class="pageContent">
-    <?php include 'header.php' ?>
+<div class="pageContent createDB">
+
     <div class="main">
         <div class="dialog">
             <div class="border start">
                 Could not connect to the database.<br/>
-                Please verify that the following is the right configuration. <br/>
-                If the configuration is wrong edit the <span class="highlight">config/config.ini</span> and update the
-                right values <br/>
+                Please verify that the following values are correct.<br/>
+                If not, edit the <span class="highlight">config/config.ini</span> with the right values <br/>
                 <br/>
+
+                <div class="error <?= $errorClass ?>">
+                    <?= $error ?>
+                </div>
+
 
                 <form method="POST">
                     <input type="hidden" name="action" id="action">
@@ -63,8 +68,6 @@
                     <input id="hostname" name="hostname" type="text" value="<?php echo $hostname?>" readonly/>
                     <br/>
 
-                    <span class="button orange medium" data-action="test"
-                          onclick="submitForm('test')">Test connection</span>
                     <span class="button orange medium" data-action="create"
                           onclick="submitForm('create')">Create db</span>
                 </form>

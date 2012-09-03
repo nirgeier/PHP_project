@@ -158,36 +158,41 @@ img {
 }
 
 /* line 68, style.scss */
+.createDB .dialog {
+  width: 500px;
+}
+
+/* line 72, style.scss */
 .backoffice .dialog {
   width: 100%;
 }
 
-/* line 72, style.scss */
+/* line 76, style.scss */
 .backoffice .dialog img {
   height: 24px;
   width: 24px;
 }
 
-/* line 77, style.scss */
+/* line 81, style.scss */
 .data_table {
   color: rgba(255, 255, 255, 0.75);
   padding: 25px 10px;
   width: 100%;
 }
 
-/* line 83, style.scss */
+/* line 87, style.scss */
 .data_table tbody tr:hover {
   background-color: #ccc;
   cursor: pointer;
 }
 
-/* line 88, style.scss */
+/* line 92, style.scss */
 .data_table tbody tr:hover td {
   color: #000000;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* line 93, style.scss */
+/* line 97, style.scss */
 .data_table td, .data_table th {
   border-right: 1px solid rgba(0, 0, 0, 0.25);
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
@@ -195,24 +200,24 @@ img {
   font-weight: normal;
 }
 
-/* line 100, style.scss */
+/* line 104, style.scss */
 .data_table td {
   color: rgba(255, 161, 0, 0.75);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
 }
 
-/* line 105, style.scss */
+/* line 109, style.scss */
 .data_table th {
   padding: 5px;
   text-align: left;
 }
 
-/* line 110, style.scss */
+/* line 114, style.scss */
 .data_table td:first-child, .data_table th:first-child {
   border-left: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-/* line 115, style.scss */
+/* line 119, style.scss */
 .data_table thead {
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, rgba(115, 200, 245, 0.75)), color-stop(100%, rgba(150, 192, 255, 0.25)));
   background-image: -webkit-linear-gradient(bottom, rgba(115, 200, 245, 0.75) 0%, rgba(150, 192, 255, 0.25) 100%);
@@ -223,7 +228,7 @@ img {
   text-shadow: 1px 1px 10px white;
 }
 
-/* line 121, style.scss */
+/* line 125, style.scss */
 .blink {
   -webkit-animation-name: blink;
   -moz-animation-name: blink;
@@ -252,7 +257,7 @@ img {
   animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 }
 
-/* line 129, style.scss */
+/* line 133, style.scss */
 .button {
   border-radius: .5em;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
@@ -270,7 +275,7 @@ img {
   zoom: 1;
 }
 
-/* line 146, style.scss */
+/* line 150, style.scss */
 .button.disabled, .button.disabled:hover {
   background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, rgba(250, 165, 26, 0.5)), color-stop(100%, rgba(244, 122, 32, 0.5)));
   background-image: -webkit-linear-gradient(left top, rgba(250, 165, 26, 0.5) 0%, rgba(244, 122, 32, 0.5) 100%);
@@ -281,31 +286,31 @@ img {
   color: rgba(0, 0, 0, 0.55);
 }
 
-/* line 152, style.scss */
+/* line 156, style.scss */
 .buttons {
   text-align: center;
   vertical-align: middle;
   width: 100%;
 }
 
-/* line 158, style.scss */
+/* line 162, style.scss */
 .center {
   text-align: center;
 }
 
-/* line 162, style.scss */
+/* line 166, style.scss */
 .cssButtons {
   cursor: pointer;
 }
 
-/* line 167, style.scss */
+/* line 171, style.scss */
 .cssButtons input[type="checkbox"] + span,
 .cssButtons input[type="radio"] + span {
   font: normal 13px/14px "Segoe UI", Sans-serif;
   padding: 0 0 0 5px;
 }
 
-/* line 175, style.scss */
+/* line 179, style.scss */
 .cssButtons input[type="checkbox"] + span,
 .cssButtons input[type="radio"] + span,
 .cssButtons input[type="checkbox"] + span::before,
@@ -313,12 +318,12 @@ img {
   display: inline-block;
 }
 
-/* line 179, style.scss */
+/* line 183, style.scss */
 .cssButtons input[type="checkbox"] + span::before {
   content: "\2714";
 }
 
-/* line 184, style.scss */
+/* line 188, style.scss */
 .cssButtons input[type="checkbox"] + span::before,
 .cssButtons input[type="radio"] + span::before {
   background: #0b70cd;
@@ -337,7 +342,7 @@ img {
   width: 12px;
 }
 
-/* line 201, style.scss */
+/* line 205, style.scss */
 .cssButtons input[type="checkbox"],
 .cssButtons input[type="radio"] {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -345,7 +350,7 @@ img {
   position: absolute;
 }
 
-/* line 207, style.scss */
+/* line 211, style.scss */
 .cssButtons input[type="checkbox"]:checked + span::before,
 .cssButtons input[type="radio"]:checked + span::before {
   color: #fff;
@@ -353,7 +358,7 @@ img {
   text-shadow: 0 0 2px #242424;
 }
 
-/* line 216, style.scss */
+/* line 220, style.scss */
 .cssButtons input[type="checkbox"]:disabled + span,
 .cssButtons input[type="radio"]:disabled + span,
 .cssButtons input[type="checkbox"]:disabled + span::before,
@@ -361,26 +366,26 @@ img {
   cursor: default;
 }
 
-/* line 221, style.scss */
+/* line 225, style.scss */
 .cssButtons input[type="checkbox"]:disabled + span::before,
 .cssButtons input[type="radio"]:disabled + span::before {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
 }
 
-/* line 225, style.scss */
+/* line 229, style.scss */
 .cssButtons input[type="radio"] + span::before {
   content: "\2022";
   font-size: 22px;
   border-radius: 12px;
 }
 
-/* line 231, style.scss */
+/* line 235, style.scss */
 .cssButtons input[type="radio"]:checked + span::before {
   text-indent: 2px;
 }
 
-/* line 236, style.scss */
+/* line 240, style.scss */
 .cssButtons:hover input[type="checkbox"]:not(:disabled) + span::before,
 .cssButtons:hover input[type="radio"]:not(:disabled) + span::before {
   background: #242424;
@@ -391,7 +396,7 @@ img {
   box-shadow: 0px 0px 1px 2px #ccc;
 }
 
-/* line 242, style.scss */
+/* line 246, style.scss */
 .highlight {
   background-color: rgba(192, 192, 192, 0.75);
   border-radius: 3px;
@@ -399,7 +404,7 @@ img {
   padding: 0 3px;
 }
 
-/* line 249, style.scss */
+/* line 253, style.scss */
 .dialog {
   background: rgba(24, 24, 24, 0.5);
   border-radius: 25px;
@@ -411,17 +416,17 @@ img {
   text-align: left;
   width: 321px;
 }
-/* line 260, style.scss */
+/* line 264, style.scss */
 .dialog h1 img {
   padding: 0 10px;
   width: 48px;
   height: 48px;
 }
-/* line 266, style.scss */
+/* line 270, style.scss */
 .dialog .label {
   width: 105px;
 }
-/* line 270, style.scss */
+/* line 274, style.scss */
 .dialog h1 {
   background-color: rgba(24, 24, 24, 0.35);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
@@ -434,11 +439,11 @@ img {
   text-align: center;
   vertical-align: middle;
 }
-/* line 283, style.scss */
+/* line 287, style.scss */
 .dialog input:focus {
   background: rgba(24, 24, 24, 0.75);
 }
-/* line 288, style.scss */
+/* line 292, style.scss */
 .dialog input[type=text],
 .dialog input[type=password] {
   background: rgba(24, 24, 24, 0.45);
@@ -454,13 +459,13 @@ img {
   padding: 0 0 0 4px;
   width: 200px;
 }
-/* line 304, style.scss */
+/* line 308, style.scss */
 .dialog input[type=text].input_error,
 .dialog input[type=password].input_error {
   background-color: rgba(255, 0, 0, 0.65);
   color: white;
 }
-/* line 309, style.scss */
+/* line 313, style.scss */
 .dialog label {
   display: inline-block;
   font-size: 14px;
@@ -468,24 +473,24 @@ img {
   vertical-align: top;
 }
 
-/* line 318, style.scss */
+/* line 322, style.scss */
 .playlistEntry, .playlistSongs {
   width: 960px;
 }
-/* line 321, style.scss */
+/* line 325, style.scss */
 .playlistEntry iframe, .playlistSongs iframe {
   margin: 20px 0 0 0;
   vertical-align: top;
   box-shadow: 1px 1px 10px black, -1px -1px 5px black;
 }
-/* line 327, style.scss */
+/* line 331, style.scss */
 .playlistEntry p, .playlistSongs p {
   display: inline-block;
   width: 475px;
   overflow: hidden;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
 }
-/* line 334, style.scss */
+/* line 338, style.scss */
 .playlistEntry summary, .playlistSongs summary {
   color: #f78d1d;
   font-weight: bold;
@@ -494,26 +499,26 @@ img {
   outline: none;
   cursor: pointer;
 }
-/* line 343, style.scss */
+/* line 347, style.scss */
 .playlistEntry .playlist_dropdown, .playlistSongs .playlist_dropdown {
   padding: 5px;
   line-height: 32px;
   vertical-align: middle;
 }
-/* line 348, style.scss */
+/* line 352, style.scss */
 .playlistEntry .playlist_dropdown label, .playlistSongs .playlist_dropdown label {
   font-size: 20px;
   text-shadow: 1px 1px 1px black, 2px 2px 1px black, 3px 3px 1px black;
   color: lime;
 }
-/* line 356, style.scss */
+/* line 360, style.scss */
 .playlistEntry .noPlaylist, .playlistSongs .noPlaylist {
   margin: 5px 0;
   padding: 5px;
   color: #ffdead;
   outline: 1px solid #ffdead;
 }
-/* line 362, style.scss */
+/* line 366, style.scss */
 .playlistEntry select, .playlistSongs select {
   background: rgba(192, 192, 192, 0.75) top right url("/images/select_down.png") no-repeat;
   -webkit-appearance: none;
@@ -529,29 +534,29 @@ img {
   font-weight: bold;
   box-shadow: 2px 2px 2px black;
 }
-/* line 378, style.scss */
+/* line 382, style.scss */
 .playlistEntry select:hover, .playlistSongs select:hover {
   color: black;
 }
 
-/* line 383, style.scss */
+/* line 387, style.scss */
 .playlistSongs {
   width: 920px !important;
   box-shadow: 5px 5px 100px #181818 inset !important;
 }
 
-/* line 388, style.scss */
+/* line 392, style.scss */
 .playlistSongs:hover {
   box-shadow: 3px 3px 15px silver inset !important;
 }
 
-/* line 392, style.scss */
+/* line 396, style.scss */
 .dialog.search {
   height: 120px;
   border-radius: 25px 0 25px 25px;
 }
 
-/* line 397, style.scss */
+/* line 401, style.scss */
 .dialog .close {
   cursor: pointer;
   position: absolute;
@@ -559,19 +564,19 @@ img {
   top: -9px;
 }
 
-/* line 404, style.scss */
+/* line 408, style.scss */
 fieldset {
   padding: 0 5px 7px 5px;
   border: 1px solid rgba(24, 24, 24, 0.75);
   border-radius: 10px;
 }
 
-/* line 410, style.scss */
+/* line 414, style.scss */
 legend {
   padding: 3px;
 }
 
-/* line 414, style.scss */
+/* line 418, style.scss */
 .dialogWrapper {
   -webkit-backface-visibility: hidden;
   -moz-background-clip: padding;
@@ -596,7 +601,7 @@ legend {
   transition: -o-transform ease-out .35s, all ease-out .4s;
 }
 
-/* line 436, style.scss */
+/* line 440, style.scss */
 .dialogWrapper.closed {
   margin: 0;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -610,14 +615,14 @@ legend {
   transform: scale(0);
 }
 
-/* line 446, style.scss */
+/* line 450, style.scss */
 .dialog.playlist {
   height: 120px;
   border-radius: 25px 0 25px 25px;
   text-align: center;
 }
 
-/* line 452, style.scss */
+/* line 456, style.scss */
 .error {
   background-color: #1e2026;
   border-radius: 5px;
@@ -629,18 +634,18 @@ legend {
   text-shadow: 1px 1px 1px rgba(0, 0, 51, 0.25);
 }
 
-/* line 463, style.scss */
+/* line 467, style.scss */
 .hidden {
   display: none !important;
 }
 
-/* line 467, style.scss */
+/* line 471, style.scss */
 .highlight a {
   color: #000000;
   text-decoration: none;
 }
 
-/* line 472, style.scss */
+/* line 476, style.scss */
 .inline_error {
   color: yellow;
   font-family: 'Coming Soon', cursive;
@@ -650,13 +655,13 @@ legend {
   padding: 0 0 2px 0;
 }
 
-/* line 481, style.scss */
+/* line 485, style.scss */
 .login .buttons {
   margin: 0 0 0 -22px;
   text-align: right;
 }
 
-/* line 486, style.scss */
+/* line 490, style.scss */
 .logo, .admin img {
   display: inline-block;
   height: 48px;
@@ -664,12 +669,12 @@ legend {
   vertical-align: top;
 }
 
-/* line 494, style.scss */
+/* line 498, style.scss */
 .logo {
   background: url("/images/logo_48.png") top center no-repeat;
 }
 
-/* line 498, style.scss */
+/* line 502, style.scss */
 .admin img {
   background-size: 100% 100%;
   -webkit-transition-property: all;
@@ -688,7 +693,7 @@ legend {
   cursor: pointer;
 }
 
-/* line 507, style.scss */
+/* line 511, style.scss */
 .admin img:hover {
   -webkit-transform: scale(2);
   -moz-transform: scale(2);
@@ -697,7 +702,7 @@ legend {
   transform: scale(2);
 }
 
-/* line 511, style.scss */
+/* line 515, style.scss */
 .main {
   display: table;
   margin: 0 auto;
@@ -708,14 +713,14 @@ legend {
   text-align: center;
 }
 
-/* line 521, style.scss */
+/* line 525, style.scss */
 .main:before {
   content: '';
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 527, style.scss */
+/* line 531, style.scss */
 .orange {
   background: #f78d1d;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #faa51a), color-stop(100%, #f47a20));
@@ -730,7 +735,7 @@ legend {
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* line 538, style.scss */
+/* line 542, style.scss */
 .orange:active {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f47a20), color-stop(100%, #faa51a));
   background-image: -webkit-linear-gradient(top, #f47a20, #faa51a);
@@ -740,7 +745,7 @@ legend {
   color: #fcd3a5;
 }
 
-/* line 543, style.scss */
+/* line 547, style.scss */
 .orange:hover {
   background: #f47c20;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f88e11), color-stop(100%, #f06015));
@@ -752,7 +757,7 @@ legend {
   text-shadow: -1px -1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* line 550, style.scss */
+/* line 554, style.scss */
 .pageContent {
   height: auto;
   margin: 0 auto -64px;
@@ -760,7 +765,7 @@ legend {
   z-index: 100;
 }
 
-/* line 557, style.scss */
+/* line 561, style.scss */
 .rangeValue {
   background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #222931), color-stop(100%, #181d21));
   background-image: -webkit-linear-gradient(left top, #222931, #181d21);
@@ -781,7 +786,7 @@ legend {
   width: 18px;
 }
 
-/* line 572, style.scss */
+/* line 576, style.scss */
 .required:before {
   color: red;
   content: "*";
@@ -791,7 +796,7 @@ legend {
   vertical-align: middle;
 }
 
-/* line 582, style.scss */
+/* line 586, style.scss */
 #playlistContent .data_table tbody tr {
   -webkit-transition-property: all;
   -moz-transition-property: all;
@@ -806,7 +811,7 @@ legend {
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 588, style.scss */
+/* line 592, style.scss */
 #playlistContent .data_table tbody tr:hover {
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
@@ -814,7 +819,7 @@ legend {
   -o-transform: scale(1.05);
   transform: scale(1.05);
 }
-/* line 592, style.scss */
+/* line 596, style.scss */
 #playlistContent .empty {
   margin: 30px;
   color: blue;
@@ -823,12 +828,12 @@ legend {
   line-height: 36px;
 }
 
-/* line 601, style.scss */
+/* line 605, style.scss */
 .searchToggle {
   color: yellow;
 }
 
-/* line 605, style.scss */
+/* line 609, style.scss */
 .skew, .skew_small {
   color: yellow;
   display: inline-block;
@@ -844,7 +849,7 @@ legend {
   text-shadow: -1px 3px 10px black, 2px 2px 10px rgba(128, 129, 128, 0.75);
 }
 
-/* line 616, style.scss */
+/* line 620, style.scss */
 .skew_small {
   font-size: 14px;
   line-height: 14px;
@@ -853,7 +858,7 @@ legend {
   padding: 10px 0;
 }
 
-/* line 624, style.scss */
+/* line 628, style.scss */
 .slider {
   display: inline-block;
   height: 20px;
@@ -862,7 +867,7 @@ legend {
   width: 205px;
 }
 
-/* line 632, style.scss */
+/* line 636, style.scss */
 .slider .bar {
   background-color: #da7c0c;
   border-radius: 10px;
@@ -872,24 +877,24 @@ legend {
   width: 175px;
 }
 
-/* line 641, style.scss */
+/* line 645, style.scss */
 .songsList {
   text-align: left;
 }
 
-/* line 645, style.scss */
+/* line 649, style.scss */
 .songsList h1, #songsContent h1 {
   font-size: 36px;
   font-weight: bold;
   padding: 10px;
 }
 
-/* line 651, style.scss */
+/* line 655, style.scss */
 #songsContent h1 {
   text-align: left;
 }
 
-/* line 655, style.scss */
+/* line 659, style.scss */
 .spacer:after {
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(192, 192, 192, 0)), color-stop(20%, rgba(192, 192, 192, 0.8)), color-stop(53%, #c0c0c0), color-stop(79%, rgba(192, 192, 192, 0.8)), color-stop(100%, rgba(192, 192, 192, 0)));
   background-image: -webkit-linear-gradient(left, rgba(192, 192, 192, 0) 0%, rgba(192, 192, 192, 0.8) 20%, #c0c0c0 53%, rgba(192, 192, 192, 0.8) 79%, rgba(192, 192, 192, 0) 100%);
@@ -903,7 +908,7 @@ legend {
   width: 100%;
 }
 
-/* line 664, style.scss */
+/* line 668, style.scss */
 .tooltip {
   background: #FFFBCF;
   border: 1px solid #EFE795;
@@ -926,7 +931,7 @@ legend {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 white;
 }
 
-/* line 682, style.scss */
+/* line 686, style.scss */
 .tooltip span {
   background: #FFFBCF;
   border: 0;
@@ -946,33 +951,33 @@ legend {
   width: 10px;
 }
 
-/* line 697, style.scss */
-.users .dialog {
-  width: 400px;
-}
-
 /* line 701, style.scss */
 .users .dialog {
   width: 400px;
 }
 
 /* line 705, style.scss */
+.users .dialog {
+  width: 400px;
+}
+
+/* line 709, style.scss */
 .users .dialog input[type=text], .users .dialog input[type="password"] {
   width: 200px;
 }
 
-/* line 709, style.scss */
+/* line 713, style.scss */
 a {
   color: #f78d1d;
   text-decoration: none;
 }
 
-/* line 714, style.scss */
+/* line 718, style.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 718, style.scss */
+/* line 722, style.scss */
 body {
   background: url("/images/bg_smaller.jpg") bottom right no-repeat;
   background-attachment: fixed;
@@ -984,7 +989,7 @@ body {
   font-family: "Ropa Sans";
 }
 
-/* line 729, style.scss */
+/* line 733, style.scss */
 div > .tooltip, li > .tooltip, a > .tooltip, span > .tooltip {
   margin-left: -65px;
   margin-top: -10px;
@@ -1005,7 +1010,7 @@ div > .tooltip, li > .tooltip, a > .tooltip, span > .tooltip {
   transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
 }
 
-/* line 740, style.scss */
+/* line 744, style.scss */
 div:hover > .tooltip, li:hover > .tooltip, a:hover > .tooltip, span:hover > .tooltip,
 a .tooltip:hover, span .tooltip:hover, li .tooltip:hover, div .tooltip:hover {
   display: inline;
@@ -1029,7 +1034,7 @@ a .tooltip:hover, span .tooltip:hover, li .tooltip:hover, div .tooltip:hover {
   transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
 }
 
-/* line 752, style.scss */
+/* line 756, style.scss */
 footer, header {
   background-color: rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 0 -6px black;
@@ -1044,13 +1049,13 @@ footer, header {
   z-index: 100;
 }
 
-/* line 766, style.scss */
+/* line 770, style.scss */
 footer {
   text-align: center;
   font-size: 14px;
 }
 
-/* line 773, style.scss */
+/* line 777, style.scss */
 header .menuNav {
   display: inline-block;
   line-height: 48px;
@@ -1060,7 +1065,7 @@ header .menuNav {
   top: 7px;
   vertical-align: middle;
 }
-/* line 782, style.scss */
+/* line 786, style.scss */
 header .menuNav li {
   display: inline-block;
   line-height: 32px;
@@ -1081,16 +1086,16 @@ header .menuNav li {
   transition-timing-function: ease-in-out;
   margin: 0 15px;
 }
-/* line 794, style.scss */
+/* line 798, style.scss */
 header .menuNav li img {
   height: 48px;
 }
-/* line 798, style.scss */
+/* line 802, style.scss */
 header .menuNav li.spacer {
   width: 3px;
   background-color: rgba(255, 255, 255, 0.25);
 }
-/* line 803, style.scss */
+/* line 807, style.scss */
 header .menuNav li.user, header .menuNav li.user:hover {
   border-radius: 15px;
   -webkit-transform: scale(1);
@@ -1101,11 +1106,11 @@ header .menuNav li.user, header .menuNav li.user:hover {
   color: silver;
   font-size: 14px;
 }
-/* line 809, style.scss */
+/* line 813, style.scss */
 header .menuNav li.user img {
   border-radius: 15px;
 }
-/* line 813, style.scss */
+/* line 817, style.scss */
 header .menuNav li:hover {
   -webkit-transform: scale(1.5);
   -moz-transform: scale(1.5);
@@ -1116,16 +1121,16 @@ header .menuNav li:hover {
   border-radius: 15px;
   cursor: pointer;
 }
-/* line 820, style.scss */
+/* line 824, style.scss */
 header .menuNav li a {
   color: rgba(255, 255, 0, 0.9);
 }
-/* line 824, style.scss */
+/* line 828, style.scss */
 header .menuNav li:hover a {
   text-decoration: none;
 }
 
-/* line 831, style.scss */
+/* line 835, style.scss */
 footer {
   clear: both;
   line-height: 48px;
@@ -1133,7 +1138,7 @@ footer {
   margin-top: -68px;
 }
 
-/* line 838, style.scss */
+/* line 842, style.scss */
 html {
   font-family: 'Ropa Sans', sans-serif;
   height: 100%;
@@ -1142,14 +1147,14 @@ html {
   width: 100%;
 }
 
-/* line 846, style.scss */
+/* line 850, style.scss */
 input[type="range"] {
   background-color: black;
   height: 2px;
   -webkit-appearance: none;
 }
 
-/* line 852, style.scss */
+/* line 856, style.scss */
 input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-slider-thumb {
   background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #ebf1f6), color-stop(50%, #abd3ee), color-stop(51%, #89c3eb), color-stop(100%, #d5ebfb));
   background-image: -webkit-linear-gradient(left top, #ebf1f6 0%, #abd3ee 50%, #89c3eb 51%, #d5ebfb 100%);
@@ -1168,12 +1173,12 @@ input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-slider-thum
 }
 
 /** CSS loader **/
-/* line 866, style.scss */
+/* line 870, style.scss */
 .animate > span {
   width: 100%;
 }
 
-/* line 870, style.scss */
+/* line 874, style.scss */
 .animate > span > span {
   content: "";
   position: absolute;
@@ -1205,24 +1210,24 @@ input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-slider-thum
 }
 
 @-webkit-keyframes move {
-  /* line 901, style.scss */
+  /* line 905, style.scss */
   0% {
     background-position: 0 0;
   }
 
-  /* line 902, style.scss */
+  /* line 906, style.scss */
   100% {
     background-position: 50px 50px;
   }
 }
 
 @-moz-keyframes move {
-  /* line 906, style.scss */
+  /* line 910, style.scss */
   0% {
     background-position: 0 0;
   }
 
-  /* line 907, style.scss */
+  /* line 911, style.scss */
   100% {
     background-position: 50px 50px;
   }

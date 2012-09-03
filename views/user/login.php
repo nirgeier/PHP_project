@@ -1,11 +1,15 @@
 <?php
 
+    use Moood\DBLayer;
     use Moood\Bootstrap;
     use Moood\helpers\Utils;
     use Moood\User\UserActions;
 
     $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
     include_once $ROOT_PATH . '/src/bootstrap.php';
+
+    // Init the DBlayer to verify that we have a valid DB
+    $dbLayer = DBLayer::getInstance();
 
     // The instance of the class that responsible of processing this page actions
     $actions = new UserActions();
@@ -19,6 +23,7 @@
     // Check if we have errors or not
     $error = Utils::getParam('error', null);
     $errorClass = isset($error) ? '' : 'hidden';
+
 
 ?>
 <!DOCTYPE html >

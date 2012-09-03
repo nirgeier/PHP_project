@@ -21,6 +21,13 @@
         private static $instance;
 
         /**
+         * Flag to mark that we have init the DB and its ok.
+         * We use it since we redirect to the createDB if needed and since this class is a singleton
+         * it will not call the CTOR when we return.
+         */
+        private static $isValidDB;
+
+        /**
          * Database connection instance
          *
          * @var pdo
@@ -36,64 +43,62 @@
         private $sql_queries;
 
         /**
+         * Ths configuration file
+         */
+        private $config;
+
+        /**
          * Constructor
          * Here we will read the connection properties and initialize the connection object
          */
         private function __construct() {
 
-            // check to see if we have valid id
-            if (!isset($_REQUEST['validDB'])) {
-                $this->initDBConnection();
-            }
+            // static member = use self:: and $this->
+            self::$isValidDB = false;
 
-        }
-
-        /**
-         * This method will open the connection to the database.
-         * Once the PDO object created we load the sql file and store it locally
-         */
-        private function initDBConnection() {
             // Use the global project root. The global defined in the global.src file
             $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'];
 
             // read the db configuration and init the connection settings
-            $config = parse_ini_file($ROOT_PATH . '/config/config.ini');
+            $this->config = parse_ini_file($ROOT_PATH . '/config/config.ini');
 
-            $username = $config['db.username'];
-            $password = $config['db.password'];
-            $hostname = $config['db.hostname'];
-            $database = $config['db.database'];
+            // Load the sql's queries
+            $this->sql_queries = parse_ini_file($ROOT_PATH . '/db/queries.sql');
 
-            // try to connect to database. we expect error if the database does not exists
-            try {
-
-                $this->pdo = new PDO('mysql:host=' . $hostname . ';dbname=' . $database, $username, $password);
-                // If we reached this point we have a valid DB connection
-
-                // Load the sql's queries
-                $this->sql_queries = parse_ini_file($ROOT_PATH . '/db/queries.sql');
-
-                // Set the session flag that the db is accessible.
-                $_SESSION['validDB'] = true;
-
-            } catch (PDOException $e) {
-                print "Error!: " . $e->getMessage() . "<br/>";
-                // This error code 42000 means that we dont have the database yet,
-                // We are now going to create it.
-
-                if ($e->getCode() === 1049) {
-                    echo 'Databse ' . $database . ' does not exist. creating new db';
-                    header('Location: /views/create_db.php');
-                } else {
-                    die("DB ERROR: " . $e->getMessage());
-                }
-            } catch (Exception $e1) {
-                echo 'Databse ' . $database . ' does not exist. creating new db';
+            if (!$this->testConnection()) {
                 header('Location: /views/create_db.php');
+            } else {
+                $username = $this->config['db.username'];
+                $password = $this->config['db.password'];
+                $hostname = $this->config['db.hostname'];
+                $database = $this->config['db.database'];
+
+                // try to connect to database. we expect error if the database does not exists
+                $this->pdo = new PDO('mysql:host=' . $hostname . ';dbname=' . $database, $username, $password);
+
+                self::$isValidDB = true;
             }
-            if (!$this->pdo) {
-                die('Could not connect to database');
+        }
+
+        /**
+         * This method will test if the database connection is valid or not.
+         *
+         * @return - True/False if the connection values are working or not.
+         */
+        private function testConnection() {
+
+            // First of all try to connect to the mySQL server.
+            $conn = mysql_connect($this->config['db.hostname'], $this->config['db.username'], $this->config['db.password'], '');
+            if (!$conn) {
+                return false;
             }
+
+            // Check to see if the requested database exist
+            if (!mysql_select_db($this->config['db.database'], $conn)) {
+                return false;
+            }
+
+            return true;
         }
 
         /**
@@ -101,13 +106,12 @@
          */
         public static function getInstance() {
 
-            if (!self::$instance) {
+            if (!self::$isValidDB || !self::$instance) {
                 self::$instance = new DBLayer();
             }
 
             return self::$instance;
         }
-
 
         /**
          * This method will execute sql query.

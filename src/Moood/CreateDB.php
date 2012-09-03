@@ -1,24 +1,20 @@
 <?php
 
-    // -------------------------------------------------------
-    // This class is deprecated and not in used right now.
-    // The intention was to create the DB once its not found.
-    // -------------------------------------------------------
+
     namespace Moood;
 
     use PDO;
 
     /**
-     * This class is deprecated and not in used right now.
-     * The purpose of this class was to check if the DB was created and if not to create the DB for the user.
-     */
+     * This class will auto create the DB for the application.
+     * The idea behind this is that the install process will be transparent to the user.
+     **/
     class CreateDB {
 
-        // Error message if any
-        private $errorMessage = null;
-
-        // CTOR
-        public function __construct() {
+        /**
+         * Process the create database action
+         */
+        public function processRequest() {
 
             // Get the action that we wish to execute
             // We use the isset so we will not see notice messageß
@@ -26,67 +22,70 @@
 
             if (isset($action)) {
                 switch ($action) {
-                    case 'test':
-                        $this->testConnection();
-                        break;
                     case 'create':
-                        //echo 'create';
+                        $this->createDB();
+                        break;
                 }
             }
         }
 
         /**
-         * This method will test if the database connection is valid or not.
+         * This function create the database if needed and executing the dump file if needed
          */
-        public function testConnection() {
-
-            // We did not do any validation, assuming that the input for this method is correct.
-            // The purpose her is to connect to the database and not to do input validation
-            $connectionStr = 'mysql:';
-            $connectionStr .= 'host=' . $_POST['hostname'] . ';';
-            $connectionStr .= 'dbname=' . $_POST['database'];
-
-            $pdo = new PDO($connectionStr, $_POST['username'], isset($_POST['password']) ? $_POST['password'] : '');
-            $statement = $pdo->query("SELECT * FROM USERS");
-            $row = $statement->fetch(PDO::FETCH_ASSOC);
-            //echo($row.length);
-        }
-
         public function createDB() {
 
-            return;
-            $mysqli = new mysqli($_POST['hostname'],$_POST['username'], isset($_POST['password']) ? $_POST['password'] : '', $_POST['database']);
+            // Try to connect to the DB.
+            // If we got to this point the connection should fail
+            // First of all try to connect to the mySQL server.
 
-            /* check connection */
-            if (mysqli_connect_errno()) {
-                printf("Connect failed: %s\n", mysqli_connect_error());
-                exit();
+            // First of all try to connect to the mySQL server.
+            $conn = mysql_connect($_POST['hostname'], $_POST['username'], $_POST['password']);
+            if (!$conn) {
+                $_REQUEST['error'] = 'mySQL is not running or maybe<br/>wrong username / password';
+                return;
             }
 
-            $query = "SELECT CURRENT_USER();";
-            $query .= "SELECT Name FROM City ORDER BY ID LIMIT 20, 5";
+            // Check to see if the requested database exist
+            if (!mysql_select_db($_POST['database'], $conn)) {
 
-            /* execute multi query */
-            if ($mysqli->multi_query($query)) {
-                do {
-                    /* store first result set */
-                    if ($result = $mysqli->store_result()) {
-                        while ($row = $result->fetch_row()) {
-                            printf("%s\n", $row[0]);
-                        }
-                        $result->free();
-                    }
-                    /* print divider */
-                    if ($mysqli->more_results()) {
-                        printf("-----------------\n");
-                    }
-                } while ($mysqli->next_result());
+                // Create the databse
+                if (!mysql_query('CREATE DATABASE ' . $_POST['database'], $conn)) {
+                    $_REQUEST['error'] = "Error creating database: " . mysql_error();
+                    return;
+                }
+
+                mysql_close($conn);
+
+
+                // From this point i switched driver since this was the only way i was able to
+                // execute dump file anf not a single SQL query.
+                $conn = new \mysqli($_POST['hostname'], $_POST['username'], $_POST['password'], $_POST['database']);
+
+                if (mysqli_connect_error()) {
+                    $_REQUEST['error']('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
+                    return;
+                }
+
+                $sql = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/db/dump.sql');
+                if (!$sql) {
+                    $_REQUEST['error'] = 'Error opening file: ' . $_SERVER['DOCUMENT_ROOT'] . '/db/dump.sql';
+                    return;
+                }
+
+                // Execute the dump script
+                if (!mysqli_multi_query($conn, $sql)) {
+                    $_REQUEST['error'] = 'Error while executing dump file: ' . $_SERVER['DOCUMENT_ROOT'] . '/db/dump.sql';
+                    return;
+                }
+
+                // Database was successfully created.
+                // Redirect to login page.
+                $conn->close();
+
             }
 
-            /* close connection */
-            $mysqli->close();
+            header('Location: /views/user/login.php');
         }
-
 
     }
 
